@@ -32,7 +32,7 @@ const Header = () => {
       <div className="header">
         <div className="one">
           <div className="img">
-            <img style={{"width":"200px"}} src="https://gamenotebaku.az/_next/image?url=https%3A%2F%2Fcdn.gamenotebaku.az%2Fera_cms_assets%2Flogolight.webp&w=3840&q=75" alt="" />
+           <Link to={"/"}> <img style={{"width":"200px"}} src="https://gamenotebaku.az/_next/image?url=https%3A%2F%2Fcdn.gamenotebaku.az%2Fera_cms_assets%2Flogolight.webp&w=3840&q=75" alt="" /></Link>
           </div>
           <div className="rite">
             <p> <span><BsTelephone /></span>+994 77 517-57-47 </p>
@@ -81,18 +81,21 @@ const Header = () => {
       </div>
       <div className="registeropen" style={{"display": isRegisterOpen ? 'block' : 'none'}}>
         <h3>Qeydiyyat</h3>
-    <div className="flexos">
+<form action="
+">
+      <div className="flexos">
     <input type="text" name="" id="" placeholder='Ad soyadınızı daxil edin' />
     <input type="text" name="" id="" placeholder='Email adresinizi daxil edin' />
     </div>
     <div className="flexos">
     <input type="text" name="" id="" placeholder='Şəhərinizi daxil edin' />
-    <input type="text" name="" id="" placeholder='Telefon nömrənizi daxil edin' />
+    <input type="number" name="" id="" placeholder='Telefon nömrənizi daxil edin' />
     </div>
     <div className="flexos">
-    <input type="text" name="" id="" placeholder='Şifrənizi daxil edin' />
-    <input type="text" name="" id="" placeholder='Şifrənin təkrarı' />
+    <input type="password" name=" " id="" placeholder='Şifrənizi daxil edin' />
+    <input type="password" name="" id="" placeholder='Şifrənin təkrarı' />
     </div>
+</form>
 <div className="dif">
 <input className='differ' type="text" placeholder='Adresinizi daxil Edin' />
 </div>
@@ -110,7 +113,7 @@ const Header = () => {
       </div>
       <div className="og">
         <div className="left-og">
-          <Link to={"/"}>Noutbuklar</Link>
+          <Link to={"/home"}>Noutbuklar</Link>
           <Link to={"/komponents"}>Komponentlər və Monitorlar</Link>
           <Link to={"/aksesuar"}>Aksesuarlar</Link>
           <Link to={"/about"}>Şirkət haqqında</Link>

@@ -1,29 +1,54 @@
+const Tecnik=require("../models/lahiye.models")
 
-const User=require("../models/lahiye.models")
-const bcrypt = require('bcrypt');
-const Finalcont={
-    getAll:async(req,res)=>{
-      try {
-        const users=await User.find({})
-        res.send(users)
-      } catch (error) {
-        res.send("error")
+
+const tecnikController={
+    getAll:async (req,res)=>{
+        try {
+            const cards=await Tecnik.find({})
+            res.send(cards)
+        } catch (error) {
+            res.send("err")
+        }
+    },
+    getById:async (req,res)=>{
+        try {
+            const{id}=req.params
+            const target=await Tecnik.findById(id)
+            res.send(target)
+        } catch (error) {
+            res.send("err")
+        }
+    },
+     add:async (req,res)=>{
+        try {
+            const {icon,name,desc,price}=req.body
+            const newTecnik= new Tecnik ({icon,name,desc,price})
+           await newTecnik.save()
+           res.send("created")
+        } catch (error) {
+            res.send("err")
+        }
+    },
+    edit: async (req,res)=>{
+      try{
+  const {id}=req.params
+  const {title,price,description,image}=req.body
+  const update= await Card.findByIdAndUpdate(id,{title,price,description,image})
+  res.send(201).send(" Product update")
+      } 
+      catch(error){
+          res.status(404).send("DATA NOT FOUND")
       }
+  },
+    delete:async (req,res)=>{
+        try {
+            const{id}=req.params
+            const deletedTarget=await Tecnik.findByIdAndDelete(id)
+            res.send(deletedTarget)
+        } catch (error) {
+            res.send("err")
+        }
     },
-    login:async(req,res)=>{
-
-    },
-    getById:async(req,res)=>{
-
-    },
-    register:async(req,res)=>{
-        const {name,email,pasword,city,mobile}=req .body
-        const salt=bcrypt.genSalt(10)
-        const newPassword= await bcrypt.hash(pasword,salt)
-        res.send(newPassword)
-    },
-    delete:async(req,res)=>{},
-    edit:async(req,res)=>{},
 }
 
-module.exports=Finalcont
+module.exports=tecnikController

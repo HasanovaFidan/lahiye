@@ -1,0 +1,209 @@
+.gameLeft{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: white;
+    border-radius: 30px;
+    border: none;
+    align-items: center;
+    
+.yanyan{
+    padding-top: 4%;
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    .sekil{
+        padding-left: 20px;
+width: 70%;
+height: auto;
+img{
+width: 100%;
+}
+    }
+}
+h3{
+    font-size: 12px;
+    color: rgb(112, 179, 12);
+}
+   
+}
+
+
+.az{
+    display: flex;
+    gap: 10px;
+    p{
+        font-size: 12px;
+        width: 70px;
+        height: 25px;
+        border: 2px solid red;
+        border-radius: 30px;
+        color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+    span{
+        text-decoration: line-through;
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
+
+.obiri{
+    padding-top: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.headergame {
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 45px;
+    background-color: rgb(222, 221, 221);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom: none;
+    :first-child{
+        font-weight: bold;
+        font-size: 14px;
+    }
+    :nth-child(2){
+        color: rgb(234, 10, 10);
+        font-size: 15px;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  }
+  
+  .start{
+    display: flex;
+  
+    align-items: start;
+    justify-content: start;
+  }
+
+  .slk{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 30px;
+    gap: 5px;
+    border-radius: 30px;
+    background-color: rgb(245, 243, 243);
+    padding-left: 10px;
+    :first-child{
+        font-weight: bold;
+        color: green;
+    }
+    p{
+        font-size: 11px;
+     
+        font-weight: bold;
+    }
+
+  }
+  .salk{
+    .duzulus{
+        .aycon{
+            .ayc{
+                font-size: 22px;
+            }
+        }
+     .yazs{
+       p{
+        font-size: 10px;
+       }
+     }
+    }
+  }
+
+  .birid{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    height: 40px;
+    border: none;
+    background-color: rgb(158, 230, 16);
+    align-items: center;
+    border-radius: 30px;
+   margin-bottom: 4%;
+    font-weight: bold;
+    &:hover{
+        background-color: rgb(104, 150, 12);
+        cursor: pointer;
+      }
+  }
+
+  .gameright{
+    width: 70%;
+    height: auto;
+    border-radius: 30px;
+    .mySw{
+        width: 95%;
+        height: 100%;
+        border-radius: 30px;
+ 
+        }
+    }
+    .sw{
+        width: 100%;
+        height: 100%; 
+        border-radius: 30px;
+        img{
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 30px;
+        
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .gameLeft {
+            width: 100%; 
+        }
+        .gameright {
+            display: none; 
+        }
+    }
+
+    .saw{
+        border-radius: 30px;
+        img{
+            width:100%;
+            height: 280px;
+            border-radius: 30px;
+            &:hover{
+            background-color: white;
+            opacity: 0.7;
+            }
+        }
+    }
+    .top{
+        padding-top: 5%;
+    }
+    .sdw{
+        border-radius: 30px;
+        width: 400px;
+        img{
+            border-radius: 30px;
+       width: 100%;
+       height:280px;
+       &:hover{
+        background-color: white;
+        opacity: 0.7;
+        }
+     
+        }
+    }
+    .mySwiper .swiper-pagination {
+        display: none;
+      }
+    

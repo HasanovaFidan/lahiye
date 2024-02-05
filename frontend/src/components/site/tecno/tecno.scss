@@ -1,0 +1,55 @@
+.abthe {
+    width: 98%;
+    border: none;
+    height: auto;
+    border-radius: 30px;
+    display: flex;
+    padding-top: 2%;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cupa {
+    width: 100%; 
+    max-width: 350px; 
+    padding-top: 2%;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 220px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cu {
+    font-size: 45px;
+    color: rgb(140, 199, 23);
+    text-align: center;
+    span {
+        font-size: 20px;
+        color: rgb(140, 199, 23);
+    }
+}
+
+
+
+p {
+    text-align: center;
+}
+
+
+@media (max-width: 700px) {
+    .abthe {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cupa {
+        max-width: none;
+        width: 100%;
+        margin-bottom: 15px; 
+    }
+}

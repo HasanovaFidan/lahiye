@@ -10,6 +10,7 @@ import Nvdia from "../pages/site/NVDIA/Nvdia"
 import SiteRoot from "../pages/site/SiteRoot"
 import About from "../pages/site/about/About"
 import Akseuar from "../pages/site/aksesuar/Akseuar"
+import GameNote from "../pages/site/gamenote/GameNote"
 import Komponents from "../pages/site/komponents/Komponents"
 import Muq from "../pages/site/muq/Muq"
 import News from "../pages/site/newa/News"
@@ -25,6 +26,10 @@ const ROOT = [
       children: [
          {
             path: "",
+            element: <GameNote/>,
+         },
+         {
+            path: "home",
             element: <Home />,
          },
          {

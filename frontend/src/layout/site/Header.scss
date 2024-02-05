@@ -347,7 +347,7 @@ background-color:  rgb(147, 215, 46);
 }
 .registeropen {
   width: 50%;
-  height: 600px;
+  height: auto;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   z-index: 2;
   background-color: white;
@@ -371,12 +371,14 @@ background-color:  rgb(147, 215, 46);
       }
     }
     button {
-      width: 300px;
+      width: 30vh;
       height: 45px;
       border-radius: 30px;
       border: none;
       background-color: rgb(147, 215, 46);
       font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 15px;
 
       &:hover {
         background-color: rgb(101, 155, 20);

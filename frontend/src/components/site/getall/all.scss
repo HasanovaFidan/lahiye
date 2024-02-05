@@ -1,0 +1,135 @@
+.getall{
+    padding-top: 4%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+
+    gap: 50px;
+    .get{
+        width: 100%;
+        background-color: white;
+        height: auto;
+        border-radius: 30px;
+       
+   .face{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .ust{
+        padding-left: 3%;
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+   
+        img{
+            width: 100%;
+            margin-top:-10%;
+        }
+        p{
+            color: rgb(131, 186, 21);
+            font-weight: bold;
+            font-size: 20px;
+            padding-top: 20px;
+            text-align: center;
+        }
+        h6{
+            padding-top: 20px;
+            padding-left: 3%;
+        }
+    }
+    .alt{
+        padding-top: 2%;
+        padding-right: 4%;
+        p{
+            font-weight: bold;
+            font-size: 23px;
+            color: red;
+        }
+        span{
+            text-decoration: line-through;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+   }
+    }
+}
+.yanyana{
+    padding-left: 3%;
+    padding-right: 3%;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    gap: 30px;
+    .birinci{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+.ayir{
+    padding-top: 5%;
+    padding-bottom: 3%;
+    display: flex;
+    justify-content: space-around;
+    .flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+    
+        span {
+          width: 46px;
+          height: 46px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgb(215, 215, 215);
+          border-radius: 50%;
+          font-size: 20px;
+          color: black;
+    
+          &:hover {
+            background-color: rgb(147, 215, 46);
+            cursor: pointer;
+          }
+        }
+        button{
+            width: 120px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        border: none;
+            border-radius: 30px;
+            font-size: 15px;
+            background-color: rgb(147, 215, 46);
+            color: black;
+      
+            &:hover {
+              background-color: rgb(97, 152, 14);
+              cursor: pointer;
+            } }
+      }
+}
+.saam{
+    width: 90px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+.hasu{
+    font-weight: bold;
+    font-size: 22px;
+    padding-top: 1%;
+    padding-bottom: 2%;
+}
+@media (max-width: 768px) {
+    .getall {
+        grid-template-columns: 1fr;
+    }
+}

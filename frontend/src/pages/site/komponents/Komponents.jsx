@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 
 import "./com.scss"
@@ -7,6 +7,10 @@ import { HiOutlineHeart } from 'react-icons/hi2';
 import { BiBasket } from 'react-icons/bi';
 import { TbPointFilled } from 'react-icons/tb';
 const Komponets = () => {
+  useEffect(() => {
+  
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className='lr' >

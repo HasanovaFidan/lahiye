@@ -1,14 +1,12 @@
 const express = require('express')
 const router = express.Router()
+const tecnikController=require("../controller/lahiye.controller")
 
-const finalCont=require("../controller/lahiye.controller")
-
-
-router.get("/",finalCont.getAll)
-router.get("/:id",finalCont.getById)
-router.get("/login",finalCont.login)
-router.post("/register",finalCont.register)
-router.delete("/:id",finalCont.delete)
+router.get("/",tecnikController.getAll)
+router.get("/:id",tecnikController.getById)
+router.post("/",tecnikController.add)
+router.put("/:id",tecnikController.edit)
+router.delete("/:id",tecnikController.delete)
 
 
 module.exports=router

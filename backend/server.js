@@ -1,18 +1,19 @@
+const express = require("express");
+const dotenv=require("dotenv")
+const app = express();
+const mongoose = require("mongoose");
+const cors = require("cors");
+dotenv.config()
+const PORT = process.env.PORT
+const productRouter=require("./router/lahiye.routes")
 
-const express=require("express")
-const app=express()
-const cors=require("cors")
-const mongoose=require("mongoose")
-const routes=require("./router/lahiye.routes")
-require("dotenv").config()
-app.use(express.json())
+app.use(express.json());
 app.use(cors())
-app.use("/users",routes)
+app.use("/products",productRouter)
+app.listen(PORT, () => {
+    console.log("server connection PORT");
+});
 
-mongoose.connect(process.env.DB_URL).then(res=>{
-    console.log("mongo db connected")
-
-})
-app.listen(8080,()=>{
-    console.log("port connected")
+mongoose.connect("mongodb+srv://fedans:salam123@cluster0.qpbyyy4.mongodb.net/").then(res=>{
+    console.log("mongo");
 })
