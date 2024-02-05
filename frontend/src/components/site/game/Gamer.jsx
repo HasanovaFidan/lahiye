@@ -13,7 +13,7 @@ import { TbPointFilled } from 'react-icons/tb';
 
 const Gamer = () => {
   const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate() + 16);
+  targetDate.setDate(targetDate.getDate() + 24);
 
   const calculateTimeRemaining = () => {
     const now = new Date();

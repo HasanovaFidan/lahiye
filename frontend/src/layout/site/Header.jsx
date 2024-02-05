@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "./Header.scss";
 import { BsTelephone } from "react-icons/bs";
 import { CiLocationOn, CiMenuBurger, CiSearch, CiUser } from "react-icons/ci";
@@ -7,10 +7,12 @@ import { BiBasket } from "react-icons/bi";
 import { HiOutlineHeart } from "react-icons/hi2";
 import { Link } from 'react-router-dom';
 import { FaRegMoon } from "react-icons/fa";
+import dataContexts from '../../contexts/contexts';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const{data,setData}=useContext(dataContexts)
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
@@ -113,6 +115,7 @@ const Header = () => {
       </div>
       <div className="og">
         <div className="left-og">
+          
           <Link to={"/home"}>Noutbuklar</Link>
           <Link to={"/komponents"}>Komponentlər və Monitorlar</Link>
           <Link to={"/aksesuar"}>Aksesuarlar</Link>

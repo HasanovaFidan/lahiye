@@ -219,26 +219,11 @@ h6{
     img{
         margin-top: 20px;
         width: 80%;
+        height: 25%;
     }
   }
 
-  .duzulus{
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    padding-top: 13px;
-.yazs{
 
-:nth-child(2){
-    text-align: start;
-    color: black;
-    font-size: 13px;
-    font-weight: 600;
-}
-}
-
-  }
   .ayc{
     font-size: 30px;
     color: rgb(133, 207, 23);
@@ -305,6 +290,24 @@ h6{
     font-size: 13px;
 
   }
+  }
+  .duzulus{
+    display: flex;
+    gap: 20px;
+    align-items: start;
+    justify-content: start;
+    padding-top: 13px;
+    width: 80%;
+.yazs{
+
+:nth-child(2){
+    text-align: start;
+    color: black;
+    font-size: 13px;
+    font-weight: 600;
+}
+}
+
   }
     
   @media (min-width: 600px) {

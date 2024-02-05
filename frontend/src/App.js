@@ -18,7 +18,7 @@ function App() {
   const [error, setError] = useState("");
   const [original, setOriginal] = useState([])
   useEffect(() => {
-    axios.get("")
+    axios.get("http://localhost:8080/technical")
       .then(res => {
         setLoading(false);
         setData(res.data);
