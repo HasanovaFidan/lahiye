@@ -1,0 +1,77 @@
+.cards-flex{
+    display: flex;
+}
+
+
+
+.car{
+  
+    width: 260px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    background-color: white;
+    border: 1px solid rgb(190, 189, 189);
+    border-radius: 20px;
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    span {
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgb(215, 215, 215);
+      border-radius: 50%;
+      font-size: 20px;
+      color: black;
+
+      &:hover {
+        background-color: rgb(147, 215, 46);
+        cursor: pointer;
+      }
+    }
+    button{
+        width: 120px;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    border: none;
+        border-radius: 30px;
+        font-size: 15px;
+        background-color: rgb(147, 215, 46);
+        color: black;
+  
+        &:hover {
+          background-color: rgb(97, 152, 14);
+          cursor: pointer;
+        } }
+  }
+     
+   
+    img{
+        margin-top: 20px;
+        width: 80%;
+    }
+  }
+  .bax{
+   
+        width: 80%;
+        height: 45px;
+ background-color: rgb(241, 241, 241);
+ border: none;
+ border-radius: 20px;
+    margin-top: 30px;
+    font-weight: 500;
+    &:hover{
+        background-color: rgb(133, 203, 28);
+    }
+  }

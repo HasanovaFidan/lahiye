@@ -1,0 +1,307 @@
+.yan{
+    display: flex;
+    width: 100%;
+border-radius: 30px;
+    background-color: white;
+    flex-direction: column;
+    margin-bottom: 40px;
+
+    .bir{
+        padding-top: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 20px;
+        p{
+        font-size: 12px;
+        &:hover{
+            color:  rgb(147, 215, 46);;
+            cursor: pointer;
+                }
+        }
+        :nth-child(2){
+            color: gray;
+        }
+              .div{
+                display: flex;
+                gap: 10px;
+                span {
+                    width: 46px;
+                    height: 46px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid rgb(215, 215, 215);
+                    border-radius: 50%;
+                    font-size: 20px;
+            
+                    &:hover {
+                      background-color: rgb(147, 215, 46);
+                      cursor: pointer;
+                    }
+                  }
+              }
+        }
+}
+.iki{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 12px;
+    padding-left: 20px;
+    p{
+        font-size: 12px;
+    color: gray;
+    &:hover{
+        color:  rgb(147, 215, 46);;
+         cursor: pointer;
+            }
+    }
+}
+.uc{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 12px;
+    padding-left: 20px;
+    p{
+        font-size: 12px;
+    color: gray;
+    &:hover{
+        color:  rgb(147, 215, 46);
+        cursor: pointer;
+            }
+    }
+}
+.dort{
+  
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 12px;
+        padding-left: 20px;
+        p{
+        font-size: 12px;
+        color: gray;
+        &:hover{
+            color:  rgb(147, 215, 46);;
+            cursor: pointer;
+                }
+        }
+   
+}
+.bes{
+  
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 12px;
+    padding-left: 20px;
+    p{
+    font-size: 12px;
+    color: gray;
+    &:hover{
+color:  rgb(147, 215, 46);;
+cursor: pointer;
+    }
+    }
+
+}
+
+
+.boss{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(214, 214, 214);
+    margin-top: 5px;
+}
+
+.fk{
+    display: flex;
+    gap: 30px;
+}
+.area{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color: gray;
+    padding-left: 20px;
+    padding-right: 20px;
+p{
+    font-size: 13px;
+}
+}
+
+h2{
+    font-size: 15px;
+}
+
+.alti{
+    padding-top: 12px;
+}
+.yeddi{
+    padding-top: 12px;
+}
+.sekkiz{
+    padding-top: 12px;
+    display: flex;
+    gap: 23px;
+    .span{
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgb(191, 191, 191);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+&:hover{
+  background-color: rgb(147, 215, 46);
+  border: none;
+}
+    }
+    select{
+        border-radius: 20px;
+        width: 150px;
+        height: 40px;
+        border: 1px solid rgb(225, 225, 225);
+        background: none;
+        padding-left: 20px;
+      }
+  }
+  .flex{
+    a{
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+@media (max-width: 700px) {
+    .yan {
+      .bir,
+      .iki,
+      .uc,
+      .dort,
+      .bes {
+        flex-direction: column;
+        align-items: flex-start;
+  
+        p {
+          text-align: left;
+        }
+  
+        .div {
+          margin-top: 10px;
+        }
+      }
+  
+      .area {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+  
+      .fk {
+        flex-direction: column;
+      }
+  
+      .sekkiz {
+        flex-direction: column;
+        align-items: flex-start;
+  
+        select {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .yan {
+      .bir,
+      .iki,
+      .uc,
+      .dort,
+      .bes {
+        gap: 5px;
+  
+        p {
+          font-size: 10px;
+        }
+      }
+  
+      .fk {
+        flex-direction: column;
+      }
+  
+      .area {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+  
+      .sekkiz {
+        flex-direction: column;
+        align-items: flex-start;
+  
+        .span {
+          width: 30px;
+          height: 30px;
+        }
+  
+        select {
+          width: 120px;
+          height: 30px;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .yan {
+      .bir,
+      .iki,
+      .uc,
+      .dort,
+      .bes {
+        gap: 5px;
+  
+        p {
+          font-size: 10px;
+        }
+      }
+  
+      .fk {
+        flex-direction: column;
+      }
+  
+      .area {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+  
+      .sekkiz {
+        flex-direction: column;
+        align-items: flex-start;
+  
+        .span {
+          width: 30px;
+          height: 30px;
+        }
+  
+        select {
+          width: 120px;
+          height: 30px;
+        }
+      }
+    }
+  }
+
+  .fax{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+    padding-right: 2%;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 4%;
+  }
