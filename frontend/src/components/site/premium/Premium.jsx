@@ -12,7 +12,7 @@ import { PiScreencastBold } from 'react-icons/pi'
 import dataContexts from '../../../contexts/contexts'
 
 const Premium = () => {
-const {data,setData}=useContext(dataContexts)
+  const {data,setData,AddtoBasket,handleFav,handleMuq}=useContext(dataContexts)
   return (
     <div className='lr'>
 
@@ -95,13 +95,15 @@ const {data,setData}=useContext(dataContexts)
               </div>
           </div>
           <div className="ayir">
-              <div className="flex">
-              <button><BiBasket /> Səbətə at</button>
+          <div className="flex">
+              <button onClick={()=>{
+        AddtoBasket(item)
+    }}><BiBasket /> Səbətə at</button>
               <p className='saam'> <IoLogoElectron />Yeni</p>
               </div>
           <div className="flex">
-   <span><GiScales /></span>
-     <span><HiOutlineHeart /></span>
+   <span onClick={()=>handleMuq(item)} ><GiScales /></span>
+     <span onClick= {()=>handleFav(item)} ><HiOutlineHeart/></span>
      <span><FaArrowRight /></span>
 
     </div>

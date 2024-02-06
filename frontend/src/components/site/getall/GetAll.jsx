@@ -13,7 +13,7 @@ import { IoLogoElectron } from "react-icons/io5";
 import dataContexts from '../../../contexts/contexts';
 
 const GetAll = () => {
-  const {data,setData}=useContext(dataContexts)
+  const {data,setData,AddtoBasket,handleFav,handleMuq}=useContext(dataContexts)
   return (
     <div className='lr'>
         <div className="xetto"></div>
@@ -97,12 +97,14 @@ const GetAll = () => {
           </div>
           <div className="ayir">
               <div className="flex">
-              <button><BiBasket /> Səbətə at</button>
+              <button onClick={()=>{
+        AddtoBasket(item)
+    }}><BiBasket /> Səbətə at</button>
               <p className='saam'> <IoLogoElectron />Yeni</p>
               </div>
           <div className="flex">
-   <span><GiScales /></span>
-     <span><HiOutlineHeart /></span>
+   <span onClick={()=>handleMuq(item)} ><GiScales /></span>
+     <span onClick= {()=>handleFav(item)} ><HiOutlineHeart/></span>
      <span><FaArrowRight /></span>
 
     </div>

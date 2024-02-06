@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 
 import { GiScales } from 'react-icons/gi';
 import { HiOutlineHeart } from 'react-icons/hi2';
 import { BiBasket } from 'react-icons/bi';
 import { TbPointFilled } from 'react-icons/tb';
+import dataContexts from '../../../contexts/contexts';
+const ITEMS_PER_PAGE = 12;
 const Aksesuar = () => {
+  const { data,setData,handleFav,AddtoBasket,handleMuq } = useContext(dataContexts);
+  const [currentPage, setCurrentPage] = useState(1);
 
+  const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
+
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = currentPage * ITEMS_PER_PAGE;
+  const currentData = data.slice(startIndex, endIndex);
+ 
+
+  const changePage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(0, 0);
+  };
   return (
     <div className='lr' >
        <div className="noqte">
@@ -59,25 +74,44 @@ const Aksesuar = () => {
    </div>
    <div className="row">
  
-    <div className="car col-3 col-mb-3 col-lg-12">
-        <img src="https://cdn.gamenotebaku.az/productimg/107/373/gamenote_img_74_1706904500.png.webp" alt="" />
-        <p style={{"color":"yellowgreen","fontWeight":"bold","fontSize":"15px","paddingLeft":"10px","paddingTop":"10px"}} >ASUS ROG Strix G18 (G814JV-N6035) Gaming Laptop</p>
-        <p  style={{"color":"red","fontSize":"20px","textAlign":"start"}}>120</p>
-        <div className="xett"></div>
-        <div className="flex">
-         <span><GiScales /></span>
-           <span><HiOutlineHeart /></span>
-         <button><BiBasket /> Səbətə at</button>
-          </div>
-<button className='bax'>Ətraflı bax</button>
+ {
+  data.map((item,index)=>{
+    if(item.catagory=="aksesuar"){
+return(
+  <div key={index} className="car col-3 col-mb-3 col-lg-12">
+  <img style={{"height":"40%","width":"70%"}} src={item.image} alt="" />
+  <p style={{"color":"yellowgreen","fontWeight":"bold","fontSize":"15px","paddingLeft":"10px","paddingTop":"10px"}} >{item.name}</p>
+  <p  style={{"color":"red","fontSize":"20px","textAlign":"start"}}>₼{item.price}</p>
+  <div className="xett"></div>
+  <div className="flex">
+   <span onClick={()=>handleMuq(item)}><GiScales /></span>
+     <span><HiOutlineHeart onClick={()=>handleFav(item)} /></span>
+   <button onClick={()=>{ AddtoBasket(item) }}><BiBasket  /> Səbətə at</button>
     </div>
+<button className='bax'>Ətraflı bax</button>
+</div>
+)
+    }
+  })
+ }
     
 
   </div>
-         
+  <div className="pagination">
+        {Array.from({ length: 9 }, (_, i) => (
+          <span
+            key={i + 1}
+            className={currentPage === i + 1 ? 'active' : ''}
+            onClick={() => changePage(i + 1)}
+          >
+            {i + 1}
+          </span>
+        ))}
+      </div>
 
           </div>
       </div>
+     
     </div>
   );
 };

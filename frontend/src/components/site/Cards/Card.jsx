@@ -13,7 +13,7 @@ import dataContexts from '../../../contexts/contexts';
 const ITEMS_PER_PAGE = 12;
 
 const Card = () => {
-  const { data } = useContext(dataContexts);
+  const { data,setData,handleFav,AddtoBasket,handleMuq } = useContext(dataContexts);
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
@@ -29,16 +29,16 @@ const Card = () => {
 
   return (
     <div className="row">
-      {currentData.map((item, index) => (
+      {currentData.slice(0,77).map((item, index) => (
         <div key={index} className="cards col-4 col-mb-4 col-lg-12">
           <img src={item.image} alt="" />
-          <p style={{ color: 'yellowgreen', fontWeight: 'bold', fontSize: '15px', paddingLeft: '10px', paddingTop: '10px' }}>ASUS ROG Strix G18 (G814JV-N6035) Gaming Laptop</p>
+          <p style={{ color: 'yellowgreen', fontWeight: 'bold', fontSize: '15px', paddingLeft: '10px', paddingTop: '10px' }}>{item.name}</p>
           <p style={{ color: 'red', fontSize: '20px', textAlign: 'start' }}>₼{item.price}</p>
           <div className="xett"></div>
           <div className="flex">
-            <span><GiScales /></span>
-            <span><HiOutlineHeart /></span>
-            <button><BiBasket /> Səbətə at</button>
+            <span><GiScales onClick={()=>handleMuq(item)} /></span>
+            <span><HiOutlineHeart onClick={()=>handleFav(item)} /></span>
+            <button  onClick={()=>{ AddtoBasket(item) }}><BiBasket /> Səbətə at</button>
           </div>
           <div className="duzulus">
             <div className="aycon">

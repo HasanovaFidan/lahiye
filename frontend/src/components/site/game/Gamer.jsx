@@ -136,7 +136,7 @@ const Gamer = () => {
           <div className="xett"></div>
           <div className="birid">
             <p>Səbətə at</p>
-            <BiBasket />
+            <BiBasket/>
           </div>
         </div>
 

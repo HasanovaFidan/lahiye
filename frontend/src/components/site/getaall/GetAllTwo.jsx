@@ -13,7 +13,7 @@ import { PiScreencastBold } from 'react-icons/pi'
 import dataContexts from '../../../contexts/contexts'
 
 const GetAllTwo = () => {
-  const{data,setData}=useContext(dataContexts)
+  const{data,setData,handleFav,AddtoBasket,handleMuq}=useContext(dataContexts)
   return (
     <div className='lr'>
 
@@ -97,12 +97,14 @@ const GetAllTwo = () => {
           </div>
           <div className="ayir">
               <div className="flex">
-              <button><BiBasket /> Səbətə at</button>
+              <button onClick={()=>{
+        AddtoBasket(item)
+    }}><BiBasket /> Səbətə at</button>
               <p className='saam'> <IoLogoElectron />Yeni</p>
               </div>
           <div className="flex">
-   <span><GiScales /></span>
-     <span><HiOutlineHeart /></span>
+   <span><GiScales onClick={()=>handleMuq(item)} /></span>
+     <span onClick={()=>handleFav(item)}><HiOutlineHeart /></span>
      <span><FaArrowRight /></span>
 
     </div>
