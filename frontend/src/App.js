@@ -14,6 +14,7 @@ import Swal from "sweetalert2"
 const root = createBrowserRouter(ROOT)
 function App() {
   const [data, setData] = useState([]);
+  const [datas, setDatas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [original, setOriginal] = useState([])
@@ -168,6 +169,19 @@ Swal.fire({
         setLoading(false);
       });
   }, []);
+  useEffect(() => {
+    axios.get("http://localhost:8000/kom")
+      .then(res => {
+        setLoading(false);
+        setDatas(res.data);
+        setOriginal(res.data);
+
+      })
+      .catch(err => {
+        setError(err);
+        setLoading(false);
+      });
+  }, []);
   const values = {
     data,
     setData,
@@ -177,7 +191,7 @@ Swal.fire({
     setError,
     original,
     setOriginal,fav,setFav,handleFav,AddtoBasket,increase,decreaseBtn, removeFrombasket,basket,setbasket,handleMuq,
-    muq,setMuq
+    muq,setMuq,datas,setDatas
   };
   return (
    <dataContexts.Provider value={values}>

@@ -13,7 +13,7 @@ import { IoLogoElectron } from 'react-icons/io5'
 import { MdDeleteOutline } from "react-icons/md";
 import { FaArrowRight } from 'react-icons/fa'
 const Fav = () => {
-    const {fav,setFav}=useContext(dataContexts)
+    const {fav,setFav,AddtoBasket}=useContext(dataContexts)
     const handleDelete=(id)=>{
  
             const deleted=fav.filter((item)=>item._id!==id)
@@ -126,7 +126,7 @@ const Fav = () => {
       </div>
       <div className="ayir">
           <div className="flex">
-          <button><BiBasket /> Səbətə at</button>
+          <button  onClick={()=>{ AddtoBasket(item) }}><BiBasket /> Səbətə at</button>
           <p className='saam'> <IoLogoElectron />Yeni</p>
           </div>
       <div className="flex">

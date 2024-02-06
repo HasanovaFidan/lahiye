@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 import "./cards.scss";
 import Card from './Card';
 import { TbPointFilled } from "react-icons/tb";
+import dataContexts from '../../../contexts/contexts';
 
 const Cads = () => {
+  const  {data,setData}=useContext(dataContexts)
   const [cpuDropdownOpen, setCpuDropdownOpen] = useState(false);
   const [gpuDropdownOpen, setGpuDropdownOpen] = useState(false);
   const [spuDropdownOpen, setSpuDropdownOpen] = useState(false);
@@ -47,7 +49,27 @@ const Cads = () => {
       setSpuDropdownOpen(false);
     }
   };
-
+const HAndlerSorty=(e)=>{
+  const sorting=e.target.value
+  if(sorting=="df"){
+    setData([...data])
+  }
+  else if(sorting=="09"){
+    const target=data.sort((a,b)=>a.price-b.price)
+    setData([...target])
+  }
+  else if(sorting=="90"){
+    const target=data.sort((a,b)=>b.price-a.price)
+    setData([...target])
+  }
+  else if(sorting=="az"){
+    const target=data.sort((a,b)=>a.name.localeCompare(b.name))
+    setData([...target])
+  }
+  else if(sorting=="za"){
+    const target=data.sort((a,b)=>b.name.localeCompare(a.name))
+  }
+}
   return (
     <div className='lr' onClick={closeDropdowns}>
  <div className="noqte">
@@ -252,11 +274,14 @@ const Cads = () => {
         <div className="right-cards">
         <div className="araund">
     <h1>Noutbuklar</h1>
-    <select className="custom-select">
-            <option className='op' value="option1"><span>Sıralama:</span> Əvvəlcə ucuz</option>
-            <option className='op' value="option1"><span>Sıralama:</span> Əvvəlcə baha</option>
-         
-          </select>
+    <select className='custom-select' name="" id="" onChange={(e)=>{
+                        HAndlerSorty(e)
+                }}>
+<option value="09"><span>Sıralama:</span>Əvvəlcə ucuz</option>
+<option value="90"><span>Sıralama:</span> Əvvəlcə baha</option>
+
+
+                </select>
    </div>
           <Card/>
         </div>

@@ -12,7 +12,8 @@ import dataContexts from '../../contexts/contexts';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const{data,setData}=useContext(dataContexts)
+  const { data, setData, datas, setDatas, original } = useContext(dataContexts);
+  const [searchEmpty, setSearchEmpty] = useState(false); 
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
@@ -29,16 +30,30 @@ const Header = () => {
     setIsRegisterOpen(false);
   };
 
+  const handleChange = (e) => {
+    const searched = e.target.value.trim().toLowerCase();
+    if (searched === "") {
+      setData(original);
+      setSearchEmpty(false); 
+    } else {
+      const datasrc = data.filter((data) => data.name.trim().toLowerCase().includes(searched));
+      setData(datasrc);
+      setSearchEmpty(datasrc.length === 0); 
+    }
+  };
+
   return (
     <div className="lr header-container">
       <div className="header">
         <div className="one">
           <div className="img">
-           <Link to={"/"}> <img style={{"width":"200px"}} src="https://gamenotebaku.az/_next/image?url=https%3A%2F%2Fcdn.gamenotebaku.az%2Fera_cms_assets%2Flogolight.webp&w=3840&q=75" alt="" /></Link>
+            <Link to={"/"}>
+              <img style={{"width":"200px"}} src="https://gamenotebaku.az/_next/image?url=https%3A%2F%2Fcdn.gamenotebaku.az%2Fera_cms_assets%2Flogolight.webp&w=3840&q=75" alt="" />
+            </Link>
           </div>
           <div className="rite">
-            <p> <span><BsTelephone /></span>+994 77 517-57-47 </p>
-            <p> <span><CiLocationOn /></span>​Bülbül prospekti 58D </p>
+            <p><span><BsTelephone /></span>+994 77 517-57-47 </p>
+            <p><span><CiLocationOn /></span>​Bülbül prospekti 58D </p>
           </div>
         </div>
         <div className="two">
@@ -83,39 +98,36 @@ const Header = () => {
       </div>
       <div className="registeropen" style={{"display": isRegisterOpen ? 'block' : 'none'}}>
         <h3>Qeydiyyat</h3>
-<form action="
-">
-      <div className="flexos">
-    <input type="text" name="" id="" placeholder='Ad soyadınızı daxil edin' />
-    <input type="text" name="" id="" placeholder='Email adresinizi daxil edin' />
-    </div>
-    <div className="flexos">
-    <input type="text" name="" id="" placeholder='Şəhərinizi daxil edin' />
-    <input type="number" name="" id="" placeholder='Telefon nömrənizi daxil edin' />
-    </div>
-    <div className="flexos">
-    <input type="password" name=" " id="" placeholder='Şifrənizi daxil edin' />
-    <input type="password" name="" id="" placeholder='Şifrənin təkrarı' />
-    </div>
-</form>
-<div className="dif">
-<input className='differ' type="text" placeholder='Adresinizi daxil Edin' />
-</div>
- <div className="ara">
-  <div className="n">
-  <p  onClick={toggleOpen}>
-    Qeydiyyatdan keçmisiniz? <span>Giriş et</span>
-          </p>
-  </div>
-  <div className="n">
-    <button>Qeydiyyatdan keç</button>
-  </div>
- </div>
-
+        <form action="">
+          <div className="flexos">
+            <input type="text" name="" id="" placeholder='Ad soyadınızı daxil edin' />
+            <input type="text" name="" id="" placeholder='Email adresinizi daxil edin' />
+          </div>
+          <div className="flexos">
+            <input type="text" name="" id="" placeholder='Şəhərinizi daxil edin' />
+            <input type="number" name="" id="" placeholder='Telefon nömrənizi daxil edin' />
+          </div>
+          <div className="flexos">
+            <input type="password" name=" " id="" placeholder='Şifrənizi daxil edin' />
+            <input type="password" name="" id="" placeholder='Şifrənin təkrarı' />
+          </div>
+        </form>
+        <div className="dif">
+          <input className='differ' type="text" placeholder='Adresinizi daxil Edin' />
+        </div>
+        <div className="ara">
+          <div className="n">
+            <p  onClick={toggleOpen}>
+              Qeydiyyatdan keçmisiniz? <span>Giriş et</span>
+            </p>
+          </div>
+          <div className="n">
+            <button>Qeydiyyatdan keç</button>
+          </div>
+        </div>
       </div>
       <div className="og">
         <div className="left-og">
-          
           <Link to={"/home"}>Noutbuklar</Link>
           <Link to={"/komponents"}>Komponentlər və Monitorlar</Link>
           <Link to={"/aksesuar"}>Aksesuarlar</Link>
@@ -142,10 +154,16 @@ const Header = () => {
           </div>
         </div>
         <div className="input">
-          <input type="text" placeholder='Axtarış'/>
+          <input onChange={(e) => handleChange(e)} type="text" placeholder='Axtarış'/>
           <p className='ser'><CiSearch /><span>Axtar</span></p>
         </div>
       </div>
+     
+      {searchEmpty && (
+        <div className='di' id="searchResultMessage">
+             Axtardığınız məhsul mövcud deyil
+        </div>
+      )}
     </div>
   );
 };

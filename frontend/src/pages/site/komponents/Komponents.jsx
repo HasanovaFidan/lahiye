@@ -10,19 +10,39 @@ import dataContexts from '../../../contexts/contexts';
 const ITEMS_PER_PAGE = 12;
 
 const Komponets = () => {
-  const {data,setData,handleFav,handleMuq,AddtoBasket}=useContext(dataContexts)
+  const {datas,setDatas,handleFav,handleMuq,AddtoBasket}=useContext(dataContexts)
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(datas.length / ITEMS_PER_PAGE);
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = currentPage * ITEMS_PER_PAGE;
-  const currentData = data.slice(startIndex, endIndex);
+  const currentData = datas.slice(startIndex, endIndex);
   const changePage = (pageNumber) => {
     setCurrentPage(pageNumber);
     window.scrollTo(0, 0);
   };
-
+  const HAndlerSorty=(e)=>{
+    const sorting=e.target.value
+    if(sorting=="df"){
+      setDatas([...datas])
+    }
+    else if(sorting=="09"){
+      const target=datas.sort((a,b)=>a.price-b.price)
+      setDatas([...target])
+    }
+    else if(sorting=="90"){
+      const target=datas.sort((a,b)=>b.price-a.price)
+      setDatas([...target])
+    }
+    else if(sorting=="az"){
+      const target=datas.sort((a,b)=>a.name.localeCompare(b.name))
+      setDatas([...target])
+    }
+    else if(sorting=="za"){
+      const target=datas.sort((a,b)=>b.name.localeCompare(a.name))
+    }
+  }
 
   return (
     <div className='lr' >
@@ -69,16 +89,19 @@ const Komponets = () => {
      <div className="right-cards">
      <div className="araund">
  <h1>Axtarış nəticələri</h1>
- <select className="custom-select">
-         <option className='op' value="option1"><span>Sıralama:</span> Əvvəlcə ucuz</option>
-         <option className='op' value="option1"><span>Sıralama:</span> Əvvəlcə baha</option>
-      
-       </select>
+ <select className='custom-select' name="" id="" onChange={(e)=>{
+                        HAndlerSorty(e)
+                }}>
+<option value="09"><span>Sıralama:</span>Əvvəlcə ucuz</option>
+<option value="90"><span>Sıralama:</span>Əvvəlcə baha</option>
+
+
+                </select>
 </div>
 <div className="row">
 
 {
-data.map((item,index)=>{
+datas.map((item,index)=>{
  if(item.catagory=="komponents"){
 return(
 <div key={index} className="car col-3 col-mb-3 col-lg-12">

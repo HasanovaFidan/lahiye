@@ -29,7 +29,7 @@ const Card = () => {
 
   return (
     <div className="row">
-      {currentData.slice(0,77).map((item, index) => (
+      {currentData.map((item, index) => (
         <div key={index} className="cards col-4 col-mb-4 col-lg-12">
           <img src={item.image} alt="" />
           <p style={{ color: 'yellowgreen', fontWeight: 'bold', fontSize: '15px', paddingLeft: '10px', paddingTop: '10px' }}>{item.name}</p>
