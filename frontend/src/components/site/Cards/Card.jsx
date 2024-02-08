@@ -21,7 +21,8 @@ const Card = () => {
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = currentPage * ITEMS_PER_PAGE;
-  const currentData = data.slice(startIndex, endIndex);
+  const currentData = data.filter(item=>item.catagory[0]=="notebok").slice(startIndex, endIndex);
+  
 
   const changePage = (pageNumber) => {
     setCurrentPage(pageNumber);

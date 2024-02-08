@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./cont.scss"
 import { BsTelephone } from 'react-icons/bs'
 import { IoMdContact } from 'react-icons/io'
@@ -6,6 +6,9 @@ import { MdOutlineLocalPostOffice } from "react-icons/md";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const Contact = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0); 
+      }, []);
   return (
    <div className="lr">
     <div className="contact">

@@ -62,27 +62,27 @@ const Msi = () => {
       setSpuDropdownOpen(false);
     }
   };
-const HAndlerSorty=(e)=>{
-  const sorting=e.target.value
-  if(sorting=="df"){
-    setData([...data])
+  const HAndlerSorty=(e)=>{
+    const sorting=e.target.value
+    if(sorting=="df"){
+      setData([...data])
+    }
+    else if(sorting=="09"){
+      const target=data.sort((a,b)=>(a.satis) - (a.satis * a.endirim) / 100-(b.satis) - (b.satis * b.endirim) / 100)
+      setData([...target])
+    }
+    else if(sorting=="90"){
+      const target=data.sort((a,b)=>(a.satis) - (a.satis * a.endirim) / 100-(b.satis) - (b.satis * b.endirim) / 100)
+      setData([...target])
+    }
+    else if(sorting=="az"){
+      const target=data.sort((a,b)=>a.name.localeCompare(b.name))
+      setData([...target])
+    }
+    else if(sorting=="za"){
+      const target=data.sort((a,b)=>b.name.localeCompare(a.name))
+    }
   }
-  else if(sorting=="09"){
-    const target=data.sort((a,b)=>a.price-b.price)
-    setData([...target])
-  }
-  else if(sorting=="90"){
-    const target=data.sort((a,b)=>b.price-a.price)
-    setData([...target])
-  }
-  else if(sorting=="az"){
-    const target=data.sort((a,b)=>a.name.localeCompare(b.name))
-    setData([...target])
-  }
-  else if(sorting=="za"){
-    const target=data.sort((a,b)=>b.name.localeCompare(a.name))
-  }
-}
 const [currentPage, setCurrentPage] = useState(1);
 
 const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);

@@ -50,7 +50,9 @@ const Fav = () => {
     <div className="getall">
 
    {
-    fav.map((item,index)=>(
+    fav.map((item,index)=>{
+   if(item.catagory=="notebok"){
+    return(
       <div className="get">
       <div className="face">
      <div className="ust">
@@ -138,7 +140,41 @@ const Fav = () => {
 </div>
       </div>
   </div>
-    ))
+    )
+   }
+   else{
+    return(
+      <div className="get">
+      <div className="face">
+     <div className="ust">
+     <img src={item.image} alt="" />
+          <p>{item.name}</p>
+        
+     </div>
+   
+          <div className="alt">
+          <p>₼{item.satis - (item.satis * item.endirim) / 100}</p>
+    <span>₼{item.satis}</span>
+          </div>
+          
+      </div>
+     
+      <div className="ayir">
+          <div className="flex">
+          <button  onClick={()=>{ AddtoBasket(item) }}><BiBasket /> Səbətə at</button>
+          <p className='saam'> <IoLogoElectron />Yeni</p>
+          </div>
+      <div className="flex">
+<span><GiScales /></span>
+ <span onClick={(e)=>handleDelete(item._id)}><MdDeleteOutline/></span>
+ <span><FaArrowRight /></span>
+
+</div>
+      </div>
+  </div>
+    )
+   }
+})
    }
 
     </div>

@@ -15,7 +15,8 @@ const Komponets = () => {
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = currentPage * ITEMS_PER_PAGE;
-  const currentData = data.slice(startIndex, endIndex);
+  const currentData = data.filter(item=>item.catagory[0]=="aksesuar").slice(startIndex, endIndex);
+  console.log(currentData)
   const changePage = (pageNumber) => {
     setCurrentPage(pageNumber);
     window.scrollTo(0, 0);
@@ -26,11 +27,11 @@ const Komponets = () => {
       setData([...data])
     }
     else if(sorting=="09"){
-      const target=data.sort((a,b)=>a.endirim-b.endirim)
+      const target=data.sort((a,b)=>(a.satis) - (a.satis * a.endirim) / 100-(b.satis) - (b.satis * b.endirim) / 100)
       setData([...target])
     }
     else if(sorting=="90"){
-      const target=data.sort((a,b)=>b.endirim-a.endirim)
+      const target=data.sort((a,b)=>(a.satis) - (a.satis * a.endirim) / 100-(b.satis) - (b.satis * b.endirim) / 100)
       setData([...target])
     }
     else if(sorting=="az"){
@@ -103,8 +104,8 @@ const Komponets = () => {
 <div className="row">
 
 {
-data.map((item,index)=>{
- if(item.catagory=="aksesuar"){
+currentData.map((item,index)=>{
+ if(item.catagory[0]=="aksesuar"){
 return(
 <div key={index} className="car col-3 col-mb-3 col-lg-12">
 <img style={{"height":"35%","width":"98%"}} src={item.image} alt="" />

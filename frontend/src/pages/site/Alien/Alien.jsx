@@ -68,11 +68,11 @@ const Alien = () => {
       setData([...data])
     }
     else if(sorting=="09"){
-      const target=data.sort((a,b)=>a.endirim-b.endirim)
+      const target=data.sort((a,b)=>(a.satis) - (a.satis * a.endirim) / 100-(b.satis) - (b.satis * b.endirim) / 100)
       setData([...target])
     }
     else if(sorting=="90"){
-      const target=data.sort((a,b)=>b.endirim-a.endirim)
+      const target=data.sort((a,b)=>(a.satis) - (a.satis * a.endirim) / 100-(b.satis) - (b.satis * b.endirim) / 100)
       setData([...target])
     }
     else if(sorting=="az"){

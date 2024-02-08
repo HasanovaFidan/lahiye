@@ -62,34 +62,34 @@ const Asus = () => {
       setSpuDropdownOpen(false);
     }
   };
-const HAndlerSorty=(e)=>{
-  const sorting=e.target.value
-  if(sorting=="df"){
-    setData([...data])
+  const HAndlerSorty=(e)=>{
+    const sorting=e.target.value
+    if(sorting=="df"){
+      setData([...data])
+    }
+    else if(sorting=="09"){
+      const target=data.sort((a,b)=>(a.satis) - (a.satis * a.endirim) / 100-(b.satis) - (b.satis * b.endirim) / 100)
+      setData([...target])
+    }
+    else if(sorting=="90"){
+      const target=data.sort((a,b)=>(a.satis) - (a.satis * a.endirim) / 100-(b.satis) - (b.satis * b.endirim) / 100)
+      setData([...target])
+    }
+    else if(sorting=="az"){
+      const target=data.sort((a,b)=>a.name.localeCompare(b.name))
+      setData([...target])
+    }
+    else if(sorting=="za"){
+      const target=data.sort((a,b)=>b.name.localeCompare(a.name))
+    }
   }
-  else if(sorting=="09"){
-    const target=data.sort((a,b)=>a.endirim-b.endirim)
-    setData([...target])
-  }
-  else if(sorting=="90"){
-    const target=data.sort((a,b)=>b.endirim-a.endirim)
-    setData([...target])
-  }
-  else if(sorting=="az"){
-    const target=data.sort((a,b)=>a.name.localeCompare(b.name))
-    setData([...target])
-  }
-  else if(sorting=="za"){
-    const target=data.sort((a,b)=>b.name.localeCompare(a.name))
-  }
-}
 const [currentPage, setCurrentPage] = useState(1);
 
 const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
 
 const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
 const endIndex = currentPage * ITEMS_PER_PAGE;
-const currentData = data.slice(startIndex, endIndex);
+const currentData = data.filter(item=>item.brand[0]=="ASUS").slice(startIndex, endIndex);
 
 const changePage = (pageNumber) => {
   setCurrentPage(pageNumber);
@@ -310,7 +310,7 @@ const changePage = (pageNumber) => {
                 </select>
    </div>
    <div className="row">
-      {data.map((item, index) => {
+      {currentData.map((item, index) => {
     if(item.brand=="ASUS"){
       return(
         <div key={index} className="cards col-4 col-mb-4 col-lg-12">
@@ -392,7 +392,7 @@ item.endirim > 0 ? (
 
 
 <div className="pagination">
-  {Array.from({ length:data }, (_, i) => (
+  {Array.from({ length:3 }, (_, i) => (
     <span
       key={i + 1}
       className={currentPage === i + 1 ? 'active' : ''}
