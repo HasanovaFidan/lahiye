@@ -60,7 +60,8 @@ const Fav = () => {
      </div>
    
           <div className="alt">
-          <p>{item.price}</p> <span>2740₼</span>
+          <p>₼{item.satis - (item.satis * item.endirim) / 100}</p>
+    <span>₼{item.satis}</span>
           </div>
           
       </div>
@@ -119,7 +120,7 @@ const Fav = () => {
 </div>
 <div className="yazs">
   <p style={{"color":"gray","fontSize":"13px"}}>Əməliyyat sistemi</p>
-  <p>Windows 11</p>
+  <p>{item.system}</p>
 </div>
 </div>
           </div>

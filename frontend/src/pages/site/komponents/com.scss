@@ -18,6 +18,25 @@
     &:hover{
       border: 1px solid rgb(116, 163, 20);
     }
+    .yaxin{
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 8px;
+      
+      p{
+        text-align: start;
+          color: red;
+          font-size: 17px;
+          font-weight: bold;
+      }
+      span{
+        text-align: start;
+        font-size: 14px;
+          font-weight: 500;
+          text-decoration: line-through;
+      }
+    }
 
 .flex {
     display: flex;
@@ -63,6 +82,7 @@
     img{
         margin-top: 20px;
         width: 80%;
+        object-fit: contain;
     }
   }
   .bax{
@@ -76,5 +96,31 @@
     font-weight: 500;
     &:hover{
         background-color: rgb(133, 203, 28);
+    }
+  }
+
+  .baslar{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    gap: 7px;
+    padding-top: 10px;
+   
+  }
+
+  .borderone{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    a{
+      font-size: 16px;
+      text-decoration: none;
+      color: black;
+      text-align: start;
+      padding-left: 20px;
+      &:hover{
+        color: yellowgreen;
+        cursor: pointer;
+      }
     }
   }

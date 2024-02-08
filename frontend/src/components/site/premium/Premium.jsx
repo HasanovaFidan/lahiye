@@ -3,7 +3,7 @@ import { BiBasket } from 'react-icons/bi'
 import { CgWindows } from 'react-icons/cg'
 import { FaArrowRight } from 'react-icons/fa'
 import { FcVideoCall } from 'react-icons/fc'
-import { GiPentagramRose, GiScales } from 'react-icons/gi'
+import { GiPentagramRose, GiPocketRadio, GiScales } from 'react-icons/gi'
 import { HiColorSwatch } from 'react-icons/hi'
 import { HiOutlineHeart } from 'react-icons/hi2'
 import { IoLogoElectron } from 'react-icons/io5'
@@ -30,7 +30,8 @@ const Premium = () => {
          </div>
        
               <div className="alt">
-              <p>{item.price}</p> <span>2740₼</span>
+              <p>₼{item.satis - (item.satis * item.endirim) / 100}</p>
+    <span>₼{item.satis}</span>
               </div>
               
           </div>
@@ -47,7 +48,7 @@ const Premium = () => {
   </div>
   <div className="duzulus">
     <div className="aycon">
-      <FcVideoCall  className='ayc' />
+    <GiPocketRadio  className='ayc' />
     </div>
     <div className="yazs">
       <p style={{"color":"gray","fontSize":"13px"}}>{item.video}</p>

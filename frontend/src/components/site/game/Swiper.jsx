@@ -16,7 +16,7 @@ const Swiperrs = () => {
   return (
     <>
 <div className='top'>
-<ReactSwiper
+<ReactSwiper 
         slidesPerView={3}
         spaceBetween={20}
         pagination={{

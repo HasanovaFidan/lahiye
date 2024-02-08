@@ -12,7 +12,7 @@ import dataContexts from '../../contexts/contexts';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const { data, setData, datas, setDatas, original } = useContext(dataContexts);
+  const { data, setData,  original } = useContext(dataContexts);
   const [searchEmpty, setSearchEmpty] = useState(false); 
 
   const toggleOpen = () => {
@@ -139,7 +139,7 @@ const Header = () => {
           <div className="span">
             <FaRegMoon />
           </div>
-          <select>
+          <select className='nese'>
             <option value="option1"> Azərbaycan dili</option>
             <option value="option2">Русский</option>
             <option value="option3">English</option>

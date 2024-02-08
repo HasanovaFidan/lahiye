@@ -254,24 +254,25 @@
   width: 100%;
 }
 .bos{
-  width: 140px;
-  height: 57px;
+  width: 17%;
+  height: 70px;
+
 border: none;
 background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 30px;
+  border-radius: 40px;
   .kataloq{
-    width: 110px;
+    width: 90%;
     gap: 10px;
-    height: 45px;
+    height: 55px;
   border: none;
   background-color:  rgb(147, 215, 46);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 30px;
+    border-radius: 40px;
   }
   
 }
@@ -280,7 +281,7 @@ background-color: white;
   display: flex;
   height: 70px;
   border: none;
-  border-radius: 30px;
+  border-radius: 40px;
 border: none;
   display: flex;
   justify-content: space-between;
@@ -307,8 +308,8 @@ background-color:  rgb(147, 215, 46);
   justify-content: center;
   border-radius: 30px;
   font-weight: bold;
-  margin-top: 10px;
-  margin-right: 5px;
+  margin-right: 2%
+;
   &:hover {
     background-color: rgb(101, 155, 20);
   }
@@ -420,4 +421,11 @@ background-color:  rgb(147, 215, 46);
     color: rgb(104, 150, 12);
     cursor: pointer;
   }
+}
+
+
+.nese{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

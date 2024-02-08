@@ -21,8 +21,8 @@ const tecnikController={
     },
      add:async (req,res)=>{
         try {
-            const {image,name,prs,catagory,video,yaddas,screen,price}=req.body
-            const newTecnik= new Tecnik ({image,name,prs,catagory,video,yaddas,screen,price})
+            const {image,name,prs,catagory,brand,video,yaddas,screen,system,alis,endirim,satis}=req.body
+            const newTecnik= new Tecnik ({image,name,prs,catagory,brand,video,yaddas,screen,system,alis,endirim,satis})
            await newTecnik.save()
            res.send(newTecnik)
         } catch (error) {
@@ -32,9 +32,9 @@ const tecnikController={
     edit: async (req,res)=>{
       try{
   const {id}=req.params
-  const {image,name,prs,catagory,video,yaddas,screen,price}=req.body
+  const {image,name,prs,catagory,brand,video,yaddas,screen,system,alis,endirim,satis}=req.body
 
-  const update= await Tecnik.findByIdAndUpdate(id,{image,name,catagory,prs,video,yaddas,screen,price})
+  const update= await Tecnik.findByIdAndUpdate(id,{image,name,prs,catagory,brand,video,yaddas,screen,system,alis,endirim,satis})
   res.send(201).send(" Product update")
       } 
       catch(error){

@@ -1,7 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-
-
-import "./com.scss"
 import { GiScales } from 'react-icons/gi';
 import { HiOutlineHeart } from 'react-icons/hi2';
 import { BiBasket } from 'react-icons/bi';
@@ -10,7 +7,7 @@ import dataContexts from '../../../contexts/contexts';
 import { Link } from 'react-router-dom';
 const ITEMS_PER_PAGE = 12;
 
-const Komponets = () => {
+const Monitor = () => {
   const {data,setData,handleFav,handleMuq,AddtoBasket}=useContext(dataContexts)
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -100,11 +97,12 @@ const Komponets = () => {
 
 {
 data.map((item,index)=>{
- if(item.catagory=="komponents"){
+ if(item.brand=="monitor"){
 return(
 <div key={index} className="car col-3 col-mb-3 col-lg-12">
-<img  src={item.image} alt="" />
+<img style={{"height":"35%","width":"98%"}} src={item.image} alt="" />
 <p style={{"color":"yellowgreen","fontWeight":"bold","fontSize":"15px","paddingLeft":"10px","paddingTop":"10px"}} >{item.name}</p>
+
         {
 item.endirim > 0 ? (
   <div className='yaxin'>
@@ -147,4 +145,4 @@ item.endirim > 0 ? (
   );
 };
 
-export default Komponets
+export default Monitor

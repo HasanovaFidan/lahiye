@@ -1,7 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-
-
-import "./com.scss"
 import { GiScales } from 'react-icons/gi';
 import { HiOutlineHeart } from 'react-icons/hi2';
 import { BiBasket } from 'react-icons/bi';
@@ -10,7 +7,7 @@ import dataContexts from '../../../contexts/contexts';
 import { Link } from 'react-router-dom';
 const ITEMS_PER_PAGE = 12;
 
-const Komponets = () => {
+const Mikro = () => {
   const {data,setData,handleFav,handleMuq,AddtoBasket}=useContext(dataContexts)
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -60,10 +57,16 @@ const Komponets = () => {
        </div>
        <div className="borderone">
 <div className="baslar">
-<Link to={"/monitor"}>Monitorlar</Link>
-<Link to={"/videokart"}>Videokartlar</Link>
-
+<Link to={"/oturacaq"}>Gaming Oturacaqlar</Link>
+<Link to={"/klavis"}>Klaviaturalar</Link>
+<Link to={"/oyun"}>Oyun Qurğuları</Link>
+<Link to={"/ses"}>Səs qurğuları</Link>
+<Link to={"/mause"}>Siçanlar</Link>
+<Link to={"/mikrafon"}>Mikrofonlar</Link>
+<Link to={"/web"}>Web kameralar</Link>
+<Link to={"/qulaqliq"}>Qulaqlıqlar</Link>
 </div>
+    
 
 
        </div>
@@ -100,12 +103,12 @@ const Komponets = () => {
 
 {
 data.map((item,index)=>{
- if(item.catagory=="komponents"){
+ if(item.brand=="mikro"){
 return(
 <div key={index} className="car col-3 col-mb-3 col-lg-12">
-<img  src={item.image} alt="" />
+<img style={{"height":"35%","width":"98%"}} src={item.image} alt="" />
 <p style={{"color":"yellowgreen","fontWeight":"bold","fontSize":"15px","paddingLeft":"10px","paddingTop":"10px"}} >{item.name}</p>
-        {
+{
 item.endirim > 0 ? (
   <div className='yaxin'>
     <p>₼{item.satis - (item.satis * item.endirim) / 100}</p>
@@ -129,7 +132,7 @@ item.endirim > 0 ? (
 
 </div>
 <div className="pagination">
-     {Array.from({ length: 1 }, (_, i) => (
+     {Array.from({ length: 3 }, (_, i) => (
        <span
          key={i + 1}
          className={currentPage === i + 1 ? 'active' : ''}
@@ -147,4 +150,4 @@ item.endirim > 0 ? (
   );
 };
 
-export default Komponets
+export default Mikro

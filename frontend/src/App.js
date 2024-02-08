@@ -14,7 +14,7 @@ import Swal from "sweetalert2"
 const root = createBrowserRouter(ROOT)
 function App() {
   const [data, setData] = useState([]);
-  const [datas, setDatas] = useState([]);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [original, setOriginal] = useState([])
@@ -84,7 +84,7 @@ Swal.fire({
     
     Swal.fire({
       title: "Silmək istədiyinizə əminsiz?",
-      text: "Bunu geri qaytara bilməyəcəksiniz!",
+      text: "Bunu geri qaytara bilməyəcəksiniz",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -94,7 +94,7 @@ Swal.fire({
       if (result.isConfirmed) {
         Swal.fire({
           title: "Silindi!",
-          text: "Səbəsilindi.",
+          text: "Səbətdən silindi.",
           icon: "success"
         });
       }
@@ -104,7 +104,7 @@ Swal.fire({
     const target=basket.find(item=>item.product._id==product._id)
     if(target){
       target.count +=1
-      target.totalPrice=target.product.price*target.count
+      target.totalPrice=target.product.satis*target.count
       setbasket([...basket])
       localStorage.setItem("BasketItem",JSON.stringify([...basket]))
       Swal.fire({
@@ -121,7 +121,7 @@ Swal.fire({
         id: product._id,
         product:product,
         count:1,
-        totalPrice:product.price
+        totalPrice:product.satis
   
       }
       setbasket([...basket,BasketProduct])
@@ -140,7 +140,7 @@ Swal.fire({
     const target=basket.find(item=>item.id==product.id)
     if(target.count>1){
       target.count -=1
-      target.totalPrice=target.product.price*target.count
+      target.totalPrice=target.product.satis*target.count
       setbasket([...basket])
       localStorage.setItem("BasketItem",JSON.stringify([...basket]))
     }
@@ -150,7 +150,7 @@ Swal.fire({
     const target=basket.find(item=>item.id==product.id)
     
       target.count +=1
-      target.totalPrice=target.product.price*target.count
+      target.totalPrice=target.product.satis*target.count
       setbasket([...basket])
       localStorage.setItem("BasketItem",JSON.stringify([...basket]))
    
@@ -169,19 +169,7 @@ Swal.fire({
         setLoading(false);
       });
   }, []);
-  useEffect(() => {
-    axios.get("http://localhost:8000/kom")
-      .then(res => {
-        setLoading(false);
-        setDatas(res.data);
-        setOriginal(res.data);
 
-      })
-      .catch(err => {
-        setError(err);
-        setLoading(false);
-      });
-  }, []);
   const values = {
     data,
     setData,
@@ -191,7 +179,7 @@ Swal.fire({
     setError,
     original,
     setOriginal,fav,setFav,handleFav,AddtoBasket,increase,decreaseBtn, removeFrombasket,basket,setbasket,handleMuq,
-    muq,setMuq,datas,setDatas
+    muq,setMuq
   };
   return (
    <dataContexts.Provider value={values}>

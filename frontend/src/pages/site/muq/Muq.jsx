@@ -4,7 +4,7 @@ import Swal from "sweetalert2"
 import { TbPointFilled } from 'react-icons/tb'
 import { MdOutlineScore } from 'react-icons/md'
 import { FcVideoCall } from 'react-icons/fc'
-import { GiPentagramRose, GiScales } from 'react-icons/gi'
+import { GiPentagramRose, GiPocketRadio, GiScales } from 'react-icons/gi'
 import { HiColorSwatch } from 'react-icons/hi'
 import { PiScreencastBold } from 'react-icons/pi'
 import { CgWindows } from 'react-icons/cg'
@@ -60,7 +60,8 @@ const Fav = () => {
      </div>
    
           <div className="alt">
-          <p>{item.price}</p> <span>2740₼</span>
+          <p>₼{item.satis - (item.satis * item.endirim) / 100}</p>
+    <span>₼{item.satis}</span>
           </div>
           
       </div>
@@ -77,7 +78,7 @@ const Fav = () => {
 </div>
 <div className="duzulus">
 <div className="aycon">
-  <FcVideoCall  className='ayc' />
+<GiPocketRadio   className='ayc' />
 </div>
 <div className="yazs">
   <p style={{"color":"gray","fontSize":"13px"}}>{item.video}</p>
