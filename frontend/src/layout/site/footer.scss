@@ -104,7 +104,17 @@ border-radius: 30px;
 color:  rgb(147, 215, 46);;
 cursor: pointer;
     }
-    }
+a{
+  text-decoration:none ;
+  color: gray;
+  &:hover{
+    color:  rgb(147, 215, 46);;
+    cursor: pointer;
+        }
+}
+
+ 
+  }
 
 }
 

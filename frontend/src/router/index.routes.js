@@ -25,6 +25,7 @@ import Oyun from "../pages/site/aksesuar/Oyun"
 import Qulaqliq from "../pages/site/aksesuar/Qulaqliq"
 import Ses from "../pages/site/aksesuar/Ses"
 import Web from "../pages/site/aksesuar/Web"
+import Contact from "../pages/site/contact/Contact"
 import GameNote from "../pages/site/gamenote/GameNote"
 import Komponents from "../pages/site/komponents/Komponents"
 import Monitor from "../pages/site/komponents/Monitor"
@@ -165,6 +166,10 @@ const ROOT = [
          {
             path: "videokart",
             element: <Video/>,
+         },
+         {
+            path: "elaqe",
+            element: <Contact/>,
          },
       ]
    },

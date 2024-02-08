@@ -3,6 +3,7 @@ import { FaFacebookF, FaInstagram, FaRegMoon, FaWhatsapp } from 'react-icons/fa'
 import './footer.scss'
 import { BsTelephone } from "react-icons/bs";
 import { GiLoveLetter } from "react-icons/gi";
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
    
@@ -61,10 +62,7 @@ Siçan altlıqları</p>
         <p>Zəmanət şərtləri</p>
         <p>Məxfilik siyasəti</p>
         <p>Qaytarılma <br /> şərtləri</p>
-  
-
-        <p>Əlaqə</p>
-    
+<p>  <Link to={"elaqe"}>Əlaqə</Link></p>
          </div>
          <div className="alti">
           <h2>Xəbərlər</h2>
