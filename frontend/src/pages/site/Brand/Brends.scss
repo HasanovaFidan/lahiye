@@ -1,0 +1,76 @@
+.one-divs{
+    display: flex;
+}
+
+.brends{
+    background-color: white;
+    border: none;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+.one-divs{
+    display: flex;
+    gap: 20px;
+    padding-top: 2%;
+   
+    align-items: center;
+    justify-content: center;
+    .brends-div{
+        border: 1px solid rgb(218, 218, 218);
+        gap: 20px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 140px;
+        width: 25%;
+        &:hover{
+            border: 1px solid yellowgreen;
+        }
+ 
+        img{
+            width: 40%;
+        }
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+            }
+}
+}
+
+        .two-divs{
+            display: flex;
+            gap: 20px;
+            padding-top: 2%;
+           padding-bottom: 2%;
+            align-items: center;
+            justify-content: center;
+            .brends-div-two{
+                border: 1px solid rgb(218, 218, 218);
+                gap: 20px;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 140px;
+                width: 26%;
+                &:hover{
+                    border: 1px solid yellowgreen;
+                }
+            
+                img{
+                    width: 50%;
+                }
+                a{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                    }
+          
+        }

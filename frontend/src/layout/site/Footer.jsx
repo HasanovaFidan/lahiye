@@ -57,11 +57,10 @@ Siçan altlıqları</p>
          </div>
          <div className="bes">
           <h2>Şirkət haqqında</h2>
-          <p>Brendler</p>
-          <p>​Çatdırılma <br /> və ödəniş</p>
-        <p>Zəmanət şərtləri</p>
-        <p>Məxfilik siyasəti</p>
-        <p>Qaytarılma <br /> şərtləri</p>
+       <Link to={"/brend"}><p>Brendler</p></Link>
+          <Link to={"/catdirilma"}><p>​Çatdırılma <br /> və ödəniş</p></Link>
+    <Link to={"/zemanet"} ><p>Zəmanət şərtləri</p></Link>
+      <Link to={"/qaytarilma"}>  <p>Qaytarılma <br /> şərtləri</p></Link>
 <p>  <Link to={"elaqe"}>Əlaqə</Link></p>
          </div>
          <div className="alti">

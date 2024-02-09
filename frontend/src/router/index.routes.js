@@ -6,6 +6,15 @@ import Asus from "../pages/site/ASUS/Asus"
 import Acer from "../pages/site/Acer/Acer"
 import Alien from "../pages/site/Alien/Alien"
 import Basket from "../pages/site/Basket/Basket"
+import AcerBrands from "../pages/site/Brand/AcerBrands"
+import AsusBrands from "../pages/site/Brand/AsusBrands"
+import Brends from "../pages/site/Brand/Brends"
+import LenovoBrands from "../pages/site/Brand/LenovoBrands"
+import MsiBrands from "../pages/site/Brand/MsiBrends"
+import RazerBrands from "../pages/site/Brand/RazerBrands"
+import Catdirilma from "../pages/site/Catdirilma/Catdirilma"
+import Qaytarilms from "../pages/site/Catdirilma/Qaytarilms"
+import Zemanet from "../pages/site/Catdirilma/Zemanet"
 import Detail from "../pages/site/Detail/Detail"
 import Fav from "../pages/site/Fav/Fav"
 import Hp from "../pages/site/HP/Hp"
@@ -170,6 +179,42 @@ const ROOT = [
          {
             path: "elaqe",
             element: <Contact/>,
+         },
+         {
+            path: "brend",
+            element: <Brends/>,
+         },
+         {
+            path: "asusbrand",
+            element: <AsusBrands/>,
+         },
+         {
+            path: "acerbrand",
+            element: <AcerBrands/>,
+         },
+         {
+            path: "msibrand",
+            element: <MsiBrands/>,
+         },
+         {
+            path: "razerbrand",
+            element: <RazerBrands/>,
+         },
+         {
+            path: "lenovobrand",
+            element: <LenovoBrands/>,
+         },
+         {
+            path: "catdirilma",
+            element: <Catdirilma/>,
+         },
+         {
+            path: "zemanet",
+            element: <Zemanet/>,
+         },
+         {
+            path: "qaytarilma",
+            element: <Qaytarilms/>,
          },
       ]
    },

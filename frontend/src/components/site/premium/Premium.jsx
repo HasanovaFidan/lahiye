@@ -10,6 +10,7 @@ import { IoLogoElectron } from 'react-icons/io5'
 import { MdOutlineScore } from 'react-icons/md'
 import { PiScreencastBold } from 'react-icons/pi'
 import dataContexts from '../../../contexts/contexts'
+import { Link } from 'react-router-dom'
 
 const Premium = () => {
   const {data,setData,AddtoBasket,handleFav,handleMuq}=useContext(dataContexts)
@@ -105,7 +106,7 @@ const Premium = () => {
           <div className="flex">
    <span onClick={()=>handleMuq(item)} ><GiScales /></span>
      <span onClick= {()=>handleFav(item)} ><HiOutlineHeart/></span>
-     <span><FaArrowRight /></span>
+     <Link to={`/${item._id}`} > <span><FaArrowRight /></span></Link>
 
     </div>
           </div>

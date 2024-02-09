@@ -17,7 +17,9 @@ const Detail = () => {
   const {AddtoBasket,handleFav,handleMuq}=useContext(dataContexts)
     const {id}=useParams()
     const [item, setItem] = useState([]);
-
+    useEffect(() => {
+      window.scrollTo(0, 0); 
+    }, []);
   
     useEffect(() => {
       axios(`http://localhost:8080/technical/${id}`).then((res) => {
