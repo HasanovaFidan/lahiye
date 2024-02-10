@@ -6,6 +6,7 @@ import Asus from "../pages/site/ASUS/Asus"
 import Acer from "../pages/site/Acer/Acer"
 import Alien from "../pages/site/Alien/Alien"
 import Basket from "../pages/site/Basket/Basket"
+import Order from "../pages/site/Basket/Order"
 import AcerBrands from "../pages/site/Brand/AcerBrands"
 import AsusBrands from "../pages/site/Brand/AsusBrands"
 import Brends from "../pages/site/Brand/Brends"
@@ -215,6 +216,10 @@ const ROOT = [
          {
             path: "qaytarilma",
             element: <Qaytarilms/>,
+         },
+         {
+            path: "order",
+            element: <Order/>,
          },
       ]
    },

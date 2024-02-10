@@ -89,7 +89,8 @@ const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
 
 const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
 const endIndex = currentPage * ITEMS_PER_PAGE;
-const currentData = data.slice(startIndex, endIndex);
+const currentData = data.filter(item=>item.brand[0]=="HP").slice(startIndex, endIndex);
+
 
 const changePage = (pageNumber) => {
   setCurrentPage(pageNumber);

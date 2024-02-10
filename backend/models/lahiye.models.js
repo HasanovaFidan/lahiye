@@ -1,18 +1,18 @@
 const mongoose=require("mongoose")
 
 const Tecnik=mongoose.model("Tecnik", new mongoose.Schema({
-    image:{type:String, required:true},
-    name:{type:String, required:true},
+    image:{type:String},
+    name:{type:String,},
     catagory:[{type:String, required:true}],
     brand:[{type:String, required:true}],
-    prs:{type:String, required:true},
-    video:{type:String, required:true},
-    yaddas:{type:String, required:true},
-    screen:{type:String, required:true},
-    system:{type:String, required:true},
-    alis:{type:Number, required:true},
-    endirim:{type:Number,required:true},
-    satis:{type:Number,required:true}
+    prs:{type:String},
+    video:{type:String},
+    yaddas:{type:String},
+    screen:{type:String},
+    system:{type:String},
+    alis:{type:Number},
+    endirim:{type:Number},
+    satis:{type:Number}
 
 }))
 
