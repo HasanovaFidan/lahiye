@@ -45,7 +45,7 @@ function Hom() {
           </div>
         </div>
       ) : (
-        <div className="top">
+        <div className="to">
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>

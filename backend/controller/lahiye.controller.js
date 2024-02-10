@@ -35,7 +35,7 @@ const tecnikController={
   const {image,name,prs,catagory,brand,video,yaddas,screen,system,alis,endirim,satis}=req.body
 
   const update= await Tecnik.findByIdAndUpdate(id,{image,name,prs,catagory,brand,video,yaddas,screen,system,alis,endirim,satis})
-  res.send(201).send(" Product update")
+  res.send(201).send(update)
       } 
       catch(error){
           res.status(404).send("DATA NOT FOUND")
