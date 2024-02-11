@@ -50,6 +50,8 @@ function Hom() {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
+                <TableCell>image</TableCell>
+
                   <TableCell>Name</TableCell>
                   <TableCell align="right">Buy</TableCell>
                   <TableCell align="right">Endirim</TableCell>
@@ -61,7 +63,6 @@ function Hom() {
                   <TableCell align="right">Ekran</TableCell>
                   <TableCell align="right">Sistem</TableCell>
                   <TableCell align="right">Katagoriya</TableCell>
-                  <TableCell align="right">Brend</TableCell>
                   <TableCell align="right">Sil</TableCell>
                   <TableCell align="right">Düzəlt</TableCell>
                  
@@ -70,6 +71,8 @@ function Hom() {
               <TableBody>
                 {data.map((item, index) => (
                   <TableRow key={index}>
+                    <TableCell className='imagetable'><img src={item.image} alt="" /></TableCell>
+
                     <TableCell>{item.name}</TableCell>
                     <TableCell align="right">{item.alis!==""? item.alis:"-"}</TableCell>
                     <TableCell align="right">{item.endirim!==""? item.endirim:"-"}</TableCell>
@@ -80,7 +83,7 @@ function Hom() {
                     <TableCell align="right">{item.screen!==""? item.screen:"-"}</TableCell>
                     <TableCell align="right">{item.system!==""? item.system:"-"}</TableCell>
                     <TableCell align="right">{item.catagory!==""? item.catagory:"-"}</TableCell>
-                    <TableCell align="right">{item.brand!==""? item.brand:"-"}</TableCell>
+               
                 
             
                     <TableCell align="right">

@@ -4,6 +4,7 @@ import { CiHeart, CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
 import { IoSettingsOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import dataContexts from '../../contexts/contexts';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 
 
@@ -47,6 +48,7 @@ function Header() {
                 <IoSettingsOutline/>
                     
                 </div>
+   
                 
             </div>
  

@@ -43,7 +43,10 @@
             width: 80%;
          gap: 10px;
             flex-direction: column;
+            padding-top: 4%;
+            padding-bottom: 2%;
             a{
+             
               text-decoration: none;
               padding-left: 20px;
               font-size: 12px;
@@ -429,4 +432,35 @@ margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.wn {
+  display: flex;
+  align-items: center; /* Align items vertically center */
+  cursor: pointer;
+}
+
+/* Styling for the links inside .wn */
+.wn a {
+  color: inherit; /* Inherit text color */
+  text-decoration: none; /* Remove default underline */
+}
+
+/* Change color and cursor on hover */
+.wn:hover {
+  background-color: #f0f8ff; /* Change background color on hover */
+}
+
+/* Change color of links on hover */
+.wn:hover a {
+  color: green; /* Change text color on hover */
+}
+
+.wn {
+  display: flex;
+  align-items: center; 
+  cursor: pointer;
+  label{
+    font-size: 13px;
+ 
+  }
 }

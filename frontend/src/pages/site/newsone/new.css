@@ -1,0 +1,86 @@
+.whiteone {
+  width: 100%;
+  background-color: white;
+  border-radius: 30px;
+  border: none;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.whiteone .wo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.whiteone .wo img {
+  width: 90%;
+  padding-top: 2%;
+}
+.whiteone .wt img {
+  margin-left: 2%;
+  width: 70%;
+}
+.whiteone .wt span {
+  color: yellowgreen;
+  font-size: 22px;
+  text-align: start;
+  font-weight: bold;
+}
+.whiteone p {
+  padding-left: 2%;
+  font-size: 14px;
+  color: rgb(92, 92, 92);
+}
+.whiteone .wth img {
+  margin-left: 2%;
+  width: 80%;
+}
+.whiteone .wth .ort {
+  text-align: center;
+}
+.whiteone .wf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.whiteone .wf img {
+  width: 90%;
+  padding-top: 2%;
+}
+.whiteone .wfi img {
+  margin-left: 2%;
+  width: 80%;
+}
+
+.div {
+  display: flex;
+  gap: 10px;
+}
+.div span {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(215, 215, 215);
+  border-radius: 50%;
+  font-size: 20px;
+}
+.div span:hover {
+  background-color: rgb(147, 215, 46);
+  cursor: pointer;
+}
+
+.dat {
+  padding-right: 6%;
+}
+
+.youtube {
+  margin-left: 2%;
+  width: auto;
+}/*# sourceMappingURL=new.css.map */

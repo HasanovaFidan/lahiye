@@ -5,7 +5,7 @@ const Tecnik=mongoose.model("Tecnik", new mongoose.Schema({
     name:{type:String,},
     catagory:[{type:String, required:true}],
     brand:[{type:String, required:true}],
-    prs:{type:String},
+    prs:[{type:String,required:true}],
     video:{type:String},
     yaddas:{type:String},
     screen:{type:String},

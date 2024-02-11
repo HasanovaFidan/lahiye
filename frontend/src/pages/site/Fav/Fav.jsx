@@ -12,32 +12,16 @@ import { BiBasket } from 'react-icons/bi'
 import { IoLogoElectron } from 'react-icons/io5'
 import { MdDeleteOutline } from "react-icons/md";
 import { FaArrowRight } from 'react-icons/fa'
+import { toast } from 'react-toastify'
 const Fav = () => {
     const {fav,setFav,AddtoBasket}=useContext(dataContexts)
-    const handleDelete=(id)=>{
- 
-            const deleted=fav.filter((item)=>item._id!==id)
-            setFav([...deleted])
-            localStorage.setItem("fav",JSON.stringify([...deleted]))
-            Swal.fire({
-              title: "Silmək istədiyinizə əminsiz?",
-              text: "Bunu geri qaytara bilməyəcəksiniz!",
-              icon: "warning",
-              showCancelButton: true,
-              confirmButtonColor: "#3085d6",
-              cancelButtonColor: "#d33",
-              confirmButtonText: "Əminəm,Silin!"
-            }).then((result) => {
-              if (result.isConfirmed) {
-                Swal.fire({
-                  title: "Silindi!",
-                  text: "Faylınız silindi.",
-                  icon: "success"
-                });
-              }
-            });
-
-    }
+    const handleDelete = (id) => {
+      const deleted = fav.filter((item) => item._id !== id);
+      setFav([...deleted]);
+      localStorage.setItem("fav", JSON.stringify([...deleted]));
+    
+      // Display toast notification for deletion
+      toast.error("Favoritlərdən  silindi.");}
   return (
     <div className='lr'>
 

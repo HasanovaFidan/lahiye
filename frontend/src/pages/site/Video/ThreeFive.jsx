@@ -1,13 +1,28 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
-import "./cards.scss";
-import Card from './Card';
+
 import { TbPointFilled } from "react-icons/tb";
 import dataContexts from '../../../contexts/contexts';
+import { BiBasket } from 'react-icons/bi';
+import { GiPocketRadio, GiScales } from 'react-icons/gi';
+import { HiOutlineHeart } from 'react-icons/hi2';
+import { MdOutlineScore } from 'react-icons/md';
+import { FcVideoCall } from 'react-icons/fc';
+import { GiPentagramRose } from 'react-icons/gi';
+import { HiColorSwatch } from 'react-icons/hi';
+import { PiScreencastBold } from 'react-icons/pi';
+import { CgWindows } from 'react-icons/cg';
+
 import { Link } from 'react-router-dom';
 
-const Cads = () => {
-  const  {data,setData}=useContext(dataContexts)
+
+const ITEMS_PER_PAGE = 12;
+
+const ThreeFive = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0); 
+      }, []);
+  const  {data,setData,handleFav,handleMuq,AddtoBasket}=useContext(dataContexts)
   const [cpuDropdownOpen, setCpuDropdownOpen] = useState(false);
   const [gpuDropdownOpen, setGpuDropdownOpen] = useState(false);
   const [spuDropdownOpen, setSpuDropdownOpen] = useState(false);
@@ -71,6 +86,18 @@ const Cads = () => {
       const target=data.sort((a,b)=>b.name.localeCompare(a.name))
     }
   }
+const [currentPage, setCurrentPage] = useState(1);
+
+const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
+
+const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+const endIndex = currentPage * ITEMS_PER_PAGE;
+
+
+const changePage = (pageNumber) => {
+  setCurrentPage(pageNumber);
+  window.scrollTo(0, 0);
+};
   return (
     <div className='lr' onClick={closeDropdowns}>
  <div className="noqte">
@@ -118,28 +145,32 @@ const Cads = () => {
             <div className={`active ${cpuDropdownOpen ? 'show' : ''}`} id="cpuDropdownContent">
               <div className="xett"></div>
               <div className="wn">
-              <Link to={"/intelfive"}><label htmlFor="i5">i5:</label></Link>
-         <input type="checkbox" id="i5" name="i5" value="checked"/>
+                <label htmlFor="i5">i5:</label>
+                <input type="checkbox" id="i5" name="i5" value="checked"/>
               </div>
               <div className="wn">
-             <Link to={"/intelseven"}>   <label htmlFor="i7">i7:</label></Link>
+                <label htmlFor="i7">i7:</label>
                 <input type="checkbox" id="i7" name="i7" value="checked"/>
               </div>
               <div className="wn">
-              <Link to={"/nine"}><label htmlFor="i9">i9:</label></Link>
+                <label htmlFor="i9">i9:</label>
                 <input type="checkbox" id="i9" name="i9" value="checked"/>
               </div>
               <div className="wn">
-               <Link to={"/ryzenfive"}> <label htmlFor="ryzen5">Ryzen 5:</label></Link>
+                <label htmlFor="ryzen5">Ryzen 5:</label>
                 <input type="checkbox" id="ryzen5" name="ryzen5" value="checked"/>
               </div>
               <div className="wn">
-             <Link to={"/ryzenseven"}>   <label htmlFor="ryzen7">Ryzen 7:</label></Link>
+                <label htmlFor="ryzen7">Ryzen 7:</label>
                 <input type="checkbox" id="ryzen7" name="ryzen7" value="checked"/>
               </div>
               <div className="wn">
-           <Link to={"/ryzennine"}> <label htmlFor="ryzen9">Ryzen 9:</label></Link>
+                <label htmlFor="ryzen9">Ryzen 9:</label>
                 <input type="checkbox" id="ryzen9" name="ryzen9" value="checked"/>
+              </div>
+              <div className="wn">
+                <label htmlFor="ryzenZ1">Ryzen Z1:</label>
+                <input type="checkbox" id="ryzenZ1" name="ryzenZ1" value="checked"/>
               </div>
             </div>
           </div>
@@ -177,7 +208,7 @@ const Cads = () => {
                 <input type="checkbox" id="i7" name="i7" value="checked"/>
               </div>
               <div className="win">
-              <Link to={"/threeseven"}>       <label htmlFor="i7">NVIDIA GeForce RTX 3070 8GB</label></Link>
+              <Link to={"/threeseven"}>      <label htmlFor="i7">NVIDIA GeForce RTX 3070 8GB</label></Link>
                 <input type="checkbox" id="i7" name="i7" value="checked"/>
               </div>
               <div className="win">
@@ -246,11 +277,104 @@ const Cads = () => {
 
                 </select>
    </div>
-          <Card/>
+   <div className="row">
+      {data.map((item, index) => {
+    if(item.video=="NVIDIA GeForce RTX 3050 4GB"){
+      return(
+        <div key={index} className="cards col-4 col-mb-4 col-lg-12">
+        <img src={item.image} alt="" />
+        <p style={{ color: 'yellowgreen', fontWeight: 'bold', fontSize: '15px', paddingLeft: '10px', paddingTop: '10px' }}>{item.name}</p>
+        {
+item.endirim > 0 ? (
+  <div className='yaxin'>
+    <p>₼{item.satis - (item.satis * item.endirim) / 100}</p>
+    <span>₼{item.satis}</span>
+  </div>
+) : null
+}
+        <div className="xett"></div>
+        <div className="flex">
+          <span><GiScales onClick={()=>handleMuq(item)} /></span>
+          <span><HiOutlineHeart onClick={()=>handleFav(item)} /></span>
+          <button  onClick={()=>{ AddtoBasket(item) }}><BiBasket /> Səbətə at</button>
+        </div>
+        <div className="duzulus">
+          <div className="aycon">
+            <MdOutlineScore className='ayc' />
+          </div>
+          <div className="yazs">
+            <p style={{ color: 'gray', fontSize: '13px' }}>Prosessor</p>
+            <p>{item.prs}</p>
+          </div>
+        </div>
+        <div className="duzulus">
+          <div className="aycon">
+          <GiPocketRadio  className='ayc' />
+          </div>
+          <div className="yazs">
+            <p style={{ color: 'gray', fontSize: '13px' }}>Videokart (GPU)</p>
+            <p>{item.video}</p>
+          </div>
+        </div>
+        <div className="duzulus">
+          <div className="aycon">
+            <GiPentagramRose className='ayc' />
+          </div>
+          <div className="yazs">
+            <p style={{ color: 'gray', fontSize: '13px' }}>Operativ yaddaş (RAM)</p>
+            <p>{item.yaddas}</p>
+          </div>
+        </div>
+        {/* <div className="duzulus">
+          <div className="aycon">
+            <HiColorSwatch className='ayc' />
+          </div>
+          <div className="yazs">
+            <p style={{ color: 'gray', fontSize: '13px' }}>Yaddaş</p>
+            <p>1TB PCIe NVMe SSD</p>
+          </div>
+        </div> */}
+        <div className="duzulus">
+          <div className="aycon">
+            <PiScreencastBold className='ayc' />
+          </div>
+          <div className="yazs">
+            <p style={{ color: 'gray', fontSize: '13px' }}>Ekran</p>
+            <p>{item.screen}</p>
+          </div>
+        </div>
+        <div className="duzulus">
+          <div className="aycon">
+            <CgWindows className='ayc' />
+          </div>
+          <div className="yazs">
+            <p style={{ color: 'gray', fontSize: '13px' }}>Əməliyyat sistemi</p>
+            <p>Windows 11</p>
+          </div>
+        </div>
+        <button className='baxs'><Link to={`/${item._id}`}>Ətraflı bax</Link></button>
+      </div>
+      )
+    }
+})}
+
+
+      <div className="pagination">
+        {Array.from({ length: currentPage }, (_, i) => (
+          <span
+            key={i + 1}
+            className={currentPage === i + 1 ? 'active' : ''}
+            onClick={() => changePage(i + 1)}
+          >
+            {i + 1}
+          </span>
+        ))}
+      </div>
+    </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Cads;
+export default ThreeFive;

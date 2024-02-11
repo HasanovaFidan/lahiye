@@ -20,11 +20,25 @@ import Detail from "../pages/site/Detail/Detail"
 import Fav from "../pages/site/Fav/Fav"
 import Hp from "../pages/site/HP/Hp"
 import Home from "../pages/site/Home/Home"
+import Five from "../pages/site/I9/Five"
+import Nine from "../pages/site/I9/Nine"
+import RyzenFive from "../pages/site/I9/Ryzenfive"
+import Ryzennine from "../pages/site/I9/Ryzenine"
+import Ryzenseven from "../pages/site/I9/Ryzenseven"
+import Seven from "../pages/site/I9/Seven"
 import Lenovo from "../pages/site/Lenovo/Lenovo"
 import Msi from "../pages/site/MSI/Msi"
 import Nvdia from "../pages/site/NVDIA/Nvdia"
 import Razer from "../pages/site/Razer/Razer"
 import SiteRoot from "../pages/site/SiteRoot"
+import FourEight from "../pages/site/Video/FourEight"
+import FourNine from "../pages/site/Video/FourNine"
+import Fourfive from "../pages/site/Video/Fourfive"
+import FourSeven from "../pages/site/Video/Fourseven"
+import FourSix from "../pages/site/Video/Foursix"
+import Graphic from "../pages/site/Video/Grapichs"
+import ThreeFive from "../pages/site/Video/ThreeFive"
+import ThreeSeven from "../pages/site/Video/ThreeSeven"
 import About from "../pages/site/about/About"
 import Akseuar from "../pages/site/aksesuar/Akseuar"
 import Klavis from "../pages/site/aksesuar/Klavis"
@@ -221,6 +235,66 @@ const ROOT = [
             path: "order",
             element: <Order/>,
          },
+         {
+            path: "nine",
+             element:<Nine/>,
+         },
+         {
+            path: "intelfive",
+             element:<Five/>,
+         },
+         {
+            path: "intelseven",
+             element:<Seven/>,
+         },
+         {
+            path: "ryzenfive",
+             element:<RyzenFive/>,
+         },
+         {
+            path: "ryzenseven",
+             element:<Ryzenseven/>,
+         },
+         {
+            path: "ryzenfive",
+             element:<RyzenFive/>,
+         },
+         {
+            path: "ryzennine",
+             element:<Ryzennine/>,
+         },
+         {
+            path: "fourfive",
+             element:<Fourfive/>,
+         },
+         {
+            path: "fourseven",
+             element:<FourSeven/>,
+         },
+         {
+            path: "foureight",
+             element:<FourEight/>,
+         },
+         {
+            path: "fournine",
+             element:<FourNine/>,
+         },
+         {
+            path: "threefive",
+             element:<ThreeFive/>,
+         },
+         {
+            path: "foursix",
+             element:<FourSix/>,
+         },
+         {
+            path: "qrafik",
+             element:<Graphic/>,
+         },
+         {
+            path: "threeseven",
+             element:<ThreeSeven/>,
+         },
       ]
    },
    {
@@ -239,6 +313,7 @@ children:[
    path: "edit/:id",
     element:<Edit/>,
 },
+
 
 
 ]

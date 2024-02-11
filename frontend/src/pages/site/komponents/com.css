@@ -1,0 +1,115 @@
+.cards-flex {
+  display: flex;
+}
+
+.car {
+  width: 260px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: 1px solid rgb(190, 189, 189);
+  border-radius: 20px;
+}
+.car:hover {
+  border: 1px solid rgb(116, 163, 20);
+}
+.car .yaxin {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 8px;
+}
+.car .yaxin p {
+  text-align: start;
+  color: red;
+  font-size: 17px;
+  font-weight: bold;
+}
+.car .yaxin span {
+  text-align: start;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+.car .flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+.car .flex span {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(215, 215, 215);
+  border-radius: 50%;
+  font-size: 20px;
+  color: black;
+}
+.car .flex span:hover {
+  background-color: rgb(147, 215, 46);
+  cursor: pointer;
+}
+.car .flex button {
+  width: 120px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  background-color: rgb(147, 215, 46);
+  color: black;
+}
+.car .flex button:hover {
+  background-color: rgb(97, 152, 14);
+  cursor: pointer;
+}
+.car img {
+  margin-top: 20px;
+  width: 80%;
+  object-fit: contain;
+}
+
+.bax {
+  width: 80%;
+  height: 45px;
+  background-color: rgb(241, 241, 241);
+  border: none;
+  border-radius: 20px;
+  margin-top: 30px;
+  font-weight: 500;
+}
+.bax:hover {
+  background-color: rgb(133, 203, 28);
+}
+
+.baslar {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  gap: 7px;
+  padding-top: 10px;
+}
+
+.borderone {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+.borderone a {
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+  text-align: start;
+  padding-left: 20px;
+}
+.borderone a:hover {
+  color: yellowgreen;
+  cursor: pointer;
+}/*# sourceMappingURL=com.css.map */

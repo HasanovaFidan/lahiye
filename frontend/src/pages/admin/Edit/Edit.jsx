@@ -1,14 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { toast, Toaster } from 'react-hot-toast';
+
+import { useNavigate, useParams } from 'react-router-dom'; 
 import dataContexts from '../../../contexts/contexts';
-import { useNavigate } from 'react-router-dom'; 
 
 function Add() {
-  const { setData, data } = useContext(dataContexts);
+  const {id}=useParams()
+  const {  data,setData, } = useContext(dataContexts);
   const navigate = useNavigate(); 
+  
+  useEffect(() => {
+    axios.get(`http://localhost:8080/technical/${id}`).then((res) => {
+      setData(res.data);
 
+    });
+  }, []);
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -28,7 +36,7 @@ function Add() {
     onSubmit: values => {
       axios.put(`http://localhost:8080/technical/${data._id}`, values).then(res => {
         setData([...data, res.data]);
-  
+        navigate('/admin'); 
         toast.success('Əlavə edildi.');
       }).catch(error => {
         toast.error('Əlavə edilərkən bir xəta baş verdi.');
@@ -40,7 +48,7 @@ function Add() {
   return (
     <div style={{ marginTop: "30px", minHeight: "500px" }}>
       <div className="application">
-        {/* ... */}
+     
       </div>
       <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
         <form className="form" onSubmit={formik.handleSubmit}>
@@ -198,7 +206,7 @@ function Add() {
               />
             </div>
           </div>
-          <button type="submit">Əlavə et</button>
+          <button className="differbtn" type="submit">Əlavə et</button>
         </form>
       </div>
       <Toaster />

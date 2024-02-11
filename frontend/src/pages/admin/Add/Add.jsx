@@ -31,9 +31,7 @@ function Add() {
         setData([...data, res.data]);
         navigate('/admin'); 
         toast.success('Əlavə edildi.');
-      }).catch(error => {
-        toast.error('Əlavə edilərkən bir hata oluştu.');
-      });
+      })
       formik.resetForm();
     },
   });
