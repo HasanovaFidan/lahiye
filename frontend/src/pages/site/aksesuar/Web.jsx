@@ -53,7 +53,7 @@ const Web = () => {
      <div className="left-bord">
        <div className="arounds">
          <h6>Filter</h6>
-         <button>sıfırla</button>
+         <Link to={"/aksesuar"} > <button>sıfırla</button></Link>
        </div>
        <div className="borderone">
 <div className="baslar">

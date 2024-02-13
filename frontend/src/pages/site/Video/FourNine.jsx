@@ -110,7 +110,7 @@ const changePage = (pageNumber) => {
         <div className="left-bord">
           <div className="arounds">
             <h6>Filter</h6>
-            <button>sıfırla</button>
+            <Link to={"/home"}> <button>sıfırla</button></Link>
           </div>
           <div className="borderone">
          <Link to={"/asus"}>ASUS ROG / TUF</Link>
@@ -137,43 +137,51 @@ const changePage = (pageNumber) => {
             </div>
           </div>
           <div className="bordertwo">
-            <div className="cpu-aroundse" onClick={toggleCpuDropdown}>
-              <p>Prosessor (CPU)</p>
-              <IoIosArrowDown className='drop' />
-            </div>
+      <div className="cpu-aroundse" onClick={toggleCpuDropdown}>
+        <p>Prosessor (CPU)</p>
+        <IoIosArrowDown className='drop' />
+      </div>
 
-            <div className={`active ${cpuDropdownOpen ? 'show' : ''}`} id="cpuDropdownContent">
-              <div className="xett"></div>
-              <div className="wn">
-                <label htmlFor="i5">i5:</label>
-                <input type="checkbox" id="i5" name="i5" value="checked"/>
-              </div>
-              <div className="wn">
-                <label htmlFor="i7">i7:</label>
-                <input type="checkbox" id="i7" name="i7" value="checked"/>
-              </div>
-              <div className="wn">
-                <label htmlFor="i9">i9:</label>
-                <input type="checkbox" id="i9" name="i9" value="checked"/>
-              </div>
-              <div className="wn">
-                <label htmlFor="ryzen5">Ryzen 5:</label>
-                <input type="checkbox" id="ryzen5" name="ryzen5" value="checked"/>
-              </div>
-              <div className="wn">
-                <label htmlFor="ryzen7">Ryzen 7:</label>
-                <input type="checkbox" id="ryzen7" name="ryzen7" value="checked"/>
-              </div>
-              <div className="wn">
-                <label htmlFor="ryzen9">Ryzen 9:</label>
-                <input type="checkbox" id="ryzen9" name="ryzen9" value="checked"/>
-              </div>
-              <div className="wn">
-                <label htmlFor="ryzenZ1">Ryzen Z1:</label>
-                <input type="checkbox" id="ryzenZ1" name="ryzenZ1" value="checked"/>
-              </div>
-            </div>
-          </div>
+      <div className={`active ${cpuDropdownOpen ? 'show' : ''}`} id="cpuDropdownContent">
+        <div className="xett"></div>
+        <div className="wn">
+          <label htmlFor="i5">
+            <Link to={"/intelfive"}>i5:</Link>
+          </label>
+          <input type="checkbox" id="i5" name="i5" value="checked" />
+        </div>
+        <div className="wn">
+          <label htmlFor="i7">
+            <Link to={"/intelseven"}>i7:</Link>
+          </label>
+          <input type="checkbox" id="i7" name="i7" value="checked" />
+        </div>
+        <div className="wn">
+          <label htmlFor="i9">
+            <Link to={"/nine"}>i9:</Link>
+          </label>
+          <input type="checkbox" id="i9" name="i9" value="checked" />
+        </div>
+        <div className="wn">
+          <label htmlFor="ryzen5">
+            <Link to={"/ryzenfive"}>Ryzen 5:</Link>
+          </label>
+          <input type="checkbox" id="ryzen5" name="ryzen5" value="checked" />
+        </div>
+        <div className="wn">
+          <label htmlFor="ryzen7">
+            <Link to={"/ryzenseven"}>Ryzen 7:</Link>
+          </label>
+          <input type="checkbox" id="ryzen7" name="ryzen7" value="checked" />
+        </div>
+        <div className="wn">
+          <label htmlFor="ryzen9">
+            <Link to={"/ryzennine"}>Ryzen 9:</Link>
+          </label>
+          <input type="checkbox" id="ryzen9" name="ryzen9" value="checked" />
+        </div>
+      </div>
+    </div>
           <div className="bordertwo">
             <div className="gpu-aroundse" onClick={toggleGpuDropdown}>
               <p>Videokart (GPU)</p>
@@ -235,31 +243,31 @@ const changePage = (pageNumber) => {
             <div className={`active ${spuDropdownOpen ? 'show' : ''}`} id="spuDropdownContent">
               <div className="xett"></div>
               <div className="wn">
-                <label htmlFor="i5">16</label>
+               <Link to={"/onalti"}> <label htmlFor="i5">16</label></Link>
                 <input type="checkbox" id="i5" name="i5" value="checked"/>
               </div>
               <div className="wn">
-                <label htmlFor="i7">18:</label>
+           <Link to={"/onsekkiz"}> <label htmlFor="i7">18:</label></Link>
                 <input type="checkbox" id="i7" name="i7" value="checked"/>
               </div>
               <div className="wn">
-                <label htmlFor="i9">15.6:</label>
+            <Link to={"/onbes"}>    <label htmlFor="i9">15.6:</label></Link>
                 <input type="checkbox" id="i9" name="i9" value="checked"/>
               </div>
               <div className="wn">
-                <label htmlFor="ryzen5">Ryzen 17.3</label>
+               <Link to={"/onyeddi"}> <label htmlFor="ryzen5">Ryzen 17.3</label></Link>
                 <input type="checkbox" id="ryzen5" name="ryzen5" value="checked"/>
               </div>
               <div className="wn">
-                <label htmlFor="ryzen7"> 7:</label>
+          <Link to={"/yeddi"}><label htmlFor="ryzen7"> 7:</label></Link>
                 <input type="checkbox" id="ryzen7" name="ryzen7" value="checked"/>
               </div>
               <div className="wn">
-                <label htmlFor="ryzen9">8.8</label>
+              <Link to={"/sekkiz"}>  <label htmlFor="ryzen9">8.8</label></Link>
                 <input type="checkbox" id="ryzen9" name="ryzen9" value="checked"/>
               </div>
               <div className="wn">
-                <label htmlFor="ryzenZ1">14</label>
+             <Link to={"/ondort"}>   <label htmlFor="ryzenZ1">14</label></Link>
                 <input type="checkbox" id="ryzenZ1" name="ryzenZ1" value="checked"/>
               </div>
             </div>

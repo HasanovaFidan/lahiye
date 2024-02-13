@@ -30,9 +30,9 @@ const Fav = () => {
 <div className="noqte">
 <span>GameNote</span>
 <TbPointFilled className='field' />
-<p>Aksesuarlar</p>
+<p>Müqayisə</p>
 </div>
-    <h3 className='hasu'>Favoritlər</h3>
+    <h3 className='hasu'></h3>
     <div className="getall">
 
     {

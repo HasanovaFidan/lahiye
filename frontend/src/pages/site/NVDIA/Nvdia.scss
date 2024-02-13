@@ -4,7 +4,8 @@
     .img {
       position: relative;
       display: block;
-      overflow: hidden;
+      overflow: hidden;;
+      
   
       img {
         width: 100%;
@@ -23,6 +24,8 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
     img {
       width: 200px;
@@ -134,26 +137,22 @@
   }
 
 
-  .nvdia {
+  .anyway {
     position: relative;
-  
-    .imeg {
-      position: relative;
-      overflow: hidden;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.anyway .imeg img {
+    width: 100%;
     height: auto;
-  
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-    }
-  }
+    display: block;
+    max-width: 100%; /* Ensure the image does not exceed the container width */
+}
   
   .wra {
     position: absolute;
     top: 57%;
-    left: 50%;
+    left: 40%;
     transform: translate(-50%, -50%);
     color: #fff;
     z-index: 1;
@@ -418,3 +417,18 @@
         text-align: center;
     }
   }
+  .nvdia,
+.nvdia .imag,
+.nvdia .imeg,
+.imags {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+.nvdia .imag,
+.nvdia .imeg,
+.imags {
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.imags img {
+    height: 500px; 
+}

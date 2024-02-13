@@ -14,6 +14,7 @@ const Header = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const { data, setData,  original } = useContext(dataContexts);
   const [searchEmpty, setSearchEmpty] = useState(false); 
+  const [isCanvasOpen, setIsCanvasOpen] = useState(false);
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
@@ -41,6 +42,9 @@ const Header = () => {
       setSearchEmpty(datasrc.length === 0); 
     }
   };
+  const toggleCanvas = () => {
+    setIsCanvasOpen(!isCanvasOpen); 
+  };
 
   return (
     <div className="lr header-container">
@@ -67,9 +71,9 @@ const Header = () => {
           </button>
           <CiUser className='user' onClick={toggleOpen} />
         </div>
-        <div className="burger" onClick={toggleOpen}>
-          <CiMenuBurger />
-        </div>
+        <div className="burger" onClick={toggleCanvas}>
+  <CiMenuBurger />
+</div>
       </div>
       <div className={`overlay ${isOpen || isRegisterOpen ? 'visible' : ''}`} onClick={closeOpen}></div>
       <div className={`open ${isOpen ? 'visible' : ''}`}>
@@ -126,7 +130,16 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <div className={`canvas-open ${isCanvasOpen ? 'visible' : ''}`}>
+  <Link to={"/home"}>Noutbuklar</Link>
+  <Link to={"/komponents"}>Komponentlər və Monitorlar</Link>
+  <Link to={"/aksesuar"}>Aksesuarlar</Link>
+  <Link to={"/about"}>Şirkət haqqında</Link>
+  <Link to={"/news"}>Xəbərlər</Link>
+  <Link to={"/nvdia"}>NVDIA</Link>
+</div>
       <div className="og">
+
         <div className="left-og">
           <Link to={"/home"}>Noutbuklar</Link>
           <Link to={"/komponents"}>Komponentlər və Monitorlar</Link>

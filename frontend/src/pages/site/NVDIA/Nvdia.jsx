@@ -29,8 +29,9 @@ const Nvdia = () => {
 <p>GeForce RTX 4080 SUPER</p>
         </div>
       </div>
-      <div className="nvdia">
-        <div className="imeg">
+   
+     <div className="anyway">
+     <div className="imeg">
           <img  src="https://gamenotebaku.az/nvidia/imgs/arch-back.png" alt="" />
         </div>
         <div className="wra">
@@ -110,7 +111,8 @@ DLSS 3 по сравнению с обычным рендерингом</p>
           
         </div>
         </div>
-      </div>
+     </div>
+     
       <div className="nvdia">
         <div className="imags">
         <img src="https://gamenotebaku.az/nvidia/imgs/tracing.png" alt="" />

@@ -1,6 +1,6 @@
 import Add from "../pages/admin/Add/Add"
 import AdminRoot from "../pages/admin/AdminRoot"
-import Edit from "../pages/admin/Edit/Edit"
+import EditPage from "../pages/admin/EditPage/EditPage"
 import Hom from "../pages/admin/Homes/Hom"
 import Asus from "../pages/site/ASUS/Asus"
 import Acer from "../pages/site/Acer/Acer"
@@ -59,6 +59,14 @@ import News from "../pages/site/newa/News"
 import Newone from "../pages/site/newsone/Newone"
 import NewsThree from "../pages/site/newsthree/NewsThree"
 import Newstwo from "../pages/site/newstwo/Newstwo"
+import OnBes from "../pages/site/screen/OnBes"
+import OnDort from "../pages/site/screen/OnDort"
+import OnYeddi from "../pages/site/screen/OnYeddi"
+import OnAlti from "../pages/site/screen/Onalti"
+import OnSekkiz from "../pages/site/screen/Onsekkiz"
+import Sekkiz from "../pages/site/screen/Sekkiz"
+import Yeddi from "../pages/site/screen/Yeddi"
+
 
 
 const ROOT = [
@@ -295,6 +303,36 @@ const ROOT = [
             path: "threeseven",
              element:<ThreeSeven/>,
          },
+         {
+            path: "onalti",
+             element:<OnAlti/>,
+         },
+         {
+            path: "onsekkiz",
+             element:<OnSekkiz/>,
+         },
+         {
+            path: "onbes",
+             element:<OnBes/>,
+         },
+         {
+            path: "onyeddi",
+             element:<OnYeddi/>,
+         },
+         {
+            path: "yeddi",
+             element:<Yeddi/>,
+         },
+         {
+            path: "sekkiz",
+             element:<Sekkiz/>,
+         },
+         {
+            path: "ondort",
+             element:<OnDort/>,
+         },
+
+
       ]
    },
    {
@@ -310,9 +348,10 @@ children:[
     element:<Add/>,
 },
 {
-   path: "edit/:id",
-    element:<Edit/>,
-},
+   path: "e/:id",
+   element:<EditPage/>
+}
+
 
 
 

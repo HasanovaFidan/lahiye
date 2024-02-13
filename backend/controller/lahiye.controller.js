@@ -26,7 +26,7 @@ const tecnikController={
            await newTecnik.save()
            res.send(newTecnik)
         } catch (error) {
-            res.send("err")
+            res.send(error)
         }
     },
     edit: async (req,res)=>{
@@ -38,7 +38,7 @@ const tecnikController={
   res.send(201).send(update)
       } 
       catch(error){
-          res.status(404).send("DATA NOT FOUND")
+          res.status(404).send(error)
       }
   },
     delete:async (req,res)=>{

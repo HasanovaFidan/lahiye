@@ -93,7 +93,7 @@ function Hom() {
                     </TableCell>
                     <TableCell align="right">
                     
-                    <Link to={`/edit/${item._id}`}><FaRegEdit className='tableedit' /></Link>
+                    <Link to={`/e/${item._id}`}><FaRegEdit className='tableedit' /></Link>
                     </TableCell>
                   </TableRow>
                 ))}

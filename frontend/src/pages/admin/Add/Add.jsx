@@ -27,10 +27,14 @@ function Add() {
     },
 
     onSubmit: values => {
+      console.log(values)
       axios.post("http://localhost:8080/technical", values).then(res => {
+        console.log(res)
+
         setData([...data, res.data]);
         navigate('/admin'); 
         toast.success('Əlavə edildi.');
+
       })
       formik.resetForm();
     },
