@@ -231,31 +231,31 @@ const changePage = (pageNumber) => {
             <div className={`active ${spuDropdownOpen ? 'show' : ''}`} id="spuDropdownContent">
               <div className="xett"></div>
               <div className="wn">
-                <label htmlFor="i5">16</label>
+               <Link to={"/onalti"}> <label htmlFor="i5">16</label></Link>
                 <input type="checkbox" id="i5" name="i5" value="checked"/>
               </div>
               <div className="wn">
-                <label htmlFor="i7">18:</label>
+           <Link to={"/onsekkiz"}> <label htmlFor="i7">18:</label></Link>
                 <input type="checkbox" id="i7" name="i7" value="checked"/>
               </div>
               <div className="wn">
-                <label htmlFor="i9">15.6:</label>
+            <Link to={"/onbes"}>    <label htmlFor="i9">15.6:</label></Link>
                 <input type="checkbox" id="i9" name="i9" value="checked"/>
               </div>
               <div className="wn">
-                <label htmlFor="ryzen5">Ryzen 17.3</label>
+               <Link to={"/onyeddi"}> <label htmlFor="ryzen5">17.3</label></Link>
                 <input type="checkbox" id="ryzen5" name="ryzen5" value="checked"/>
               </div>
               <div className="wn">
-                <label htmlFor="ryzen7"> 7:</label>
+          <Link to={"/yeddi"}><label htmlFor="ryzen7"> 7:</label></Link>
                 <input type="checkbox" id="ryzen7" name="ryzen7" value="checked"/>
               </div>
               <div className="wn">
-                <label htmlFor="ryzen9">8.8</label>
+              <Link to={"/sekkiz"}>  <label htmlFor="ryzen9">8.8</label></Link>
                 <input type="checkbox" id="ryzen9" name="ryzen9" value="checked"/>
               </div>
               <div className="wn">
-                <label htmlFor="ryzenZ1">14</label>
+             <Link to={"/ondort"}>   <label htmlFor="ryzenZ1">14</label></Link>
                 <input type="checkbox" id="ryzenZ1" name="ryzenZ1" value="checked"/>
               </div>
             </div>

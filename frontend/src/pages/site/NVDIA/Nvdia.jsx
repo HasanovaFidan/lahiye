@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./Nvdia.scss"
+import dataContexts from '../../../contexts/contexts'
+import { Link } from 'react-router-dom'
 
 const Nvdia = () => {
+  const {data,setData}=useContext(dataContexts)
   return (
     <div>
       <div className="nvdia">
@@ -191,21 +194,20 @@ DLSS 3 по сравнению с обычным рендерингом</p>
 <div className="black">
 <div className="containerr">
   <div className="rows">
-    <div className="kart ">
-<img src="https://gamenotebaku.az/nvidia/imgs/rtx4070super.png" alt="" />
-<h3>MSI GeForce RTX 4070 SUPER 12G <br /> GDDR6X GAMING X SLIM WHITE</h3>
-<button>подборнее </button>
-    </div>
-    <div className="kart ">
-<img src="https://gamenotebaku.az/nvidia/imgs/rtx4070tisuper.png" alt="" />
-<h3>ASUS TUF Gaming GeForce RTX 4070 Ti <br /> SUPER 16GB GDDR6X OC Edition</h3>
-<button>подборнее </button>
-    </div>
-    <div className="kart ">
-<img src="https://gamenotebaku.az/nvidia/imgs/rtx4080super.png" alt="" />
-<h3>MSI GeForce RTX 4080 SUPER 16G <br /> SUPRIM X GDDR6X</h3>
-<button>подборнее </button>
-    </div>
+
+{
+  data.map((item,index)=>{
+    if(item.brand=="videokart"){
+      return(
+        <div key={index} className="kart ">
+        <img src={item.image} alt="" />
+        <h3>{item.name}</h3>
+    <Link to={`/${item._id}`}> <button>подборнее </button></Link>
+            </div>
+      )
+    }
+  })
+}
 
   </div>
 </div>

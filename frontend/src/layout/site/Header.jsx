@@ -8,11 +8,15 @@ import { HiOutlineHeart } from "react-icons/hi2";
 import { Link } from 'react-router-dom';
 import { FaRegMoon } from "react-icons/fa";
 import dataContexts from '../../contexts/contexts';
+import { useFormik } from 'formik';
+import axios from 'axios';
+import * as Yup from 'yup';
 
 const Header = () => {
+  const { data, setData,  original,user,setUser } = useContext(dataContexts);
   const [isOpen, setIsOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const { data, setData,  original } = useContext(dataContexts);
+ 
   const [searchEmpty, setSearchEmpty] = useState(false); 
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
 
@@ -45,6 +49,32 @@ const Header = () => {
   const toggleCanvas = () => {
     setIsCanvasOpen(!isCanvasOpen); 
   };
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      mobile: "",
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required("Required"),
+      mobile: Yup.string().required("Required"),
+      email: Yup.string().required("Required"),
+      password: Yup.string().required("Required"),
+    }),
+    onSubmit: (values, { resetForm }) => {
+      axios.post("http://localhost:8080/users/register", values).then((res) => {
+        setUser([...user, res.data]);
+  
+      });
+      resetForm();
+    },
+  });
 
   return (
     <div className="lr header-container">
@@ -83,13 +113,32 @@ const Header = () => {
           </div>
         </div>
         <p className='p'>Giriş edərkən məlumatların düzgün daxil etdiyinizdən əmin <br /> olun. Əgər hesabınız yoxdursa qeydiyyatdan keçərək <br /> istədiyiniz notebook və digər məhsullardan əldə edə bilərsiniz</p>
-        <input type="text" placeholder='istifadəçi adını daxil edin' />
-        <input type="text" placeholder='Şifrəni daxil edin' />
+        <form onSubmit={formik.handleSubmit}>
+       <input
+         id="name"
+         name="name"
+         type="text"
+         onChange={formik.handleChange}
+         value={formik.values.name}
+       />
+          <input
+         id="email"
+         name="email"
+         type="email"
+         onChange={formik.handleChange}
+         value={formik.values.email}
+       />
+ 
+    
+   
+ 
+ 
+     </form>
         <div className="around">
           Hesabı yadda saxla
           <p style={{"color":"rgb(147, 215, 46)"}}>Şifrəmi unutdum</p>
         </div>
-        <button className='gr'>Giriş et</button>
+        <button type='sumbit' className='gr'>Giriş et</button>
         <p>Əgər hesabınız yoxdursa, 
           <span
             className='register'
@@ -102,23 +151,53 @@ const Header = () => {
       </div>
       <div className="registeropen" style={{"display": isRegisterOpen ? 'block' : 'none'}}>
         <h3>Qeydiyyat</h3>
-        <form action="">
-          <div className="flexos">
-            <input type="text" name="" id="" placeholder='Ad soyadınızı daxil edin' />
-            <input type="text" name="" id="" placeholder='Email adresinizi daxil edin' />
-          </div>
-          <div className="flexos">
-            <input type="text" name="" id="" placeholder='Şəhərinizi daxil edin' />
-            <input type="number" name="" id="" placeholder='Telefon nömrənizi daxil edin' />
-          </div>
-          <div className="flexos">
-            <input type="password" name=" " id="" placeholder='Şifrənizi daxil edin' />
-            <input type="password" name="" id="" placeholder='Şifrənin təkrarı' />
-          </div>
-        </form>
-        <div className="dif">
-          <input className='differ' type="text" placeholder='Adresinizi daxil Edin' />
-        </div>
+        <form onSubmit={formik.handleSubmit} >
+     <div className="flexos">
+                  <input
+                    id="name"
+                    type="text"
+                    placeholder='ad soyad'
+                    {...formik.getFieldProps("name")}
+                  />
+                  {formik.touched.name && formik.errors.name ? (
+                    <div>{formik.errors.name}</div>
+                  ) : null}
+
+                  <label htmlFor="mobile" >mobile</label>
+                  <input
+                    id="mobile"
+                    type="string"
+                    {...formik.getFieldProps("mobile")}
+                  />
+                  {formik.touched.mobile && formik.errors.mobile ? (
+                    <div>{formik.errors.mobile}</div>
+                  ) : null}
+     </div>
+<div className="flexos">
+  
+<label htmlFor="email" >E-POSTA</label>
+                  <input
+                    id="email"
+                    type="email"
+                    {...formik.getFieldProps("email")}
+                  />
+                  {formik.touched.email && formik.errors.email ? (
+                    <div>{formik.errors.email}</div>
+                  ) : null}
+
+                  <label htmlFor="password" >ŞİFRE</label>
+                  <input
+                    id="password"
+                    type="password"
+                    {...formik.getFieldProps("password")}
+                  />
+                  {formik.touched.password && formik.errors.password ? (
+                    <div>{formik.errors.password}</div>
+                  ) : null}
+</div>
+
+                  <button type="submit">Oluştur</button>
+                </form>
         <div className="ara">
           <div className="n">
             <p  onClick={toggleOpen}>
@@ -137,6 +216,9 @@ const Header = () => {
   <Link to={"/about"}>Şirkət haqqında</Link>
   <Link to={"/news"}>Xəbərlər</Link>
   <Link to={"/nvdia"}>NVDIA</Link>
+  <Link to={"/fav"}>Favoritlər</Link>
+  <Link to={"/basket"}>Səbət</Link>
+  <Link to={"/muq"}>Müqayisə</Link>
 </div>
       <div className="og">
 

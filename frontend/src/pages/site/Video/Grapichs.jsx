@@ -255,7 +255,7 @@ const changePage = (pageNumber) => {
                 <input type="checkbox" id="i9" name="i9" value="checked"/>
               </div>
               <div className="wn">
-               <Link to={"/onyeddi"}> <label htmlFor="ryzen5">Ryzen 17.3</label></Link>
+               <Link to={"/onyeddi"}> <label htmlFor="ryzen5">17.3</label></Link>
                 <input type="checkbox" id="ryzen5" name="ryzen5" value="checked"/>
               </div>
               <div className="wn">

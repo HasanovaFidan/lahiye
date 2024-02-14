@@ -37,6 +37,7 @@ import Fourfive from "../pages/site/Video/Fourfive"
 import FourSeven from "../pages/site/Video/Fourseven"
 import FourSix from "../pages/site/Video/Foursix"
 import Graphic from "../pages/site/Video/Grapichs"
+import ThreeEight from "../pages/site/Video/ThreeEight"
 import ThreeFive from "../pages/site/Video/ThreeFive"
 import ThreeSeven from "../pages/site/Video/ThreeSeven"
 import About from "../pages/site/about/About"
@@ -330,6 +331,10 @@ const ROOT = [
          {
             path: "ondort",
              element:<OnDort/>,
+         },
+         {
+            path: "threight",
+             element:<ThreeEight/>,
          },
 
 

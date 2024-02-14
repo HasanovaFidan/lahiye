@@ -5,11 +5,13 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 dotenv.config()
 const PORT = process.env.PORT
+const userRoutes=require("./router/user.routes")
 const technicalRouter=require("./router/lahiye.routes")
 
 app.use(express.json());
 app.use(cors())
 app.use("/technical",technicalRouter)
+app.use("/users",userRoutes)
 app.listen(PORT, () => {
     console.log("server connection PORT");
 });

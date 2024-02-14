@@ -255,7 +255,7 @@ const changePage = (pageNumber) => {
                 <input type="checkbox" id="i9" name="i9" value="checked"/>
               </div>
               <div className="wn">
-               <Link to={"/onyeddi"}> <label htmlFor="ryzen5">Ryzen 17.3</label></Link>
+               <Link to={"/onyeddi"}> <label htmlFor="ryzen5">17.3</label></Link>
                 <input type="checkbox" id="ryzen5" name="ryzen5" value="checked"/>
               </div>
               <div className="wn">
@@ -287,7 +287,7 @@ const changePage = (pageNumber) => {
    </div>
    <div className="row">
       {data.map((item, index) => {
-    if(item.video=="NVIDIA GeForce RTX 3060 6GB"){
+    if(item.video=="NVIDIA GeForce RTX 3080 Ti 8GB"){
       return(
         <div key={index} className="cards col-4 col-mb-4 col-lg-12">
         <img src={item.image} alt="" />

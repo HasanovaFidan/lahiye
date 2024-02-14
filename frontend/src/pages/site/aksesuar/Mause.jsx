@@ -122,7 +122,7 @@ item.endirim > 0 ? (
      <span><HiOutlineHeart onClick={()=>handleFav(item)} /></span>
    <button onClick={()=>{ AddtoBasket(item) }}><BiBasket  /> Səbətə at</button>
  </div>
-<button className='bax'>Ətraflı bax</button>
+ <button className='bax'><Link to={`/${item._id}`}>Ətraflı bax</Link></button>
 </div>
 )
  }
