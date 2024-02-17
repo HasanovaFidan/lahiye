@@ -1,10 +1,35 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import dataContexts from '../../../contexts/contexts';
+import { useFormik } from 'formik';
+import axios from 'axios';
 
 const Order = () => {
+  
     const { basket, decreaseBtn, increase, removeFrombasket } = useContext(dataContexts);
+    const [oder,setOrder]=useState([])
+    useEffect(() => {
+      axios.get("http://localhost:8080/order")
+        .then((res) => {
+  
+          setOrder(res.data);
+  
+        })
+     
+    }, []);
+  
+    const formik = useFormik({
+      initialValues: {
+        email: '',
+        name:'',
+        mobile:'',
+        city:'',
+      },
+      onSubmit: values => {
+      // axios.post("http://localhost:8080/order",values).then(res=>{
 
-    const totalOrderAmount = basket.reduce((total, item) => total + item.totalPrice, 0);
+      // })
+      },
+    });
   return (
     <div className="lr">
       <div className="contact-fl">
@@ -14,21 +39,46 @@ const Order = () => {
         <p>Əgər hər hansısa təklifin və ya şikayətin varsa bizimlə əlaqəyə keç</p>
     </div>
     <div className="melumat">
-        <div className="emailyan">
-            <input type="text" placeholder='ad soyad'/>
-            <input type="email" placeholder='email'/>
-        </div>
-        <div className="ikiyan">
-          <div className="emailyan">
-          <input type="number" placeholder='Telefon' />
-            <input type="text" placeholder='Şəhər'/>
-          </div>
-
-            
-            
-            <button>Göndər</button>
-
-        </div>
+    <form onSubmit={formik.handleSubmit}>
+      <div className="ikiyan">
+      <input
+         id="email"
+         name="email"
+         type="email"
+         onChange={formik.handleChange}
+         value={formik.values.email}
+         placeholder='email'
+       />
+            <input
+         id="name"
+         name="name"
+         type="text"
+         onChange={formik.handleChange}
+         value={formik.values.name}
+         placeholder='name'
+       />
+      </div>
+      <div className="ikiyan">
+      <input
+         id="city"
+         name="city"
+         type="text"
+         onChange={formik.handleChange}
+         value={formik.values.city}
+         placeholder='city'
+       />
+            <input
+         id="mobile"
+         name="mobile"
+         type="number"
+         onChange={formik.handleChange}
+         value={formik.values.mobile}
+         placeholder='mobile'
+       />
+      </div>
+ 
+       <button className="btn btn-info" type="submit">Submit</button>
+     </form>
     </div>
 </div>
 <div className="right-order">
@@ -39,7 +89,7 @@ const Order = () => {
      <p>Məhsulların qiyməti:</p>
      </div>
          <div className="esas">
-         <p className='tot'>{totalOrderAmount}₼</p>
+         <p className='tot'>₼</p>
          </div>
           </div>
           <div className="dib">
@@ -56,7 +106,7 @@ const Order = () => {
      <p>Sifarişi rəsmiləşdir:</p>
      </div>
          <div className="esas">
-         <p style={{"color":"yellowgreen"}} className='tot'>{totalOrderAmount}₼</p>
+         <p style={{"color":"yellowgreen"}} className='tot'>₼</p>
          </div>
           </div>
           <button className='orderbutton'>Sifarişi Rəsmiləşdir</button>

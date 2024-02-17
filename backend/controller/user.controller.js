@@ -28,28 +28,29 @@ const userController = {
   },
   register: async (req, res) => {
     try {
-      const { name, mobile, email, password } = req.body;
+      const { name, surname, email, password, isAdmin } = req.body;
       const hashedPassword = await bcrypt.hash(password, 10);
       const newUser = new User({
         name,
-        mobile,
+        surname,
+        isAdmin,
         email,
         password: hashedPassword,
       });
       await newUser.save();
       res.status(201).send("User created successfully");
     } catch (error) {
-      res.status(500).send("Error creating user");
+      res.status(500).send(error);
     }
   },
   edit: async (req, res) => {
     try {
       const { id } = req.params;
-      const { name, mobile, email, password } = req.body;
+      const { name, surname, email, password } = req.body;
       const hashedPassword = await bcrypt.hash(password, 10);
       await User.findByIdAndUpdate(id, {
         name,
-        mobile,
+        surname,
         email,
         password: hashedPassword,
       });

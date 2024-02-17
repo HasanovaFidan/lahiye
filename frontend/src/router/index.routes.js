@@ -4,6 +4,7 @@ import EditPage from "../pages/admin/EditPage/EditPage"
 import Hom from "../pages/admin/Homes/Hom"
 import Asus from "../pages/site/ASUS/Asus"
 import Acer from "../pages/site/Acer/Acer"
+import AdminLogin from "../pages/admin/AdminLogin/AdminLogin"
 import Alien from "../pages/site/Alien/Alien"
 import Basket from "../pages/site/Basket/Basket"
 import Order from "../pages/site/Basket/Order"
@@ -67,6 +68,7 @@ import OnAlti from "../pages/site/screen/Onalti"
 import OnSekkiz from "../pages/site/screen/Onsekkiz"
 import Sekkiz from "../pages/site/screen/Sekkiz"
 import Yeddi from "../pages/site/screen/Yeddi"
+import User from "../pages/admin/users/User"
 
 
 
@@ -344,8 +346,12 @@ const ROOT = [
     path:"",
 element:<AdminRoot/>,
 children:[
+   {
+      path:"/dashboard",
+      element:<AdminLogin/>,
+},
     {
-        path:"/admin",
+        path:"/adminhome",
         element:<Hom/>,
 },
 {
@@ -355,6 +361,10 @@ children:[
 {
    path: "e/:id",
    element:<EditPage/>
+},
+{
+   path: "users",
+   element:<User/>
 }
 
 

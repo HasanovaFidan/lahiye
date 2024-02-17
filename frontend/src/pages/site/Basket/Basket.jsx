@@ -4,12 +4,17 @@ import dataContexts from '../../../contexts/contexts';
 import './Basket.scss';
 import { IoLogoElectron } from 'react-icons/io5';
 import { MdArrowBackIos, MdArrowForwardIos, MdDeleteOutline } from 'react-icons/md';
+import axios from 'axios';
 
 function Basket() {
   const { basket, decreaseBtn, increase, removeFrombasket } = useContext(dataContexts);
 
   const totalOrderAmount = basket.reduce((total, item) => total + item.totalPrice, 0);
-
+const createOrder=(items,totalOrderAmount)=>{
+  axios.post("http://localhost:8080/order",{items:items,totalOrderAmount:totalOrderAmount}).then(res=>{
+    console.log(res)
+  })
+}
   return (
     <div className='lr'>
       <div className="sebet">
@@ -74,7 +79,9 @@ function Basket() {
          <p style={{"color":"yellowgreen"}} className='tot'>{totalOrderAmount}₼</p>
          </div>
           </div>
-          <button className='orderbutton'>Sifarişi Rəsmiləşdir</button>
+          <button onClick={()=>{
+            createOrder(basket,totalOrderAmount)
+          }} className='orderbutton'>Sifarişi Rəsmiləşdir</button>
           </div>
         </div>
       </div>

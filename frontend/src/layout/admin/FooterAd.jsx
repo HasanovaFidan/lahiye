@@ -6,7 +6,7 @@ import "./footer.css"
 
 function FooterAd() {
   return (
-    <div>
+   
       <footer>
         <div className="footer__div">
           <div className="icon__div">
@@ -24,7 +24,7 @@ function FooterAd() {
 
         </div>
       </footer>
-    </div>
+
   )
 }
 

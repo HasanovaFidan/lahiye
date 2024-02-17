@@ -15,7 +15,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [original, setOriginal] = useState([]);
-  const [user,setUser]=useState([])
+  const [user, setUser] = useState([])
   const [fav, setFav] = useState(
     localStorage.getItem("fav") ? JSON.parse(localStorage.getItem("fav")) : []
   );
@@ -112,10 +112,10 @@ function App() {
   }, []);
   useEffect(() => {
     axios.get("http://localhost:8080/users")
-      .then(res => {
+      .then((res) => {
 
         setUser(res.data);
-     
+
       })
       .catch(err => {
         setError(err);
@@ -142,7 +142,9 @@ function App() {
     setbasket,
     handleMuq,
     muq,
-    setMuq,user,setUser
+    setMuq, 
+    user, 
+    setUser
   };
 
   return (

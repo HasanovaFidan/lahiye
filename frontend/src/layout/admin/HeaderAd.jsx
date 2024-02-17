@@ -26,12 +26,12 @@ function Header() {
   <div>
   <div className="headero">
                 <div className="leftos">
-                    <h1>Admin.</h1>
+         <Link style={{"color":"black"}} to={"/adminhome"}>  <h1>Admin.</h1></Link>
                 </div>
                 <div className="middleos">
      <Link to={"home"} ><p>home</p></Link>               
      <Link to={"/add"} ><p>Add</p></Link>      
-     <Link to={"/about"}>Şirkət haqqında</Link>
+     <Link to={"/users"}>Users</Link>
           <Link to={"/news"}>Xəbərlər</Link>     
                  
                  
