@@ -7,6 +7,7 @@ import ROOT from "./router/index.routes";
 import "./Reset.css"
 import Darkmode from 'darkmode-js';
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { jwtDecode } from "jwt-decode"
 
 const root = createBrowserRouter(ROOT);
 
@@ -16,6 +17,10 @@ function App() {
   const [error, setError] = useState("");
   const [original, setOriginal] = useState([]);
   const [user, setUser] = useState([])
+  const [userToken, setUserToken] = useState({})
+  const [adminToken, setAdminToken] = useState({})
+  const [isLogin, setIsLogin] = useState(localStorage.getItem("isLogin") ? JSON.parse(localStorage.getItem("isLogin")) : false)
+  const [isLoginAdmin, setIsLoginAdmin] = useState(localStorage.getItem("isLoginAdmin") ? JSON.parse(localStorage.getItem("isLoginAdmin")) : false)
   const [fav, setFav] = useState(
     localStorage.getItem("fav") ? JSON.parse(localStorage.getItem("fav")) : []
   );
@@ -27,6 +32,19 @@ function App() {
   );
 
   new Darkmode().showWidget();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    const tokenAdmin = localStorage.getItem('tokenAdmin')
+    if (token) {
+      const decode = jwtDecode(token)
+      setUserToken(decode)
+    }
+    if (tokenAdmin) {
+      const decodeAdmin = jwtDecode(tokenAdmin)
+      setAdminToken = jwtDecode(decodeAdmin)
+    }
+  }, [])
 
   const handleFav = (item) => {
     const favItem = fav.find((favItem) => favItem._id == item._id);
@@ -142,9 +160,11 @@ function App() {
     setbasket,
     handleMuq,
     muq,
-    setMuq, 
-    user, 
-    setUser
+    setMuq,
+    user,
+    setUser,
+    isLogin,
+    setIsLogin  
   };
 
   return (

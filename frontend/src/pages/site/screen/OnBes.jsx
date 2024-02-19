@@ -71,11 +71,11 @@ const OnBes = () => {
       setData([...data])
     }
     else if(sorting=="09"){
-      const target=data.sort((a,b)=>(a.satis) - (a.satis * a.endirim) / 100-(b.satis) - (b.satis * b.endirim) / 100)
+      const target=data.sort((a,b)=>((a.satis) - (a.satis * a.endirim) / 100)-((b.satis) - (b.satis * b.endirim) / 100))
       setData([...target])
     }
     else if(sorting=="90"){
-      const target=data.sort((a,b)=>(a.satis) - (a.satis * a.endirim) / 100-(b.satis) - (b.satis * b.endirim) / 100)
+      const target=data.sort((a,b)=>(b.satis) - (b.satis * b.endirim) / 100-(a.satis) - (a.satis * a.endirim) / 100)
       setData([...target])
     }
     else if(sorting=="az"){
@@ -255,7 +255,7 @@ const changePage = (pageNumber) => {
                 <input type="checkbox" id="i9" name="i9" value="checked"/>
               </div>
               <div className="wn">
-               <Link to={"/onyeddi"}> <label htmlFor="ryzen5">Ryzen 17.3</label></Link>
+               <Link to={"/onyeddi"}> <label htmlFor="ryzen5">17.3</label></Link>
                 <input type="checkbox" id="ryzen5" name="ryzen5" value="checked"/>
               </div>
               <div className="wn">

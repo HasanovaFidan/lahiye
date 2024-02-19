@@ -526,3 +526,19 @@ align-items: center;
   flex-direction: column;
   gap: 10px;
 }
+
+.islogin{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(126, 192, 27);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}

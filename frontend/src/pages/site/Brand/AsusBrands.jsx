@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import { BiBasket } from 'react-icons/bi'
 import { CgWindows } from 'react-icons/cg'
@@ -14,6 +14,9 @@ import dataContexts from '../../../contexts/contexts'
 import { Link } from 'react-router-dom'
 
 const AsusBrands = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, []);
   const{data,setData,handleFav,AddtoBasket,handleMuq}=useContext(dataContexts)
   return (
     <div className='lr'>

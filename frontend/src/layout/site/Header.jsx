@@ -5,16 +5,18 @@ import { CiLocationOn, CiMenuBurger, CiSearch, CiUser } from "react-icons/ci";
 import { GiHamburgerMenu, GiScales } from "react-icons/gi";
 import { BiBasket } from "react-icons/bi";
 import { HiOutlineHeart } from "react-icons/hi2";
-import { Link } from 'react-router-dom';
-import { FaRegMoon } from "react-icons/fa";
+import { Link, useNavigate } from 'react-router-dom';
+import { FaRegMoon, FaUserAlt } from "react-icons/fa";
 import dataContexts from '../../contexts/contexts';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
+import Giriset from './Giriset';
 import Swal from 'sweetalert2';
 
 const Header = () => {
-  const { data, setData, original, user, setUser } = useContext(dataContexts);
+  const { data, setData, original, user, setUser, isLogin, setIsLogin } = useContext(dataContexts);
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
@@ -35,6 +37,10 @@ const Header = () => {
     setIsOpen(false);
     setIsRegisterOpen(false);
   };
+  
+  const toggleCanvas = () => {
+    setIsCanvasOpen(!isCanvasOpen);
+  };
 
   const handleChange = (e) => {
     const searched = e.target.value.trim().toLowerCase();
@@ -47,72 +53,55 @@ const Header = () => {
       setSearchEmpty(datasrc.length === 0);
     }
   };
-  const toggleCanvas = () => {
-    setIsCanvasOpen(!isCanvasOpen);
-  };
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  // const [isLogin, setIsLogin] = useState(false)
-  // setIsLogin(true)
+  
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("Düzgün bir email adresi girin")
+      .required("Email daxil et"),
+    password: Yup.string()
+      .required("Şifrə daxil et"),
+  });
+
   const formik = useFormik({
     initialValues: {
-      name: "",
-      surname: "",
       email: "",
       password: "",
     },
-    validationSchema: Yup.object({
-      name: Yup.string().required("Required"),
-      surname: Yup.string().required("Required"),
-      email: Yup.string().required("Required"),
-      password: Yup.string().required("Required"),
-    }),
+    validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
-      console.log(values)
-      axios.post("http://localhost:8080/users/register", values).then((res) => {
-      
-        console.log(res.data)
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          }
+      axios.post("http://localhost:8080/users/login", values)
+        .then((res) => {
+          navigate("/");
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Giriş edildi"
+          });
+          resetForm(); // Reset the form
+          closeOpen(); // Close the modal
+          setIsLogin(localStorage.setItem("isLogin", JSON.stringify(true)))
+          localStorage.setItem("token",res.data.token)
+        })
+        .catch(error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Xəta!',
+            text: 'Email və ya şifrə yanlışdır!',
+          });
         });
-        Toast.fire({
-          icon: "success",
-          title: "Register in successfully"
-        });
-
-      }).catch(error=>{
-        const { value: accept } = Swal.fire({
-          title: "Belə bir istifadəçi mövcuddur",
-     
-          inputValue: 1,
-          inputPlaceholder: `
-            I agree with the terms and conditions
-          `,
-          confirmButtonText: `
-            Continue&nbsp;<i class="fa fa-arrow-right"></i>
-          `,
-          inputValidator: (result) => {
-            return !result && "You need to agree with T&C";
-          }
-        });
-        if (accept) {
-          Swal.fire("You agreed with T&C :)");
-        }
-      });
-      resetForm();
     },
   });
-  
+
 
   return (
     <div className="lr header-container">
@@ -137,6 +126,12 @@ const Header = () => {
           <button className='openbutton' onClick={toggleOpen}>
             Giriş et
           </button>
+        {/* <div className="reg">
+          <p>Fidan</p>
+        <div className="islogin">
+          <FaUserAlt />
+          </div>
+        </div> */}
           <CiUser className='user' onClick={toggleOpen} />
         </div>
         <div className="burger" onClick={toggleCanvas}>
@@ -152,7 +147,6 @@ const Header = () => {
         </div>
         <p className='p'>Giriş edərkən məlumatların düzgün daxil etdiyinizdən əmin <br /> olun. Əgər hesabınız yoxdursa qeydiyyatdan keçərək <br /> istədiyiniz notebook və digər məhsullardan əldə edə bilərsiniz</p>
         <form className="giriset" onSubmit={formik.handleSubmit}>
-
           <input
             id="email"
             type="email"
@@ -160,26 +154,19 @@ const Header = () => {
             {...formik.getFieldProps("email")}
           />
           {formik.touched.email && formik.errors.email ? (
-            <div>{formik.errors.email}</div>
+            <div className="error">{formik.errors.email}</div>
           ) : null}
-
-
           <input
             id="password"
             type="password"
-            placeholder='şifrə'
+            placeholder='şifre'
             {...formik.getFieldProps("password")}
           />
           {formik.touched.password && formik.errors.password ? (
-            <div>{formik.errors.password}</div>
+            <div className="error">{formik.errors.password}</div>
           ) : null}
-
-
           <button type="submit">Giriş et</button>
-
         </form>
-
-
         <p>Əgər hesabınız yoxdursa,
           <span
             className='register'
@@ -191,67 +178,8 @@ const Header = () => {
         </p>
       </div>
       <div className="registeropen" style={{ "display": isRegisterOpen ? 'block' : 'none' }}>
-        <h3>Qeydiyyat</h3>
-        <form onSubmit={formik.handleSubmit} >
-          <div className="flexos">
-            <input
-              id="name"
-              type="text"
-              placeholder='ad '
-              {...formik.getFieldProps("name")}
-            />
-            {formik.touched.name && formik.errors.name ? (
-              <div>{formik.errors.name}</div>
-            ) : null}
-
-
-            <input
-              id="surname"
-              type="text"
-              placeholder='soyad'
-              {...formik.getFieldProps("surname")}
-            />
-            {formik.touched.surname && formik.errors.surname ? (
-              <div>{formik.errors.surname}</div>
-            ) : null}
-          </div>
-          <div className="flexos">
-
-            <input
-              id="email"
-              type="email"
-              placeholder='email'
-              {...formik.getFieldProps("email")}
-            />
-            {formik.touched.email && formik.errors.email ? (
-              <div>{formik.errors.email}</div>
-            ) : null}
-
-
-            <input
-              id="password"
-              type="password"
-              placeholder='şifrə'
-              {...formik.getFieldProps("password")}
-            />
-            {formik.touched.password && formik.errors.password ? (
-              <div>{formik.errors.password}</div>
-            ) : null}
-          </div>
-
-          <div className="n">
-            <button type="submit">Qeydiyyatdan keç</button>
-          </div>
-        </form>
-        <div className="ara">
-          <div className="ng">
-            <p onClick={toggleOpen}>
-              Qeydiyyatdan keçmisiniz? <span>Giriş et</span>
-            </p>
-          </div>
-
-        </div>
-      </div>
+  <Giriset toggleOpen={toggleOpen} />
+</div>
       <div className={`canvas-open ${isCanvasOpen ? 'visible' : ''}`}>
         <Link to={"/home"}>Noutbuklar</Link>
         <Link to={"/komponents"}>Komponentlər və Monitorlar</Link>
@@ -264,7 +192,6 @@ const Header = () => {
         <Link to={"/muq"}>Müqayisə</Link>
       </div>
       <div className="og">
-
         <div className="left-og">
           <Link to={"/home"}>Noutbuklar</Link>
           <Link to={"/komponents"}>Komponentlər və Monitorlar</Link>
@@ -296,7 +223,6 @@ const Header = () => {
           <p className='ser'><CiSearch /><span>Axtar</span></p>
         </div>
       </div>
-
       {searchEmpty && (
         <div className='di' id="searchResultMessage">
           Axtardığınız məhsul mövcud deyil

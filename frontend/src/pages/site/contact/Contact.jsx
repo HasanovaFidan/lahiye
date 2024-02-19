@@ -4,14 +4,17 @@ import { BsTelephone } from 'react-icons/bs';
 import { IoMdContact } from 'react-icons/io';
 import { MdOutlineLocalPostOffice } from "react-icons/md";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import axios from 'axios';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
-        email: '',
+        mailAddress: '',
         phone: '',
-        message: ''
+        messagge: ''
     });
+
+    const [isSent, setIsSent] = useState(false); // Durum değişkeni ekle
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,21 +23,17 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('/auth/mail', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
+            await axios.post("http://localhost:8080/users/mail", formData);
+            setIsSent(true); 
+            setFormData({ 
+                name: '',
+                mailAddress: '',
+                phone: '',
+                messagge: ''
             });
-            if (response.ok) {
-                alert('E-posta gönderildi!');
-            } else {
-                throw new Error('E-posta gönderilirken bir xeta bas verdi.');
-            }
         } catch (error) {
-            console.error(error);
-            alert('E-posta gönderilirken bir xeta bas verdo.');
+            console.error('Error sending message:', error);
+            // Hata durumunda gerekli işlemleri yapabilirsiniz
         }
     };
 
@@ -51,14 +50,15 @@ const Contact = () => {
                             <form onSubmit={handleSubmit}>
                                 <div className="emailyan">
                                     <input type="text" name="name" placeholder='Ad Soyad' value={formData.name} onChange={handleChange} />
-                                    <input type="email" name="email" placeholder='E-posta' value={formData.email} onChange={handleChange} />
+                                    <input type="email" name="mailAddress" placeholder='E-posta' value={formData.mailAddress} onChange={handleChange} />
                                 </div>
                                 <div className="ikiyan">
                                     <input type="tel" name="phone" placeholder='Telefon' value={formData.phone} onChange={handleChange} />
-                                    <textarea name="message" placeholder='Mesaj' value={formData.message} onChange={handleChange}></textarea>
+                                    <textarea name="messagge" placeholder='Mesaj' value={formData.messagge} onChange={handleChange}></textarea>
                                     <button type="submit">Gönder</button>
                                 </div>
                             </form>
+                            {isSent && <p style={{ color: 'green' }}>Mesaj uğurla göndərildi!</p>} {/* Gönderildiğinde geri bildirim */}
                         </div>
                     </div>
                     <div className="maps">

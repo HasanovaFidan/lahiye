@@ -77,7 +77,32 @@ font-family: serif;
       }
   .rightos{
     display: flex;
-gap: 13px;
+gap: 25px;
 font-size: 25px;
 margin-right: 40px;
+align-items: center;
+justify-content: center;
+p{
+  display: flex;
+  align-items: center;
+justify-content: center;
+gap: 5px;
+span{
+  font-size: 15px;
+}
+}
+  }
+
+  .notsee{
+    width: 80px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: end;
+ h1{
+  font-size: 16px;
+ }
+
   }

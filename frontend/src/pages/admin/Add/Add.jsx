@@ -32,7 +32,7 @@ function Add() {
         console.log(res)
 
         setData([...data, res.data]);
-        navigate('/admin'); 
+        navigate('/adminhome'); 
         toast.success('Əlavə edildi.');
 
       })

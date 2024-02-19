@@ -1,5 +1,16 @@
 const { User } = require("../models/user.models");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken")
+const nodemailer = require('nodemailer')
+const mail = nodemailer.createTransport({
+    direct: true,
+    host: 'smtp.gmail.com',
+    auth: {
+        user: 'tu64upm8q@code.edu.az',
+        pass: 'txqo qcbq wrog jszd'
+    },
+    secure: true
+})
 
 const userController = {
   getAll: async (req, res) => {
@@ -21,7 +32,22 @@ const userController = {
       if (!isPasswordValid) {
         return res.status(401).send("Invalid password");
       }
-      res.status(200).send("Login successful");
+      res.status(200).send({
+        _id: user._id,
+        name: user.name,
+        surname: user.surname,
+        email: user.email,
+        password: user.password,
+        isAdmin: user.isAdmin,
+        token: await generateToken({
+          _id: user._id,
+          name: user.name,
+          surname: user.surname,
+          email: user.email,
+          password: user.password,
+          isAdmin: user.isAdmin,
+        })
+      });
     } catch (error) {
       res.status(500).send("Error logging in");
     }
@@ -38,7 +64,22 @@ const userController = {
         password: hashedPassword,
       });
       await newUser.save();
-      res.status(201).send("User created successfully");
+      res.status(201).send({
+        _id: newUser._id,
+        name: newUser.name,
+        surname: newUser.surname,
+        email: newUser.email,
+        password: newUser.password,
+        isAdmin: newUser.isAdmin,
+        token: await generateToken({
+          _id: newUser._id,
+          name: newUser.name,
+          surname: newUser.surname,
+          email: newUser.email,
+          password: newUser.password,
+          isAdmin: newUser.isAdmin,
+        })
+      });
     } catch (error) {
       res.status(500).send(error);
     }
@@ -68,5 +109,35 @@ const userController = {
       res.status(500).send("Error deleting user")
     }
   },
+  sendMail:(req,res)=>{
+    const messagge=req.body.messagge
+    const mailAddress=req.body.mailAddress
+    console.log(messagge,mailAddress)
+    const mailOptions = {
+        from: 'tu64upm8q@code.edu.az',
+        to: mailAddress,
+        subject: 'Test Mail',
+        text: 'Hello World',
+        html:`<html>${messagge}</html>`
+    }
+    
+    mail.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        }else{
+            console.log(info)
+            res.json("success")
+        }
+    })
+}
+  
 };
+
+const generateToken = async ({
+  _id, name, surname, email, password, isAdmin,
+}) => {
+  return jwt.sign({ _id, name, surname, email, password, isAdmin, }, "Muku", {
+    expiresIn: "1h",
+  })
+}
 module.exports = { userController };

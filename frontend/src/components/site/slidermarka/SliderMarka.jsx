@@ -23,22 +23,22 @@ const SliderMarka = () => {
           className="mySwiper"
         >
           <SwiperSlide className='sonslider'>
-            <Link to={"/home"}><img src="https://cdn.gamenotebaku.az/logos_img/130/14/ERA_CMS_IMG_39_1695703917.png" alt="" /></Link>
+            <Link to={"/msibrand"}><img src="https://cdn.gamenotebaku.az/logos_img/130/14/ERA_CMS_IMG_39_1695703917.png" alt="" /></Link>
           </SwiperSlide>
           <SwiperSlide className='sonslider'>
-            <Link to={"/aksesuar"}><img src="https://cdn.gamenotebaku.az/logos_img/130/15/ERA_CMS_IMG_77_1695703942.png" alt="" /></Link>
+            <Link to={"/acerbrand"}><img src="https://cdn.gamenotebaku.az/logos_img/130/15/ERA_CMS_IMG_77_1695703942.png" alt="" /></Link>
           </SwiperSlide>
           <SwiperSlide className='sonslider'>
-            <Link to={"/akseuar"}><img src="https://cdn.gamenotebaku.az/logos_img/130/16/ERA_CMS_IMG_63_1695704142.png" alt="" /></Link>
+            <Link to={"/razerbrand"}><img src="https://cdn.gamenotebaku.az/logos_img/130/16/ERA_CMS_IMG_63_1695704142.png" alt="" /></Link>
           </SwiperSlide>
           <SwiperSlide className='sonslider'>
-            <Link to={"/home"}><img src="https://cdn.gamenotebaku.az/logos_img/130/17/ERA_CMS_IMG_95_1695704156.png" alt="" /></Link>
+            <Link to={"/lenovobrand"}><img src="https://cdn.gamenotebaku.az/logos_img/130/17/ERA_CMS_IMG_95_1695704156.png" alt="" /></Link>
           </SwiperSlide>
           <SwiperSlide className='sonslider'>
-            <Link to={"/home"}><img src="https://cdn.gamenotebaku.az/logos_img/130/19/gamenote_img_32_1703264377.png.webp" alt="" /></Link>
+            <Link to={"/asusbrand"}><img src="https://cdn.gamenotebaku.az/logos_img/130/19/gamenote_img_32_1703264377.png.webp" alt="" /></Link>
           </SwiperSlide>
           <SwiperSlide className='sonslider'>
-            <Link to={"/home"}><img src="https://cdn.gamenotebaku.az/logos_img/130/20/gamenote_img_53_1703264249.png.webp" alt="" /></Link>
+            <Link to={"/asusbrand"}><img src="https://cdn.gamenotebaku.az/logos_img/130/20/gamenote_img_53_1703264249.png.webp" alt="" /></Link>
           </SwiperSlide>
         </ReactSwiper>
         <div className="xetto"></div>

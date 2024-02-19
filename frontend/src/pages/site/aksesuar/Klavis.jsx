@@ -26,11 +26,11 @@ const Klavis = () => {
       setData([...data])
     }
     else if(sorting=="09"){
-      const target=data.sort((a,b)=>(a.satis) - (a.satis * a.endirim) / 100-(b.satis) - (b.satis * b.endirim) / 100)
+      const target=data.sort((a,b)=>((a.satis) - (a.satis * a.endirim) / 100)-((b.satis) - (b.satis * b.endirim) / 100))
       setData([...target])
     }
     else if(sorting=="90"){
-      const target=data.sort((a,b)=>(a.satis) - (a.satis * a.endirim) / 100-(b.satis) - (b.satis * b.endirim) / 100)
+      const target=data.sort((a,b)=>(b.satis) - (b.satis * b.endirim) / 100-(a.satis) - (a.satis * a.endirim) / 100)
       setData([...target])
     }
     else if(sorting=="az"){
@@ -41,7 +41,6 @@ const Klavis = () => {
       const target=data.sort((a,b)=>b.name.localeCompare(a.name))
     }
   }
-
   return (
     <div className='lr' >
     <div className="noqte">

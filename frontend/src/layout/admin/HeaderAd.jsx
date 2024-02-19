@@ -42,16 +42,17 @@ function Header() {
 
                 </div>
                 <div className="rightos">
-                <CiUser/>
-                <CiHeart/>
-                <CiShoppingCart />
-                <IoSettingsOutline/>
-                    
+            <p>    <CiUser/> <span>Admin</span></p>
+                <IoSettingsOutline className='opensee'/>
+           
+             
                 </div>
    
-                
+                   <div className="notsee">
+                  <h1>Log out</h1>
+                </div>
             </div>
- 
+          
   </div>
   
     </div>

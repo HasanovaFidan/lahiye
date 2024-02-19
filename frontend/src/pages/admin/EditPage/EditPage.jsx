@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { toast, Toaster } from 'react-hot-toast';
-import { useNavigate, useParams } from 'react-router-dom'; 
+import { useNavigate, useParams } from 'react-router-dom';
 
 function EditPage() {
   const { id } = useParams();
   const [edit, setEdit] = useState({});
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://localhost:8080/technical/${id}`)
@@ -18,9 +18,8 @@ function EditPage() {
         console.error("Error fetching data:", error);
       });
   }, [id]);
-
-  const formik = useFormik({
-    initialValues: {
+  useEffect(() => {
+    formik.setValues({
       name: edit.name || '',
       alis: edit.alis || '',
       satis: edit.satis || '',
@@ -33,11 +32,27 @@ function EditPage() {
       prs: edit.prs || '',
       brand: edit.brand || '',
       catagory: edit.catagory || '',
+    })
+  }, [edit])
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      alis:  '',
+      satis: '',
+      endirim:  '',
+      image:  '',
+      video:  '',
+      yaddas:  '',
+      screen: '',
+      system:  '',
+      prs:  '',
+      brand:  '',
+      catagory:   '',
     },
     onSubmit: values => {
       axios.put(`http://localhost:8080/technical/${edit._id}`, values)
         .then(res => {
-          navigate('/admin'); 
+          navigate('/adminhome');
           toast.success('Updated successfully.');
         })
         .catch(error => {
@@ -47,8 +62,8 @@ function EditPage() {
     },
   });
 
- 
- 
+
+
 
   return (
     <div style={{ marginTop: "30px", minHeight: "500px" }}>

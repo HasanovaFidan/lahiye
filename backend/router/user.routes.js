@@ -7,5 +7,5 @@ userRouter.post('/login', userController.login)
 userRouter.post('/register', userController.register)
 userRouter.put('/:id', userController.edit)
 userRouter.delete('/:id', userController.delete)
-
+userRouter.post('/mail', userController.sendMail)
 module.exports = userRouter
