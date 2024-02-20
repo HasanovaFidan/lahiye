@@ -1,57 +1,64 @@
-const Order=require("../models/order.models")
+// orderController.js
 
+const Order = require("../models/order.models");
 
-const OrderController={
-    getAll:async (req,res)=>{
-        try {
-            const cards=await Order.find({})
-            res.send(cards)
-        } catch (error) {
-            res.send("err")
-        }
-    },
-    getById:async (req,res)=>{
-        try {
-            const{id}=req.params
-            const target=await Order.findById(id)
-            res.send(target)
-        } catch (error) {
-            res.send("err")
-        }
-    },
-     add:async (req,res)=>{
-        try {
-            const {name,email,mobile,city,status}=req.body
-            const newOrder= new Order ({name,email,mobile,city,status})
-           await newOrder.save()
-           res.send(newOrder)
-        } catch (error) {
-            res.send(error)
-        }
-    },
-    edit: async (req,res)=>{
-      try{
-  const {id}=req.params
-  const {name,email,mobile,city,status}=req.body
-
-  const update= await Tecnik.findByIdAndUpdate(id,{name,email,mobile,city,status})
-  res.send(201).send(update)
-      } 
-      catch(error){
-          res.status(404).send(error)
-      }
+const orderController = {
+  getAllOrders: async (req, res) => {
+    try {
+      const orders = await Order.find({});
+      res.send(orders);
+    } catch (error) {
+      res.status(500).send("Error fetching orders");
+    }
   },
-    delete:async (req,res)=>{
-        try {
-            const{id}=req.params
-            const deletedTarget=await Tecnik.findByIdAndDelete(id)
-            res.send(deletedTarget)
-        } catch (error) {
-            res.send("err")
-        }
-    },
 
-    
-}
+  getOrderById: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const order = await Order.findById(id);
+      if (!order) {
+        return res.status(404).send("Order not found");
+      }
+      res.send(order);
+    } catch (error) {
+      res.status(500).send("Error fetching order");
+    }
+  },
 
-module.exports=OrderController
+  createOrder: async (req, res) => {
+    try {
+      const { items } = req.body;
+      const newOrder = new Order({ items });
+      await newOrder.save();
+      res.status(201).send(newOrder);
+    } catch (error) {
+      res.status(500).send("Error creating order");
+    }
+  },
+
+  updateOrder: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { items } = req.body;
+      const updatedOrder = await Order.findByIdAndUpdate(id, { items }, { new: true });
+      res.send(updatedOrder);
+    } catch (error) {
+      res.status(500).send("Error updating order");
+    }
+  },
+
+  deleteOrder: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const deletedOrder = await Order.findByIdAndDelete(id);
+      if (!deletedOrder) {
+        return res.status(404).send("Order not found");
+      }
+      res.send(deletedOrder);
+    } catch (error) {
+      res.status(500).send("Error deleting order");
+    }
+  },
+};
+
+module.exports = orderController;

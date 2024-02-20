@@ -1,12 +1,13 @@
-const express = require('express')
-const router = express.Router()
-const OrderController=require("../controller/order.controller")
+// order.routes.js
 
-router.get("/",OrderController.getAll)
-router.get("/:id",OrderController.getById)
-router.post("/",OrderController.add)
-router.put("/:id",OrderController.edit)
-router.delete("/:id",OrderController.delete)
+const express = require("express");
+const router = express.Router();
+const orderController = require("../controller/order.controller");
 
+router.get("/", orderController.getAllOrders); // Tüm siparişleri getir
+router.get("/:id", orderController.getOrderById); // Belirli bir siparişi getir
+router.post("/", orderController.createOrder); // Yeni bir sipariş oluştur
+router.put("/:id", orderController.updateOrder); // Belirli bir siparişi güncelle
+router.delete("/:id", orderController.deleteOrder); // Belirli bir siparişi sil
 
-module.exports=router
+module.exports = router;

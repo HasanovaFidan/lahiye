@@ -132,7 +132,7 @@ item.endirim > 0 ? (
 
 </div>
 <div className="pagination">
-     {Array.from({ length: 3 }, (_, i) => (
+     {Array.from({ length: 1 }, (_, i) => (
        <span
          key={i + 1}
          className={currentPage === i + 1 ? 'active' : ''}

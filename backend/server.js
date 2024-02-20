@@ -7,13 +7,14 @@ dotenv.config()
 const PORT = process.env.PORT
 const userRoutes=require("./router/user.routes")
 const technicalRouter=require("./router/lahiye.routes")
+const orderRoutes = require("./router/order.routes");
 
 
 app.use(express.json());
 app.use(cors())
 app.use("/technical",technicalRouter)
 app.use("/users",userRoutes)
-
+app.use("/order", orderRoutes);
 app.listen(PORT, () => {
     console.log("server connection PORT");
 });

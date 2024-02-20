@@ -8,6 +8,8 @@
 .fullos{
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    gap: 20px;
 }
 .headero{
     display: flex;
@@ -94,15 +96,28 @@ span{
   }
 
   .notsee{
-    width: 80px;
-    height: 50px;
+    width: 70px;
+    height: 45px;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: end;
+    color: rgb(250, 82, 21);
  h1{
   font-size: 16px;
  }
 
   }
+
+
+ .notsee{
+  margin-left: 93%;
+  margin-top: 3px;
+  cursor: pointer;
+  border: 1px solid orangered;
+  &:hover{
+    color: darkred;
+    border: 1px solid darkred;
+  }
+ }
