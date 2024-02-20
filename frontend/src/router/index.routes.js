@@ -69,6 +69,7 @@ import OnSekkiz from "../pages/site/screen/Onsekkiz"
 import Sekkiz from "../pages/site/screen/Sekkiz"
 import Yeddi from "../pages/site/screen/Yeddi"
 import User from "../pages/admin/users/User"
+import Checkout from "../pages/site/Basket/Checkout"
 
 
 
@@ -337,6 +338,10 @@ const ROOT = [
          {
             path: "threight",
              element:<ThreeEight/>,
+         },
+         {
+            path: "/checkout",
+             element:<Checkout/>,
          },
 
 

@@ -1,64 +1,63 @@
-// orderController.js
-
-const Order = require("../models/order.models");
+const mongoose = require('mongoose');
+const { Order } = require('../models/order.models');
 
 const orderController = {
-  getAllOrders: async (req, res) => {
+  getAll: async (req, res) => {
     try {
-      const orders = await Order.find({});
+      const orders = await Order.find();
       res.send(orders);
     } catch (error) {
-      res.status(500).send("Error fetching orders");
+      console.error(error);
+      res.status(500).send('An error occurred while retrieving orders.');
     }
   },
 
-  getOrderById: async (req, res) => {
+  getById: async (req, res) => {
     try {
-      const { id } = req.params;
-      const order = await Order.findById(id);
-      if (!order) {
-        return res.status(404).send("Order not found");
-      }
-      res.send(order);
+      const id = req.params.id;
+      const target = await Order.findById(id);
+      res.send(target);
     } catch (error) {
-      res.status(500).send("Error fetching order");
+      console.error(error);
+      res.status(500).send('An error occurred while retrieving the order.');
     }
   },
 
-  createOrder: async (req, res) => {
-    try {
-      const { items } = req.body;
-      const newOrder = new Order({ items });
-      await newOrder.save();
-      res.status(201).send(newOrder);
-    } catch (error) {
-      res.status(500).send("Error creating order");
-    }
+  add: async (req, res) => {
+    const {user,products,paymentMethod,comment,totalPrice} = req.body
+    const newOrder = new Order({
+        user:user,
+        products:products,
+        paymentMethod:paymentMethod,
+        comment:comment,
+        status:"pending",
+        totalPrice:totalPrice
+    })
+    await newOrder.save()
+    res.send(newOrder)
   },
 
-  updateOrder: async (req, res) => {
+  edit: async (req, res) => {
     try {
-      const { id } = req.params;
-      const { items } = req.body;
-      const updatedOrder = await Order.findByIdAndUpdate(id, { items }, { new: true });
-      res.send(updatedOrder);
+      const { _id, status } = req.body;
+      const item = await Order.findByIdAndUpdate(_id, { status: status });
+      res.send(item);
     } catch (error) {
-      res.status(500).send("Error updating order");
+      console.error(error);
+      res.status(500).send('An error occurred while updating the order.');
     }
   },
+  
 
-  deleteOrder: async (req, res) => {
+  delete: async (req, res) => {
     try {
-      const { id } = req.params;
-      const deletedOrder = await Order.findByIdAndDelete(id);
-      if (!deletedOrder) {
-        return res.status(404).send("Order not found");
-      }
-      res.send(deletedOrder);
+      const id = req.params.id;
+      await Order.findByIdAndDelete(id);
+      res.send('Product has been deleted.');
     } catch (error) {
-      res.status(500).send("Error deleting order");
+      res.status(500).send('An error occurred while deleting the order.');
     }
   },
 };
 
-module.exports = orderController;
+module.exports = { orderController };

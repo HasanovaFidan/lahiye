@@ -1,11 +1,32 @@
-// order.models.js
+const mongoose = require('mongoose')
 
-const mongoose = require("mongoose");
+const Order = mongoose.model(
+    'Order',
+    new mongoose.Schema(
+        {
+            user:{
+                type:Object
+            },
+            products:{
+                type:Array
+            },
+            status:{
+                type:String
+            },
+            paymentMethod:{
+                type:String
+            },
+            comment:{
+                type:String
+            },
+            totalPrice:{
+                type:Number
+            }
+        },
+        {
+            timestamps: true,
+        },
+    ),
+)
 
-const orderSchema = new mongoose.Schema({
-  items: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tecnik' }], // Assuming items are Tecnik IDs
-}, { timestamps: true });
-
-const Order = mongoose.model("Order", orderSchema);
-
-module.exports = Order;
+module.exports = { Order }

@@ -6,16 +6,7 @@ import axios from 'axios';
 const Order = () => {
   
     const { basket, decreaseBtn, increase, removeFrombasket } = useContext(dataContexts);
-    const [oder,setOrder]=useState([])
-    useEffect(() => {
-      axios.get("http://localhost:8080/order")
-        .then((res) => {
-  
-          setOrder(res.data);
-  
-        })
-     
-    }, []);
+
   
     const formik = useFormik({
       initialValues: {
