@@ -16,22 +16,23 @@ const AdminLogin = () => {
     onSubmit: values => {
       axios.post("http://localhost:8080/users/login", values)
         .then(res => {
+          localStorage.setItem('token', res.data.token)
           navigate("/adminhome");
         })
         .catch(error => {
           if (error.response) {
-            
+
             if (error.response.status === 401) {
               formik.setErrors({ email: 'Email or password is incorrect', password: 'Email or password is incorrect' });
             } else {
-              
+
               console.log("Server error:", error.response.data.message);
             }
           } else if (error.request) {
-       
+
             console.log("No response from server");
           } else {
-          
+
             console.log("Error:", error.message);
           }
         });

@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import "./Header.scss";
 import { BsTelephone } from "react-icons/bs";
 import { CiLocationOn, CiMenuBurger, CiSearch, CiUser } from "react-icons/ci";
-import { GiHamburgerMenu, GiScales } from "react-icons/gi";
+import { GiHamburgerMenu, GiMouthWatering, GiScales } from "react-icons/gi";
 import { BiBasket } from "react-icons/bi";
 import { HiOutlineHeart } from "react-icons/hi2";
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,20 +13,32 @@ import axios from 'axios';
 import * as Yup from 'yup';
 import Giriset from './Giriset';
 import Swal from 'sweetalert2';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
-  const { data, setData, original, user, setUser, isLogin, setIsLogin } = useContext(dataContexts);
+  const { data, setData, original, user, setUser, isLogin, setIsLogin, userToken } = useContext(dataContexts);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   const [searchEmpty, setSearchEmpty] = useState(false);
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
+  const [gulpembe, setGulpembe] = useState([])
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Durum değişkeni ve setter fonksiyonu
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen); // Menü durumunu tersine çevir
+  };
+
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
     setIsRegisterOpen(false);
   };
+  const { t, i18n } = useTranslation();
+  function changeLang(lang) {
+    i18n.changeLanguage(lang)
+  }
 
   const toggleRegister = () => {
     setIsRegisterOpen(!isRegisterOpen);
@@ -37,7 +49,7 @@ const Header = () => {
     setIsOpen(false);
     setIsRegisterOpen(false);
   };
-  
+
   const toggleCanvas = () => {
     setIsCanvasOpen(!isCanvasOpen);
   };
@@ -53,7 +65,7 @@ const Header = () => {
       setSearchEmpty(datasrc.length === 0);
     }
   };
-  
+
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .email("Düzgün bir email adresi girin")
@@ -90,7 +102,7 @@ const Header = () => {
           resetForm(); // Reset the form
           closeOpen(); // Close the modal
           setIsLogin(localStorage.setItem("isLogin", JSON.stringify(true)))
-          localStorage.setItem("token",res.data.token)
+          localStorage.setItem("token", res.data.token)
         })
         .catch(error => {
           Swal.fire({
@@ -102,6 +114,9 @@ const Header = () => {
     },
   });
 
+
+
+  console.log(gulpembe.isLogin)
 
   return (
     <div className="lr header-container">
@@ -123,15 +138,37 @@ const Header = () => {
             <Link to={"fav"}><span><HiOutlineHeart /></span></Link>
             <Link to={"basket"}><span><BiBasket /></span></Link>
           </div>
-          <button className='openbutton' onClick={toggleOpen}>
-            Giriş et
-          </button>
-        {/* <div className="reg">
-          <p>Fidan</p>
-        <div className="islogin">
-          <FaUserAlt />
-          </div>
-        </div> */}
+          {
+
+            !isLogin && (
+              <button className='openbutton' onClick={toggleOpen}>
+                Giriş et
+              </button>
+            )
+
+          }
+
+          {
+            isLogin && (
+
+              <div className="reg">
+                <p>{userToken.name}</p>
+                <div className="islogin">
+                  <FaUserAlt className='userlog' onClick={toggleMenu} />
+                  {isMenuOpen && (
+                    <ul className="menu">
+                      <p>Çıxış etmək istədiyinizə əminsiz?</p>
+                      <li onClick={() => {
+                        setIsLogin(localStorage.setItem("isLogin", JSON.stringify(false)))
+                        localStorage.removeItem("token")
+                      }}>Çıxış et</li>
+                    </ul>
+                  )}
+                </div>
+              </div>
+            )
+          }
+
           <CiUser className='user' onClick={toggleOpen} />
         </div>
         <div className="burger" onClick={toggleCanvas}>
@@ -178,37 +215,40 @@ const Header = () => {
         </p>
       </div>
       <div className="registeropen" style={{ "display": isRegisterOpen ? 'block' : 'none' }}>
-  <Giriset toggleOpen={toggleOpen} />
-</div>
+        <Giriset toggleOpen={toggleOpen} />
+      </div>
       <div className={`canvas-open ${isCanvasOpen ? 'visible' : ''}`}>
         <Link to={"/home"}>Noutbuklar</Link>
         <Link to={"/komponents"}>Komponentlər və Monitorlar</Link>
         <Link to={"/aksesuar"}>Aksesuarlar</Link>
         <Link to={"/about"}>Şirkət haqqında</Link>
-        <Link to={"/news"}>Xəbərlər</Link>
+        <Link to={"/news"}>{t("News")}</Link>
         <Link to={"/nvdia"}>NVDIA</Link>
         <Link to={"/fav"}>Favoritlər</Link>
         <Link to={"/basket"}>Səbət</Link>
         <Link to={"/muq"}>Müqayisə</Link>
+
+
       </div>
       <div className="og">
         <div className="left-og">
           <Link to={"/home"}>Noutbuklar</Link>
           <Link to={"/komponents"}>Komponentlər və Monitorlar</Link>
-          <Link to={"/aksesuar"}>Aksesuarlar</Link>
+          <Link to={"/aksesuar"}>Aksesuar</Link>
           <Link to={"/about"}>Şirkət haqqında</Link>
-          <Link to={"/news"}>Xəbərlər</Link>
+          <Link to={"/news"}>{t("News")}</Link>
           <Link to={"/nvdia"}>NVDIA</Link>
+
         </div>
         <div className="right-og">
           <div className="span">
-            <FaRegMoon />
+          <GiMouthWatering className='water' />
           </div>
-          <select className='nese'>
-            <option value="option1"> Azərbaycan dili</option>
-            <option value="option2">Русский</option>
-            <option value="option3">English</option>
+          <select className='nese' onChange={(e) => changeLang(e.target.value)}>
+            <option value="az">Azərbaycan dili</option>
+            <option value="en">English</option>
           </select>
+
         </div>
       </div>
       <div className="flex">

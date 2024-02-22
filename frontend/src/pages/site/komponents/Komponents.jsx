@@ -14,6 +14,7 @@ const Komponets = () => {
   const {data,setData,handleFav,handleMuq,AddtoBasket}=useContext(dataContexts)
   const [currentPage, setCurrentPage] = useState(1);
 
+
   const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -44,6 +45,8 @@ const Komponets = () => {
       const target=data.sort((a,b)=>b.name.localeCompare(a.name))
     }
   }
+ 
+
 
   return (
     <div className='lr' >
@@ -53,10 +56,10 @@ const Komponets = () => {
 <p>Aksesuarlar</p>
 </div>
    <div className="cards-flex">
-     <div className="left-bord">
+   <div className="left-bord">
        <div className="arounds">
          <h6>Filter</h6>
-         <button>sıfırla</button>
+         <Link to={"/komponents"} > <button>sıfırla</button></Link>
        </div>
        <div className="borderone">
 <div className="baslar">

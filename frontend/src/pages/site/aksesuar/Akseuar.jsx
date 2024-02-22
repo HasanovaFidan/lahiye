@@ -43,6 +43,7 @@ const Komponets = () => {
     }
   }
 
+
   return (
     <div className='lr' >
     <div className="noqte">
@@ -51,10 +52,10 @@ const Komponets = () => {
 <p>Aksesuarlar</p>
 </div>
    <div className="cards-flex">
-     <div className="left-bord">
+   <div className="left-bord">
        <div className="arounds">
          <h6>Filter</h6>
-         <button>sıfırla</button>
+        <Link to={"/aksesuar"} > <button>sıfırla</button></Link>
        </div>
        <div className="borderone">
 <div className="baslar">
@@ -65,7 +66,6 @@ const Komponets = () => {
 <Link to={"/mause"}>Siçanlar </Link>
 <Link to={"/mikrafon"}>Mikrofonlar</Link>
 <Link to={"/web"}>Web kameralar</Link>
-<Link to={"/qulaqliq"}>Qulaqlıqlar</Link>
 <Link to={"/qulaqliq"}>Qulaqlıqlar</Link>
 </div>
     

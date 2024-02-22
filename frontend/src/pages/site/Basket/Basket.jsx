@@ -5,16 +5,17 @@ import './Basket.scss';
 import { IoLogoElectron } from 'react-icons/io5';
 import { MdArrowBackIos, MdArrowForwardIos, MdDeleteOutline } from 'react-icons/md';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Basket() {
   const { basket, decreaseBtn, increase, removeFrombasket } = useContext(dataContexts);
 
   const totalOrderAmount = basket.reduce((total, item) => total + item.totalPrice, 0);
-const createOrder=(items,totalOrderAmount)=>{
-  axios.post("http://localhost:8080/order",{items:items,totalOrderAmount:totalOrderAmount}).then(res=>{
-    console.log(res)
-  })
-}
+// const createOrder=(items,totalOrderAmount)=>{
+//   axios.post("http://localhost:8080/order",{items:items,totalOrderAmount:totalOrderAmount}).then(res=>{
+//     console.log(res)
+//   })
+// }
   return (
     <div className='lr'>
       <div className="sebet">
@@ -79,9 +80,9 @@ const createOrder=(items,totalOrderAmount)=>{
          <p style={{"color":"yellowgreen"}} className='tot'>{totalOrderAmount}₼</p>
          </div>
           </div>
-          <button onClick={()=>{
-            createOrder(basket,totalOrderAmount)
-          }} className='orderbutton'>Sifarişi Rəsmiləşdir</button>
+ <Link to={"/order"}>
+ <button className='orderbutton'>Sifarişi Rəsmiləşdir</button>
+ </Link>
           </div>
         </div>
       </div>

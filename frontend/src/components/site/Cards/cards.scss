@@ -13,9 +13,9 @@
 
         .arounds{
             display: flex;
-            padding-top: 2%;
-            justify-content: space-between;
-            gap: 50px;
+            padding-top: 4%;
+            justify-content: space-around;
+            gap: 90%;
        
             button{
                 width: 75px;
@@ -26,15 +26,17 @@
                 font-size: 12px;
                 align-items: center;
                 justify-content: center;
-                border-radius: 3px;
-                font-weight: bolder;
+                border-radius: 5px;
+                font-weight: 500;
                 &:hover{
-                   border: 1px solid black; 
+                   border: 1px solid rgb(130, 179, 32); 
+                   color: rgb(130, 179, 32);
                 }
               
             }
 
         }
+    
         .borderone{
             margin-top: 20px;
             border: 1px solid rgb(204, 204, 204);
@@ -277,17 +279,18 @@ h6{
     display: flex;
     justify-content: space-between;
     margin-bottom: 12px;
+    width: 100%;
     h1{
         color: rgb(123, 180, 10);
         font-size: 18px;
     }
     select{
         margin-right: 20px;
-        width: 190px;
+        width: 200px;
         padding-left: 2%;
-        height: 40px;
+        height: 44px;
         border: 1px solid rgb(148, 212, 20);
-        border-radius: 20px;
+        border-radius: 30px;
         outline: none;
         font-size: 15px;
         &:focus {
@@ -462,5 +465,23 @@ margin-bottom: 10px;
   label{
     font-size: 13px;
  
+  }
+}
+
+.zerola{
+     
+  width: 90px;
+  height: 20px;
+  background-color: white;
+  border: 1px solid rgb(222, 222, 222);
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-weight: 500;
+  &:hover{
+     border: 1px solid rgb(130, 179, 32); 
+     color: rgb(130, 179, 32);
   }
 }

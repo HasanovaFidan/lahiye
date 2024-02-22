@@ -52,8 +52,10 @@ function EditPage() {
     onSubmit: values => {
       axios.put(`http://localhost:8080/technical/${edit._id}`, values)
         .then(res => {
+          setEdit(res.data)
           navigate('/adminhome');
           toast.success('Updated successfully.');
+          window.location.reload(); 
         })
         .catch(error => {
           toast.error('An error occurred while updating.');

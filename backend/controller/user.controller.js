@@ -44,7 +44,6 @@ const userController = {
           name: user.name,
           surname: user.surname,
           email: user.email,
-          password: user.password,
           isAdmin: user.isAdmin,
         })
       });

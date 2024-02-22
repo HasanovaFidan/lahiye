@@ -16,7 +16,7 @@ function Header() {
 
   const handleChan = (e) => {
     const searched = e.target.value.trim().toLowerCase();
-    if (searched === "") {
+    if (searched == "") {
       setData(original);
     } else {
       let searchedCards = data.filter(data => data.name.trim().toLowerCase().includes(searched));

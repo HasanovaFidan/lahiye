@@ -70,17 +70,19 @@ import Sekkiz from "../pages/site/screen/Sekkiz"
 import Yeddi from "../pages/site/screen/Yeddi"
 import User from "../pages/admin/users/User"
 import Checkout from "../pages/site/Basket/Checkout"
+import Success from "../pages/site/Basket/Success"
+import Error from "../pages/error/Error"
 
 
 
 const ROOT = [
    {
       path: "/",
-      element: <SiteRoot/>,
+      element: <SiteRoot />,
       children: [
          {
             path: "",
-            element: <GameNote/>,
+            element: <GameNote />,
          },
          {
             path: "home",
@@ -92,7 +94,7 @@ const ROOT = [
          },
          {
             path: "fav",
-            element: <Fav/>,
+            element: <Fav />,
          },
          {
             path: "basket",
@@ -112,7 +114,7 @@ const ROOT = [
          },
          {
             path: "nvdia",
-            element: <Nvdia/>,
+            element: <Nvdia />,
          },
          {
             path: "about",
@@ -128,254 +130,259 @@ const ROOT = [
          },
          {
             path: "newstwo",
-            element: <Newstwo/>,
+            element: <Newstwo />,
          },
          {
             path: "newsthree",
-            element: <NewsThree/>,
+            element: <NewsThree />,
          },
          {
             path: "asus",
-            element: <Asus/>,
+            element: <Asus />,
          },
          {
             path: "msi",
-            element: <Msi/>,
+            element: <Msi />,
          },
          {
             path: "lenovo",
-            element: <Lenovo/>,
+            element: <Lenovo />,
          },
          {
             path: "hp",
-            element: <Hp/>,
+            element: <Hp />,
          },
          {
             path: "acer",
-            element: <Acer/>,
+            element: <Acer />,
          },
          {
             path: "alien",
-            element: <Alien/>,
+            element: <Alien />,
          },
          {
             path: "razer",
-            element: <Razer/>,
+            element: <Razer />,
          },
          {
             path: "oturacaq",
-            element: <Oturacaq/>,
+            element: <Oturacaq />,
          },
          {
             path: "klavis",
-            element: <Klavis/>,
+            element: <Klavis />,
          },
          {
             path: "oyun",
-            element: <Oyun/>,
+            element: <Oyun />,
          },
-      
+
          {
             path: "ses",
-            element: <Ses/>,
+            element: <Ses />,
          },
          {
             path: "mause",
-            element: <Mause/>,
+            element: <Mause />,
          },
          {
             path: "web",
-            element: <Web/>,
+            element: <Web />,
          },
          {
             path: "mikrafon",
-            element: <Mikro/>,
+            element: <Mikro />,
          },
          {
             path: "qulaqliq",
-            element: <Qulaqliq/>,
+            element: <Qulaqliq />,
          },
          {
             path: "monitor",
-            element: <Monitor/>,
+            element: <Monitor />,
          },
          {
             path: "videokart",
-            element: <Video/>,
+            element: <Video />,
          },
          {
             path: "elaqe",
-            element: <Contact/>,
+            element: <Contact />,
          },
          {
             path: "brend",
-            element: <Brends/>,
+            element: <Brends />,
          },
          {
             path: "asusbrand",
-            element: <AsusBrands/>,
+            element: <AsusBrands />,
          },
          {
             path: "acerbrand",
-            element: <AcerBrands/>,
+            element: <AcerBrands />,
          },
          {
             path: "msibrand",
-            element: <MsiBrands/>,
+            element: <MsiBrands />,
          },
          {
             path: "razerbrand",
-            element: <RazerBrands/>,
+            element: <RazerBrands />,
          },
          {
             path: "lenovobrand",
-            element: <LenovoBrands/>,
+            element: <LenovoBrands />,
          },
          {
             path: "catdirilma",
-            element: <Catdirilma/>,
+            element: <Catdirilma />,
          },
          {
             path: "zemanet",
-            element: <Zemanet/>,
+            element: <Zemanet />,
          },
          {
             path: "qaytarilma",
-            element: <Qaytarilms/>,
+            element: <Qaytarilms />,
          },
          {
             path: "order",
-            element: <Order/>,
+            element: <Order />,
          },
          {
             path: "nine",
-             element:<Nine/>,
+            element: <Nine />,
          },
          {
             path: "intelfive",
-             element:<Five/>,
+            element: <Five />,
          },
          {
             path: "intelseven",
-             element:<Seven/>,
+            element: <Seven />,
          },
          {
             path: "ryzenfive",
-             element:<RyzenFive/>,
+            element: <RyzenFive />,
          },
          {
             path: "ryzenseven",
-             element:<Ryzenseven/>,
+            element: <Ryzenseven />,
          },
          {
             path: "ryzenfive",
-             element:<RyzenFive/>,
+            element: <RyzenFive />,
          },
          {
             path: "ryzennine",
-             element:<Ryzennine/>,
+            element: <Ryzennine />,
          },
          {
             path: "fourfive",
-             element:<Fourfive/>,
+            element: <Fourfive />,
          },
          {
             path: "fourseven",
-             element:<FourSeven/>,
+            element: <FourSeven />,
          },
          {
             path: "foureight",
-             element:<FourEight/>,
+            element: <FourEight />,
          },
          {
             path: "fournine",
-             element:<FourNine/>,
+            element: <FourNine />,
          },
          {
             path: "threefive",
-             element:<ThreeFive/>,
+            element: <ThreeFive />,
          },
          {
             path: "foursix",
-             element:<FourSix/>,
+            element: <FourSix />,
          },
          {
             path: "qrafik",
-             element:<Graphic/>,
+            element: <Graphic />,
          },
          {
             path: "threeseven",
-             element:<ThreeSeven/>,
+            element: <ThreeSeven />,
          },
          {
             path: "onalti",
-             element:<OnAlti/>,
+            element: <OnAlti />,
          },
          {
             path: "onsekkiz",
-             element:<OnSekkiz/>,
+            element: <OnSekkiz />,
          },
          {
             path: "onbes",
-             element:<OnBes/>,
+            element: <OnBes />,
          },
          {
             path: "onyeddi",
-             element:<OnYeddi/>,
+            element: <OnYeddi />,
          },
          {
             path: "yeddi",
-             element:<Yeddi/>,
+            element: <Yeddi />,
          },
          {
             path: "sekkiz",
-             element:<Sekkiz/>,
+            element: <Sekkiz />,
          },
          {
             path: "ondort",
-             element:<OnDort/>,
+            element: <OnDort />,
          },
          {
             path: "threight",
-             element:<ThreeEight/>,
+            element: <ThreeEight />,
          },
          {
             path: "/checkout",
-             element:<Checkout/>,
+            element: <Checkout />,
          },
+         {
+            path: "success",
+            element: <Success/>,
+         },
+       
 
 
       ]
    },
    {
-    path:"",
-element:<AdminRoot/>,
-children:[
-   {
-      path:"/dashboard",
-      element:<AdminLogin/>,
-},
-    {
-        path:"/adminhome",
-        element:<Hom/>,
-},
-{
-    path:"add",
-    element:<Add/>,
-},
-{
-   path: "e/:id",
-   element:<EditPage/>
-},
-{
-   path: "users",
-   element:<User/>
-}
+      path: "",
+      element: <AdminRoot />,
+      children: [
+         {
+            path: "/dashboard",
+            element: <AdminLogin />,
+         },
+         {
+            path: "/adminhome",
+            element: <Hom />,
+         },
+         {
+            path: "add",
+            element: <Add />,
+         },
+         {
+            path: "e/:id",
+            element: <EditPage />
+         },
+         {
+            path: "users",
+            element: <User />
+         }
 
 
 
 
-]
+      ]
 
    }
 

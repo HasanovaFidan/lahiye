@@ -11,6 +11,8 @@ const Cads = () => {
   const [cpuDropdownOpen, setCpuDropdownOpen] = useState(false);
   const [gpuDropdownOpen, setGpuDropdownOpen] = useState(false);
   const [spuDropdownOpen, setSpuDropdownOpen] = useState(false);
+  const [minPrice, setMinPrice] = useState(''); 
+  const [maxPrice, setMaxPrice] = useState(''); 
 
   const toggleCpuDropdown = () => {
     setCpuDropdownOpen(!cpuDropdownOpen);
@@ -71,6 +73,19 @@ const Cads = () => {
       const target=data.sort((a,b)=>b.name.localeCompare(a.name))
     }
   }
+  const handlePriceFilter = () => {
+    const filteredData = data.filter(item => {
+      const price = parseFloat((item.satis) - (item.satis * item.endirim) / 100);
+      return (price >= parseFloat(minPrice) && price <= parseFloat(maxPrice));
+    });
+    setData(filteredData);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handlePriceFilter();
+    }
+  };
   return (
     <div className='lr' onClick={closeDropdowns}>
  <div className="noqte">
@@ -83,7 +98,7 @@ const Cads = () => {
         <div className="left-bord">
           <div className="arounds">
             <h6>Filter</h6>
-          <Link to={"/home"}> <button>sıfırla</button></Link>
+          <Link to={"/home"}> <button  onClick={() => window.location.reload()}>sıfırla</button></Link>
           </div>
           <div className="borderone">
          <Link to={"/asus"}>ASUS ROG / TUF</Link>
@@ -96,19 +111,34 @@ const Cads = () => {
           
           </div>
           <div className="borderone">
-            <h6>Qiymət aralığı</h6>
-            <div className="xett"></div>
-            <div className="duz">
-              <div className="drec">
-                <p>Qiymətdən </p>
-                <input type="number" name="" id="" placeholder='1' />
-              </div>
-              <div className="drec">
-                <p>Qiymətədək </p>
-                <input type="number" name="" id=""  placeholder='9000'/>
-              </div>
-            </div>
-          </div>
+      <h6>Qiymət aralığı</h6>
+      <div className="xett"></div>
+      <div className="duz">
+        <div className="drec">
+          <p>Qiymətdən </p>
+          <input
+            type="number"
+            name=""
+            id=""
+            placeholder='1'
+            value={minPrice}
+            onChange={(e) => setMinPrice(e.target.value)}
+          />
+        </div>
+        <div className="drec">
+          <p>Qiymətədək </p>
+          <input
+            type="number"
+            name=""
+            id=""
+            placeholder='9000'
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(e.target.value)}
+            onKeyPress={handleKeyPress}
+          />
+        </div>
+      </div>
+    </div>
           <div className="bordertwo">
       <div className="cpu-aroundse" onClick={toggleCpuDropdown}>
         <p>Prosessor (CPU)</p>
