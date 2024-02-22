@@ -71,7 +71,8 @@ import Yeddi from "../pages/site/screen/Yeddi"
 import User from "../pages/admin/users/User"
 import Checkout from "../pages/site/Basket/Checkout"
 import Success from "../pages/site/Basket/Success"
-import Error from "../pages/error/Error"
+
+import ErrorPage from "../pages/error/Error"
 
 
 
@@ -349,6 +350,7 @@ const ROOT = [
             path: "success",
             element: <Success/>,
          },
+      
        
 
 
@@ -377,14 +379,19 @@ const ROOT = [
          {
             path: "users",
             element: <User />
-         }
+         },
 
 
 
 
       ]
+      
 
-   }
+   },
+   {
+      path: "*",
+      element: <ErrorPage/>,
+   },
 
 ]
 export default ROOT
