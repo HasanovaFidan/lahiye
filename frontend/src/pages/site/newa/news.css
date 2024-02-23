@@ -1,0 +1,53 @@
+.haiki {
+  padding-left: 1%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.news {
+  width: 380px;
+  height: 430px;
+  background-color: white;
+  border-radius: 30px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.news a {
+  text-decoration: none;
+  color: black;
+}
+.news .pes {
+  color: rgb(124, 183, 7);
+}
+.news img {
+  width: 100%;
+  height: 55%;
+  padding-top: 10px;
+}
+.news .aro {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: center;
+}
+
+.etraf {
+  width: 130px;
+  height: 48px;
+  border-radius: 30px;
+  border: none;
+  background-color: rgb(147, 215, 46);
+  font-weight: 600;
+}
+.etraf:hover {
+  background-color: rgb(101, 155, 20);
+}
+
+.row {
+  gap: 50px;
+  padding-left: 1%;
+}/*# sourceMappingURL=news.css.map */

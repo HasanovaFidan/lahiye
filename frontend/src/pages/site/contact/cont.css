@@ -1,0 +1,124 @@
+.contact {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  display: flex;
+  gap: 30px;
+  border-radius: 30px;
+  flex-direction: column;
+}
+.contact .elaqe {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 2%;
+  padding-left: 4%;
+}
+.contact .elaqe .py {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.contact .elaqe .py h2 {
+  font-size: 22px;
+  font-weight: bold;
+}
+.contact .elaqe .py p {
+  font-size: 13px;
+  color: gray;
+}
+.contact .elaqe .melumat {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contact .elaqe .melumat .emailyan {
+  display: flex;
+  gap: 3%;
+  align-items: start;
+  justify-content: start;
+}
+.contact .elaqe .melumat .emailyan input {
+  border: 1px solid rgb(132, 132, 132);
+  border-radius: 40px;
+  width: 48%;
+  height: 44px;
+  outline: none;
+  padding-left: 20px;
+}
+.contact .elaqe .melumat .ikiyan {
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 2%;
+}
+.contact .elaqe .melumat .ikiyan :first-child {
+  border: 1px solid rgb(132, 132, 132);
+  border-radius: 40px;
+  width: 48%;
+  height: 43px;
+  outline: none;
+  padding-left: 20px;
+}
+.contact .elaqe .melumat .ikiyan :nth-child(2) {
+  border: 1px solid rgb(132, 132, 132);
+  border-radius: 25px;
+  width: 98%;
+  height: 130px;
+  outline: none;
+  padding-left: 20px;
+}
+.contact .elaqe .melumat .ikiyan button {
+  border: none;
+  background-color: rgb(160, 223, 36);
+  border-radius: 25px;
+  width: 48%;
+  height: 45px;
+  outline: none;
+  padding-left: 20px;
+  font-weight: 500;
+}
+.contact .elaqe .melumat .ikiyan button:hover {
+  background-color: rgb(120, 172, 18);
+}
+.contact .maps {
+  padding-top: 1%;
+  padding-bottom: 2%;
+  padding-right: 2%;
+  width: 45%;
+  height: auto;
+}
+
+.contact-flex {
+  width: 100%;
+  display: flex;
+  gap: 50px;
+}
+
+.solid {
+  background-color: gainsboro;
+  width: 100%;
+  height: 1px;
+  margin-right: 2%;
+}
+
+.align {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2%;
+  padding-right: 2%;
+  padding-left: 3%;
+}
+.align .topla {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.align .topla p {
+  font-size: 14px;
+  font-weight: 500;
+}/*# sourceMappingURL=cont.css.map */

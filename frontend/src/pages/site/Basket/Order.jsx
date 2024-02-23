@@ -14,7 +14,6 @@ const Order = () => {
     //         console.log(res)
     //     })
     // }
-let totalorder=0
     const handleCheckOut= async()=>{
   //       const productsContent={
   //           products:basket

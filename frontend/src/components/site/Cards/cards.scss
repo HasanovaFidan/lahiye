@@ -1,384 +1,381 @@
 .cards-flex{
-    display: flex;
-    width: 100%;
-    gap: 2%;
-    .left-bord{
-        display: flex;
-        flex-direction: column;
-        width: 26%;
-        background-color: white;
-        border-radius: 30px;
-        border: none;
-        align-items: center;
+  display: flex;
+  width: 100%;
+  gap: 2%;
+  .left-bord{
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+      background-color: white;
+      border-radius: 30px;
+      border: none;
+      align-items: center;
 
-        .arounds{
-            display: flex;
-            padding-top: 4%;
-            justify-content: space-around;
-            gap: 90%;
-       
-            button{
-                width: 75px;
-                height: 20px;
-                background-color: white;
-                border: 1px solid rgb(222, 222, 222);
-                display: flex;
-                font-size: 12px;
-                align-items: center;
-                justify-content: center;
-                border-radius: 5px;
-                font-weight: 500;
-                &:hover{
-                   border: 1px solid rgb(130, 179, 32); 
-                   color: rgb(130, 179, 32);
-                }
-              
-            }
-
-        }
-    
-        .borderone{
-            margin-top: 20px;
-            border: 1px solid rgb(204, 204, 204);
-            border-radius: 30px;
-            display: flex;
-            width: 80%;
-         gap: 10px;
-            flex-direction: column;
-            padding-top: 4%;
-            padding-bottom: 2%;
-            a{
-             
-              text-decoration: none;
-              padding-left: 20px;
+      .arounds{
+          display: flex;
+          padding-top: 4%;
+          justify-content: space-around;
+          gap: 90%;
+     
+          button{
+              width: 75px;
+              height: 20px;
+              background-color: white;
+              border: 1px solid rgb(222, 222, 222);
+              display: flex;
               font-size: 12px;
-              color: black;
-
+              align-items: center;
+              justify-content: center;
+              border-radius: 5px;
+              font-weight: 500;
               &:hover{
-              color: yellowgreen;
-              cursor: pointer;
+                 border: 1px solid rgb(130, 179, 32); 
+                 color: rgb(130, 179, 32);
+              }
+            
           }
-            }
-h6{
-    font-size: 13px;
-    padding-top: 10px;
-    padding-left: 20px;
-}
+
+      }
+  
+      .borderone{
+          margin-top: 20px;
+          border: 1px solid rgb(204, 204, 204);
+          border-radius: 30px;
+          display: flex;
+          width: 80%;
+       gap: 10px;
+          flex-direction: column;
+          padding-top: 4%;
+          padding-bottom: 2%;
+          a{
+           
+            text-decoration: none;
+            padding-left: 20px;
+            font-size: 12px;
+            color: black;
+
+            &:hover{
+            color: yellowgreen;
+            cursor: pointer;
         }
-    }
+          }
+h6{
+  font-size: 13px;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+      }
+  }
 }
 .xett{
-    width: 80%;
-    height: 1px;
-    background-color: rgb(219, 217, 217);
-    margin-top: 10px;
-    margin-bottom: 20px;
-   margin-left: 20px;
-    
+  width: 80%;
+  height: 1px;
+  background-color: rgb(219, 217, 217);
+  margin-top: 10px;
+  margin-bottom: 20px;
+ margin-left: 20px;
+  
 }
 
 .duz{
-    display: flex;
-    gap: 10px;
-    .drec{
-        display: flex;
-        padding-left: 10px;
-        flex-direction:column;
-        padding-bottom: 10px;
-        gap: 5px;
-        input {
-            width: 100px;
-            height: 45px;
-            border-radius: 40px;
-            padding-left: 20px;
-            border: 1px solid rgb(194, 194, 194);
-            outline: none; 
-            transition: border-color 0.3s; 
-          }
+  display: flex;
+  gap: 10px;
+  .drec{
+      display: flex;
+      padding-left: 10px;
+      flex-direction:column;
+      padding-bottom: 10px;
+      gap: 5px;
+      input {
+          width: 100px;
+          height: 45px;
+          border-radius: 40px;
+          padding-left: 20px;
+          border: 1px solid rgb(194, 194, 194);
+          outline: none; 
+          transition: border-color 0.3s; 
+        }
+        
+        input:focus {
           
-          input:focus {
-            
-            border-color: rgb(149, 212, 24);
-          }
-          
-    }
+          border-color: rgb(149, 212, 24);
+        }
+        
+  }
 
 }
 
 .bordertwo{
-    margin-top: 20px;
-    border: 1px solid rgb(204, 204, 204);
-    border-radius: 30px;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
+  margin-top: 20px;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 30px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
 
-    p{
-        padding-top: 15px;
-        padding-bottom: 15px;
-        text-align: center;
-    }
-    .drop{
-        margin-top: 15px;
-        margin-bottom: 15px;
-        text-align: center;
-    }
+  p{
+      padding-top: 15px;
+      padding-bottom: 15px;
+      text-align: center;
+  }
+  .drop{
+      margin-top: 15px;
+      margin-bottom: 15px;
+      text-align: center;
+  }
 }
 .gpu-aroundse{
-    display: flex;
-    justify-content: space-around;
-    
+  display: flex;
+  justify-content: space-around;
+  
 }
 .cpu-aroundse{
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .spu-aroundse{
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 .active{
-    display: flex;
-  
-  flex-direction: column;
-  .wn{
-    display: flex;
-    justify-content: space-between;
-    padding-left: 12%;
-    padding-right: 12%;
- 
+  display: flex;
+
+flex-direction: column;
+.wn{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 12%;
+  padding-right: 12%;
+
+}
+  label{
+      color: gray;
+      text-align: center;
+      font-size: 15px;
   }
-    label{
-        color: gray;
-        text-align: center;
-        font-size: 15px;
-    }
 
 }
 
 
 
-  input[type="checkbox"] {
-    width: 13px;
-    height: 13px;
-    border-radius: 6px;
- 
-  }
-  .active {
-    display: none;
-  }
-  
-  .active.show {
-    display: block;
-  }
-  
-  .right-cards{
-    width: 72%;
-    background-color: white;
-    border-radius: 40px;
-    padding-top: 4%;
-    padding-left: 4%;
-  }
+input[type="checkbox"] {
+  width: 13px;
+  height: 13px;
+  border-radius: 6px;
 
-  .cards{
-  
-    width: auto;
-    height: auto;
+}
+.active {
+  display: none;
+}
+
+.active.show {
+  display: block;
+}
+
+.right-cards{
+  width: 72%;
+  background-color: white;
+  border-radius: 20px;
+  padding-top: 4%;
+  padding-left: 4%;
+}
+
+.cards{
+
+
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: 1px solid rgb(190, 189, 189);
+  border-radius: 20px;
+  &:hover{
+    border: 1px solid rgb(147, 215, 46) ;
+  }
+  .yaxin{
     display: flex;
-    flex-direction: column;
     align-items: center;
-   
-    background-color: white;
-    border: 1px solid rgb(190, 189, 189);
-    border-radius: 20px;
-    &:hover{
-      border: 1px solid rgb(147, 215, 46) ;
+    justify-content: start;
+    gap: 8px;
+    
+    p{
+      text-align: start;
+        color: red;
+        font-size: 17px;
+        font-weight: bold;
     }
-    .yaxin{
-      display: flex;
-      align-items: center;
-      justify-content: start;
-      gap: 8px;
-      
-      p{
-        text-align: start;
-          color: red;
-          font-size: 17px;
-          font-weight: bold;
-      }
-      span{
-        text-align: start;
-        font-size: 14px;
-          font-weight: 500;
-          text-decoration: line-through;
-      }
+    span{
+      text-align: start;
+      font-size: 14px;
+        font-weight: 500;
+        text-decoration: line-through;
     }
+  }
 .flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  span {
+    width: 46px;
+    height: 46px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 18px;
+    border: 1px solid rgb(215, 215, 215);
+    border-radius: 50%;
+    font-size: 20px;
+    color: black;
 
-    span {
-      width: 46px;
+    &:hover {
+      background-color: rgb(147, 215, 46);
+      cursor: pointer;
+    }
+  }
+  button{
+      width: 120px;
       height: 46px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgb(215, 215, 215);
-      border-radius: 50%;
-      font-size: 20px;
+  border: none;
+      border-radius: 30px;
+      font-size: 15px;
+      background-color: rgb(147, 215, 46);
       color: black;
 
       &:hover {
-        background-color: rgb(147, 215, 46);
+        background-color: rgb(97, 152, 14);
         cursor: pointer;
-      }
-    }
-    button{
-        width: 120px;
-        height: 46px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    border: none;
-        border-radius: 30px;
-        font-size: 15px;
-        background-color: rgb(147, 215, 46);
-        color: black;
-  
-        &:hover {
-          background-color: rgb(97, 152, 14);
-          cursor: pointer;
-        } }
-  }
-     
+      } }
+}
    
-    img{
-        margin-top: 20px;
-        width: 80%;
-        height: 25%;
-        object-fit: contain;
-    }
+ 
+  img{
+      margin-top: 20px;
+      width: 80%;
+      height: 25%;
+      object-fit: contain;
   }
+}
 
 
-  .ayc{
-    font-size: 30px;
-    color: rgb(133, 207, 23);
-    text-align: center;
+.ayc{
+  font-size: 30px;
+  color: rgb(133, 207, 23);
+  text-align: center;
 
+}
+.all{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 5px;
+}
+.araund{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  width: 100%;
+  h1{
+      color: rgb(123, 180, 10);
+      font-size: 18px;
   }
-  .all{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 5px;
-  }
-  .araund{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    width: 100%;
-    h1{
-        color: rgb(123, 180, 10);
-        font-size: 18px;
-    }
-    select{
-        margin-right: 20px;
-        width: 200px;
-        padding-left: 2%;
-        height: 44px;
-        border: 1px solid rgb(148, 212, 20);
-        border-radius: 30px;
-        outline: none;
-        font-size: 15px;
-        &:focus {
-            border-color: greenyellow;
-          }
-        span{
-            color: rgb(151, 151, 151);
+  select{
+      margin-right: 20px;
+      width: 200px;
+      padding-left: 2%;
+      height: 44px;
+      border: 1px solid rgb(148, 212, 20);
+      border-radius: 30px;
+      outline: none;
+      font-size: 15px;
+      &:focus {
+          border-color: greenyellow;
         }
-      .op{
-        width: 190px;
-        height: 40px;
-        border-radius: 20px;
-        outline: none;
-        font-size: 15px;
-        color: gray;
+      span{
+          color: rgb(151, 151, 151);
       }
+    .op{
+      width: 190px;
+      height: 40px;
+      border-radius: 20px;
+      outline: none;
+      font-size: 15px;
+      color: gray;
     }
   }
-  .row{
-    gap: 20px;
-  }
-  .noqte{
-    display: flex;
-    align-items: center;
-  padding-left: 1%;
-  padding-bottom: 2%;
-  gap: 4px;
-  span{
-    color: rgb(167, 166, 166);
-    font-weight: 500;
-    font-size: 15px;
-  }
-  p{
-    color: yellowgreen;
-    font-weight: 500;
-    font-size: 15px;
-  }
-  .field{
-    color: rgb(140, 197, 26);
-    font-size: 13px;
+}
 
-  }
-  }
-  .duzulus{
-    display: flex;
-    gap: 20px;
-    align-items: start;
-    justify-content: start;
-    padding-top: 13px;
-    width: 80%;
+.noqte{
+  display: flex;
+  align-items: center;
+padding-left: 1%;
+padding-bottom: 2%;
+gap: 4px;
+span{
+  color: rgb(167, 166, 166);
+  font-weight: 500;
+  font-size: 15px;
+}
+p{
+  color: yellowgreen;
+  font-weight: 500;
+  font-size: 15px;
+}
+.field{
+  color: rgb(140, 197, 26);
+  font-size: 13px;
+
+}
+}
+.duzulus{
+  display: flex;
+  gap: 20px;
+  align-items: start;
+  justify-content: start;
+  padding-top: 13px;
+  width: 80%;
 .yazs{
 :first-child{
-  text-align: start;
+text-align: start;
 }
 :nth-child(2){
-    text-align: start;
-    color: black;
-    font-size: 13px;
-    font-weight: 600;
+  text-align: start;
+  color: black;
+  font-size: 13px;
+  font-weight: 600;
 }
 }
 
+}
+  
+@media (min-width: 600px) {
+  .left-bord {
+      width: 26%;
   }
-    
-  @media (min-width: 600px) {
-    .left-bord {
-        width: 26%;
-    }
 
-    .cards {
-        width: 260px;
-    }
+  .cards {
+      width: 240px;
+  }
 }
 
 @media (max-width: 700px) {
-    .cards-flex .left-bord {
-        display: none;
-    }
+  .cards-flex .left-bord {
+      display: none;
+  }
 
-    .cards {
-        width: 100%;
-    }
+  .cards {
+      width: 100%;
+  }
 }
 
-  .baxs{
-   
-    width: 80%;
-    height: 40px;
+.baxs{
+ 
+  width: 80%;
+  height: 40px;
 background-color: rgb(237, 237, 237);
 border: none;
 border-radius: 20px;
@@ -386,102 +383,103 @@ margin-top: 10px;
 font-weight: 500;
 margin-bottom: 10px;
 &:hover{
-    background-color: rgb(133, 203, 28);
+  background-color: rgb(133, 203, 28);
 }
 }
 .pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  gap: 10px;
+display: flex;
+justify-content: center;
+margin-top: 20px;
+gap: 10px;
 }
 
 .pagination span {
 
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2%;
+cursor: pointer;
+width: 30px;
+height: 30px;
+border: 1px solid #ccc;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 2%;
 }
 
 .pagination span.active,
 .pagination span:hover,
 .pagination span:focus { 
-  background-color: rgb(133, 186, 27); 
-  color: #fff;
-  border-color: rgb(133, 186, 27);
+background-color: rgb(133, 186, 27); 
+color: #fff;
+border-color: rgb(133, 186, 27);
 }
 
 .baxs{
-  a{
-    text-decoration: none;
-    color: black;
-  }
+a{
+  text-decoration: none;
+  color: black;
+}
 }
 
 
 .win{
-  display: flex;
-  justify-content: space-around;
+display: flex;
+justify-content: space-around;
 
 }
 
 .aycon{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .wn {
-  display: flex;
-  align-items: center; /* Align items vertically center */
-  cursor: pointer;
+display: flex;
+align-items: center; /* Align items vertically center */
+cursor: pointer;
 }
 
 /* Styling for the links inside .wn */
 .wn a {
-  color: inherit; /* Inherit text color */
-  text-decoration: none; /* Remove default underline */
+color: inherit; /* Inherit text color */
+text-decoration: none; /* Remove default underline */
 }
 
 /* Change color and cursor on hover */
 .wn:hover {
-  background-color: #f0f8ff; /* Change background color on hover */
+background-color: #f0f8ff; /* Change background color on hover */
 }
 
 /* Change color of links on hover */
 .wn:hover a {
-  color: green; /* Change text color on hover */
+color: green; /* Change text color on hover */
 }
 
 .wn {
-  display: flex;
-  align-items: center; 
-  cursor: pointer;
-  label{
-    font-size: 13px;
- 
-  }
+display: flex;
+align-items: center; 
+cursor: pointer;
+label{
+  font-size: 13px;
+
+}
 }
 
 .zerola{
-     
-  width: 90px;
-  height: 20px;
-  background-color: white;
-  border: 1px solid rgb(222, 222, 222);
-  display: flex;
-  font-size: 12px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  font-weight: 500;
-  &:hover{
-     border: 1px solid rgb(130, 179, 32); 
-     color: rgb(130, 179, 32);
-  }
+   
+width: 90px;
+height: 20px;
+background-color: white;
+border: 1px solid rgb(222, 222, 222);
+display: flex;
+font-size: 12px;
+align-items: center;
+justify-content: center;
+border-radius: 5px;
+font-weight: 500;
+&:hover{
+   border: 1px solid rgb(130, 179, 32); 
+   color: rgb(130, 179, 32);
 }
+}
+

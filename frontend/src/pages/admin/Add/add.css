@@ -1,0 +1,50 @@
+.form {
+  width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  flex: 0 0 48%;
+}
+
+.form-group:last-child {
+  margin-left: auto;
+}
+
+.form label {
+  margin-bottom: 5px;
+  display: block;
+  font-weight: bold;
+}
+
+.form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form button {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form button:hover {
+  background-color: #0056b3;
+}/*# sourceMappingURL=add.css.map */
