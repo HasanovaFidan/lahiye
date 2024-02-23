@@ -19,15 +19,15 @@ const OrderController = {
     },
     Post: async (req, res) => {
         try {
-            const { name, mobile, city, email, items } = req.body
-            console.log(req.body)
-            const newProduct = new Order({ name, mobile, city, email, items })
+            const {  items,values } = req.body
+         console.log(items,values)
+            const newProduct = new Order({name: values.name,mobile: values.mobile,city: values.city,email:values.email, items })
             await newProduct.save()
             res.send(newProduct)
         } catch (error) {
             console.log(error)
             res.send("item is not a fount")
-        }
+         }
     },
     edit: async (req, res) => {
         try {

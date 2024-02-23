@@ -12,11 +12,7 @@ function Basket() {
 
   const totalOrderAmount = basket.reduce((total, item) => total + item.totalPrice, 0);
 
-  const createOrder = (items) => {
-    axios.post("http://localhost:8080/orders/", { items: items }).then(res => {
-      console.log("ored", items)
-    })
-  }
+
   return (
     <div className='lr'>
       <div className="sebet">
@@ -82,7 +78,7 @@ function Basket() {
          </div>
           </div>
  <Link to={"/order"}>
- <button  className='orderbutton'>Sifarişi Rəsmiləşdir</button>
+ <button className='orderbutton'>Sifarişi Rəsmiləşdir</button>
  </Link>
           </div>
         </div>

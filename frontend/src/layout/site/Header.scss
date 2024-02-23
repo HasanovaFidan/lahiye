@@ -589,3 +589,18 @@ font-size: 22px;
   color: darkgreen;
   font-size: 18px;
 }
+.lr {
+  position: relative; /* Ensure relative positioning for the loading indicator */
+}
+
+.loading-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px; /* Adjust the height of the loading indicator */
+  width: 0; /* Initially set width to 0 */
+  background-color: green; /* Color of the loading indicator */
+  transition: width 0.3s ease; /* Smooth transition effect */
+}
+
+/* Optional: You can add additional styles for the loading indicator */

@@ -1,0 +1,33 @@
+/* Table style */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Table header style */
+  th {
+    background-color: #f2f2f2;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Table cell style */
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  /* Alternate row background color */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Image style */
+  td img {
+    max-width: 50px;
+    max-height: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  

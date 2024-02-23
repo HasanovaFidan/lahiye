@@ -73,6 +73,7 @@ import Checkout from "../pages/site/Basket/Checkout"
 import Success from "../pages/site/Basket/Success"
 
 import ErrorPage from "../pages/error/Error"
+import Sifaris from "../pages/admin/Sifaris/Sifaris"
 
 
 
@@ -382,6 +383,10 @@ const ROOT = [
          },
 
 
+         {
+            path: "ordersuser",
+            element: <Sifaris/>,
+         },
 
 
       ]

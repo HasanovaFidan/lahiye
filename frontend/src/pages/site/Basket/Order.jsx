@@ -16,26 +16,30 @@ const Order = () => {
     // }
 let totalorder=0
     const handleCheckOut= async()=>{
-        const productsContent={
-            products:basket
-        }
-        const stripe= await loadStripe(publishKey)
+  //       const productsContent={
+  //           products:basket
+  //       }
+  //       const stripe= await loadStripe(publishKey)
 
         
-      const res = await axios.post(`http://localhost:8080/payment`, productsContent);
-    //   console.log(res.)z 
-    //   if (!res.ok) {
-    //     console.log("Ödeme işlemi başarısız oldu.");
-    //   }
-    //   const session = await res.data.json();
-
-      const result = await stripe.redirectToCheckout({
-        sessionId: res.data.id,
-      });
-   console.log(result)
-      if (result.error) {
-        throw new Error(result.error.message);
-      }
+  //     const res = await axios.post(`http://localhost:8080/payment`, productsContent);
+  //   //   console.log(res.)z 
+  //   //   if (!res.ok) {
+  //   //     console.log("Ödeme işlemi başarısız oldu.");
+  //   //   }
+  //   //   const session = await res.data.json();
+    
+  //     axios.post("http://localhost:8080/orders/", { items: basket }).then(res => {
+      
+  //     })
+    
+  //     const result = await stripe.redirectToCheckout({
+  //       sessionId: res.data.id,
+  //     });
+  //  console.log(result)
+  //     if (result.error) {
+  //       throw new Error(result.error.message);
+  //     }
     }
 
 
@@ -51,10 +55,35 @@ let totalorder=0
         mobile:'',
         city:'',
       },
-      onSubmit: values => {
+      onSubmit: async (values) => {
       // axios.post("http://localhost:8080/order",values).then(res=>{
 
       // })
+
+      const productsContent={
+        products:basket
+    }
+    const stripe= await loadStripe(publishKey)
+
+    
+  const res = await axios.post(`http://localhost:8080/payment`, productsContent);
+//   console.log(res.)z 
+//   if (!res.ok) {
+//     console.log("Ödeme işlemi başarısız oldu.");
+//   }
+//   const session = await res.data.json();
+
+  axios.post("http://localhost:8080/orders/", { items: basket.map(x=>x.product._id),values }).then(res => {
+  
+  })
+
+  const result = await stripe.redirectToCheckout({
+    sessionId: res.data.id,
+  });
+console.log(result)
+  if (result.error) {
+    throw new Error(result.error.message);
+  }
       },
     });
   return (
@@ -115,9 +144,7 @@ let totalorder=0
       <span className="checkmark"></span>
       <span className="label-text">Mağazadan təhvil alacağam</span>
     </label>
-     <button className="sam" type="submit" onClick={() => {
-                handleCheckOut()
-            }}>Sifarişi tamamla</button>
+     <button className="sam" type="submit" >Sifarişi tamamla</button>
            
      </div>
           </form>
@@ -166,7 +193,9 @@ let totalorder=0
             </div>
           </div>
       
-          <button className='orderbutton'>Sifarişi tamamla</button>
+          <button onClick={() => {
+                handleCheckOut()
+            }} className='orderbutton'>Sifarişi tamamla</button>
         </div>
       </div>
     </div>

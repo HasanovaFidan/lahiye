@@ -53,7 +53,7 @@ function Header() {
             <Link to={"home"}><p>home</p></Link>
             <Link to={"/add"}><p>Add</p></Link>
             <Link to={"/users"}>Users</Link>
-            <Link to={"/news"}>Xəbərlər</Link>
+            <Link to={"/ordersuser"}>Sifarişlər</Link>
 
             <div className="inpos">
               <input type="text" placeholder='search entire store here' onChange={(e) => handleChan(e)} />
