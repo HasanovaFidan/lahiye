@@ -50,9 +50,9 @@ function Header() {
             </Link>
           </div>
           <div className="middleos">
-            <Link to={"home"}><p>home</p></Link>
-            <Link to={"/add"}><p>Add</p></Link>
-            <Link to={"/users"}>Users</Link>
+            <Link to={"home"}><p>Home</p></Link>
+            <Link to={"/add"}><p>Əlavə et</p></Link>
+            <Link to={"/users"}>İstifadəçilər</Link>
             <Link to={"/ordersuser"}>Sifarişlər</Link>
 
             <div className="inpos">

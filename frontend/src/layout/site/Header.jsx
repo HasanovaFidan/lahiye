@@ -35,10 +35,7 @@ const Header = () => {
     setIsOpen(!isOpen);
     setIsRegisterOpen(false);
   };
-  const { t, i18n } = useTranslation();
-  function changeLang(lang) {
-    i18n.changeLanguage(lang)
-  }
+  
 
   const toggleRegister = () => {
     setIsRegisterOpen(!isRegisterOpen);
@@ -119,6 +116,7 @@ const Header = () => {
   console.log(gulpembe.isLogin)
 
   return (
+    <>
     <div className="lr header-container">
       <div className="header">
         <div className="one">
@@ -217,12 +215,12 @@ const Header = () => {
       <div className="registeropen" style={{ "display": isRegisterOpen ? 'block' : 'none' }}>
         <Giriset toggleOpen={toggleOpen} />
       </div>
-      <div className={`canvas-open ${isCanvasOpen ? 'visible' : ''}`}>
+      <div className={`canvas-open ${isCanvasOpen ? 'visible' : ''}`  }>
         <Link to={"/home"}>Noutbuklar</Link>
         <Link to={"/komponents"}>Komponentlər və Monitorlar</Link>
         <Link to={"/aksesuar"}>Aksesuarlar</Link>
         <Link to={"/about"}>Şirkət haqqında</Link>
-        <Link to={"/news"}>{t("News")}</Link>
+        <Link to={"/news"}>Xəbərlər</Link>
         <Link to={"/nvdia"}>NVDIA</Link>
         <Link to={"/fav"}>Favoritlər</Link>
         <Link to={"/basket"}>Səbət</Link>
@@ -236,7 +234,7 @@ const Header = () => {
           <Link to={"/komponents"}>Komponentlər və Monitorlar</Link>
           <Link to={"/aksesuar"}>Aksesuar</Link>
           <Link to={"/about"}>Şirkət haqqında</Link>
-          <Link to={"/news"}>{t("News")}</Link>
+          <Link to={"/news"}>Xəbərlər</Link>
           <Link to={"/nvdia"}>NVDIA</Link>
 
         </div>
@@ -244,7 +242,7 @@ const Header = () => {
           <div className="span">
           <GiMouthWatering className='water' />
           </div>
-          <select className='nese' onChange={(e) => changeLang(e.target.value)}>
+          <select className='nese'>
             <option value="az">Azərbaycan dili</option>
             <option value="en">English</option>
           </select>
@@ -269,6 +267,7 @@ const Header = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

@@ -146,7 +146,7 @@ const Gamer = () => {
         </div>
       </div>
       <div className="xett"></div>
-      <div onClick={()=>{ AddtoBasket(item) }} className="birid">
+      <div onClick={()=>AddtoBasket(item)} className="birid">
         <p >Səbətə at</p>
         <BiBasket/>
       </div>

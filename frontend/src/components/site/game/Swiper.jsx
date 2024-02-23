@@ -28,7 +28,7 @@ const Swiperrs = () => {
         className="mySwiper"
       >
         <SwiperSlide className='saw'>
-          <Link to={"/home"} >  <img src="https://cdn.gamenotebaku.az/logos_img/131/7/gamenote_img_59_1702713140.png.webp" alt="" /></Link>
+          <Link to={"/home"} >  <img src="https://cdn.gamenotebaku.az/logos_img/131/7/gamenote_img_59_1702713140.png.webp" class="no-dark-mode" alt="" /></Link>
         </SwiperSlide>
         <SwiperSlide className='sdw'>
          <Link to={"/aksesuar"}>   <img src="https://cdn.gamenotebaku.az/ERAUploads/slider/ERA_CMS_IMG_42_1686911550.jpg" alt="" /></Link>

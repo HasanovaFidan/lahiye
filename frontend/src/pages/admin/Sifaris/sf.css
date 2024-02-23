@@ -1,33 +1,32 @@
-/* Table style */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  /* Table header style */
-  th {
-    background-color: #f2f2f2;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  /* Table cell style */
-  td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  /* Alternate row background color */
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  /* Image style */
-  td img {
-    max-width: 50px;
-    max-height: 50px;
-    vertical-align: middle;
-    margin-right: 10px;
-  }
-  
+.custom-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.custom-table th, .custom-table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.custom-table th {
+  background-color: #f2f2f2;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.image-container {
+  display: inline-block;
+  margin-right: 5px; /* İstediğiniz boşluk miktarını ayarlayabilirsiniz */
+}
+
+.image-container img {
+  max-width: 50px; /* Görüntülerin maksimum genişliğini ayarlayın */
+  max-height: 50px; /* Görüntülerin maksimum yüksekliğini ayarlayın */
+}
+
+.table-con {
+  padding-top: 20px; /* Yukarıdan boşluk */
+  padding-bottom: 20px; /* Aşağıdan boşluk */
+}

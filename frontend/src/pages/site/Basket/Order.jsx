@@ -151,7 +151,7 @@ console.log(result)
         </div>
       </div>
       <div className="right-order">
-        
+         
         <p className='ci'>Sifarişi rəsmiləşdir</p>
         <div className="order">
           <div className="dib">

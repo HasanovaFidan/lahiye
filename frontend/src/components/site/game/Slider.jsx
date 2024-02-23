@@ -27,7 +27,7 @@ const Slider = () => (
         }}
     >
         <SwiperSlide className='deneme'>
-            <img  src="https://cdn.gamenotebaku.az/ERAUploads/slider/gamenote_img_13_1704803415.jpg.webp" alt="Slide 1" />
+            <img  src="https://cdn.gamenotebaku.az/ERAUploads/slider/gamenote_img_13_1704803415.jpg.webp" class="no-dark-mode" alt="Slide 1" />
         </SwiperSlide>
         <SwiperSlide className='deneme'>
             <img  src="https://cdn.gamenotebaku.az/ERAUploads/slider/ERA_CMS_IMG_84_1698931212.png" alt="Slide 2" />

@@ -114,7 +114,7 @@ const userController = {
     console.log(messagge,mailAddress)
     const mailOptions = {
         from: 'tu64upm8q@code.edu.az',
-        to: mailAddress,
+        to: "hesenova.fidan0303@gmail.com",
         subject: 'Test Mail',
         text: 'Hello World',
         html:`<html>${messagge}</html>`
