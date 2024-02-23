@@ -3,7 +3,7 @@ import dataContexts from '../../../contexts/contexts';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { loadStripe } from "@stripe/stripe-js";
-
+let totalorder=0
 const Order = () => {
   
     const { basket, decreaseBtn, increase, removeFrombasket } = useContext(dataContexts);
@@ -14,7 +14,7 @@ const Order = () => {
     //         console.log(res)
     //     })
     // }
-
+let totalorder=0
     const handleCheckOut= async()=>{
         const productsContent={
             products:basket
@@ -132,7 +132,13 @@ const Order = () => {
               <p>Məhsulların qiyməti:</p>
             </div>
             <div className="esas">
-              <p className='tot'>₼</p>
+         {
+          basket.map((item,index)=>(
+            <p>
+            <p className='total'>{item.totalPrice}₼</p>
+            </p>
+          ))
+         }
             </div>
           </div>
           <div className="dib">
@@ -149,11 +155,18 @@ const Order = () => {
               <p>Sifarişi rəsmiləşdir:</p>
             </div>
             <div className="esas">
-              <p style={{"color":"yellowgreen"}} className='tot'>₼</p>
+            {
+          basket.map((item,index)=>(
+            <p>
+            <p style={{"color":"yellowgreen"}} className='tot'>{item.totalPrice}₼</p>
+            </p>
+          ))
+         }
+         
             </div>
           </div>
       
-          <button className='orderbutton'>Sifarişi Rəsmiləşdir</button>
+          <button className='orderbutton'>Sifarişi tamamla</button>
         </div>
       </div>
     </div>

@@ -1,63 +1,55 @@
-const mongoose = require('mongoose');
-const { Order } = require('../models/order.models');
+const { Order } = require("../models/order.models")
+const OrderController = {
+    getAll: async (req, res) => {
+        try {
+            const target = await Order.find({}).populate('items')
+            res.send(target)
+        } catch (error) {
+            res.send("item is not a fount")
+        }
+    },
+    getById: async (req, res) => {
+        try {
+            const { id } = req.params
+            const alinino = await Order.findById(id)
+            res.send(alinino)
+        } catch (error) {
+            res.send("item is not a fount")
+        }
+    },
+    Post: async (req, res) => {
+        try {
+            const { name, mobile, city, email, items } = req.body
+            console.log(req.body)
+            const newProduct = new Order({ name, mobile, city, email, items })
+            await newProduct.save()
+            res.send(newProduct)
+        } catch (error) {
+            console.log(error)
+            res.send("item is not a fount")
+        }
+    },
+    edit: async (req, res) => {
+        try {
+            const { id } = req.params
+            const { name, mobile, city, email, status } = req.body
+            //    await Alinino.findByIdAndUpdate(id,{name,price,categories,desc,image,duration,material,raiting,firstPrice,endirim,delivery,yas,type,yazar})
+            await Order.findByIdAndUpdate(id, { name, mobile, city, email, status })
+            res.send("item updated")
+        } catch (error) {
+            res.send("item is not a fount")
+        }
+    },
 
-const orderController = {
-  getAll: async (req, res) => {
-    try {
-      const orders = await Order.find();
-      res.send(orders);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('An error occurred while retrieving orders.');
-    }
-  },
+    delete: async (req, res) => {
+        try {
+            const { id } = req.params
+            await Order.findByIdAndDelete(id)
+            res.send("deleted")
+        } catch (error) {
+            res.send("item is not a fount")
+        }
+    },
 
-  getById: async (req, res) => {
-    try {
-      const id = req.params.id;
-      const target = await Order.findById(id);
-      res.send(target);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('An error occurred while retrieving the order.');
-    }
-  },
-
-  add: async (req, res) => {
-    const {user,products,paymentMethod,comment,totalPrice} = req.body
-    const newOrder = new Order({
-        user:user,
-        products:products,
-        paymentMethod:paymentMethod,
-        comment:comment,
-        status:"pending",
-        totalPrice:totalPrice
-    })
-    await newOrder.save()
-    res.send(newOrder)
-  },
-
-  edit: async (req, res) => {
-    try {
-      const { _id, status } = req.body;
-      const item = await Order.findByIdAndUpdate(_id, { status: status });
-      res.send(item);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('An error occurred while updating the order.');
-    }
-  },
-  
-
-  delete: async (req, res) => {
-    try {
-      const id = req.params.id;
-      await Order.findByIdAndDelete(id);
-      res.send('Product has been deleted.');
-    } catch (error) {
-      res.status(500).send('An error occurred while deleting the order.');
-    }
-  },
-};
-
-module.exports = { orderController };
+}
+module.exports = { OrderController }

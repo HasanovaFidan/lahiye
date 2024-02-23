@@ -1,13 +1,9 @@
-const express = require('express')
-const router = express.Router()
-const {orderController}= require("../controller/order.controller")
-
-
-router.route('/').get(orderController.getAll)
-router.route('/').post(orderController.add)
-router.route('/:id').get(orderController.getById)
-router.route('/:id').put(orderController.edit)
-router.route('/:id').delete(orderController.delete)
-
-  
+const express=require("express")
+const router=express.Router()
+const {OrderController}=require("../controller/order.controller")
+router.get("/",OrderController.getAll)
+router.get("/:id",OrderController.getById)
+router.post("/",OrderController.Post)
+router.put("/:id",OrderController.edit)
+router.delete("/:id",OrderController.delete)
 module.exports=router

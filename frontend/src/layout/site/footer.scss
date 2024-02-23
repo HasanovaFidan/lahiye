@@ -324,3 +324,64 @@ h2{
   .getall{
     padding-bottom: 6%;
   }
+  .yan {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 20px; /* Added padding to prevent sticking to edges */
+  }
+  
+  /* Adjustments for specific sections */
+  .bir, .iki, .uc, .dort, .bes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 12px;
+    padding-left: 20px;
+  }
+  
+  .area, .fk, .sekkiz {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Added padding */
+  }
+  
+  .sekkiz .span {
+    width: 40px; /* Adjusted size */
+    height: 40px; /* Adjusted size */
+  }
+  
+  .sekkiz select {
+    width: 150px;
+    height: 40px;
+  }
+  
+  @media (max-width: 780px) {
+    .yan {
+      padding: 0 10px; /* Adjusted padding */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .yan {
+      padding: 0 5px; /* Adjusted padding */
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .yan {
+      padding: 0; /* Reset padding */
+    }
+    .bir, .iki, .uc, .dort, .bes {
+      align-items: flex-start;
+      padding-left: 0; /* Reset left padding */
+    }
+    .area, .fk, .sekkiz {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 0; /* Reset padding */
+      padding-left: 40px;
+    }
+  }
+  

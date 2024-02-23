@@ -391,3 +391,27 @@ justify-content: space-around;
     flex-direction: column;
 
   }
+  
+  .input-grup {
+    flex: 1 1 100%; /* Full width for inputs on smaller screens */
+  }
+
+@media screen and (max-width: 600px) {
+  .contact-fl {
+    flex-direction: column;
+  }
+
+  .elaqe,
+  .maps,
+  .right-order {
+    max-width: none;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .order {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
